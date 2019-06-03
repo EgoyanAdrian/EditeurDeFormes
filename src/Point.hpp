@@ -1,6 +1,8 @@
 #ifndef POINT_HPP
 #define POINT_HPP
 
+#include <iostream>
+
 typedef unsigned int uint;
 
 template <typename ...> class Point;	// Multiple typename on a same class
@@ -16,7 +18,7 @@ class Point<Screen, Color> {
 		Point(uint _x, uint _y, Color _def, Color _hov, Color _sel);
 		Point(uint _x, uint _y); // Simpler usage but color need to be set separatly
 		Point(Point & _orig);
-		//Point(istream & is); TO DO
+		Point(std::istream & is);
 		Point() = delete;
 		~Point();
 
@@ -45,7 +47,7 @@ class Point<Screen, Color> {
 	// Other methods
 		inline bool isOver(uint _x, uint _y) const { return ((x <= _x && _x <= x + 2*size) && (y <= _y && _y <= y + 2*size));}
 		inline virtual void draw(Screen & fenetre, bool isActive = false) const { };	// Depends on the tools to draw Empty by default
-		inline virtual void update(uint _x, uint _y) { };
+		void update(uint _x, uint _y);
 };
 
 template <typename Screen, typename Color>
@@ -60,11 +62,30 @@ Point<Screen, Color>::Point(uint _x, uint _y)
 
 template <typename Screen, typename Color>
 Point<Screen, Color>::Point(Point & _orig)
-:Point(_orig.getX(), _orig.getY(), _orig.getSelected(), _orig.getDef(), _orig.getHov(), _orig.getSel())
+:Point(_orig.getX(), _orig.getY(), _orig.getDef(), _orig.getHov(), _orig.getSel())
 { }
+
+template <typename Screen, typename Color>
+Point<Screen, Color>::Point(std::istream & is) {
+	is >> x;
+	is >> y;
+	is >> size;
+
+	is >> def;
+	is >> hov;
+	is >> sel;
+}
 
 template <typename Screen, typename Color>
 Point<Screen, Color>::~Point()
 { }
+
+template <typename Screen, typename Color>
+void Point<Screen, Color>::update(uint _x, uint _y) {
+	if(selected) {
+		x = _x;
+		y = _y;
+	}
+}
 
 #endif

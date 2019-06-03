@@ -16,6 +16,7 @@ class DrawablePoint : public Point<sf::RenderWindow, sf::Color> {
 
 	//  Other methods
 		void draw(sf::RenderWindow & fenetre, bool isActive = false) const override;
+		void update(uint _x, uint _y) override;
 };
 
 DrawablePoint::DrawablePoint(uint _x, uint _y, sf::Color _def, sf::Color _hov, sf::Color _sel)
@@ -32,10 +33,24 @@ DrawablePoint::DrawablePoint(DrawablePoint & _orig)
 
 void DrawablePoint::draw(sf::RenderWindow & fenetre, bool isActive) const {
 	sf::CircleShape circle;
-	circle.setRadius(150);
-	circle.setOutlineColor(sf::Color::Red);
-	circle.setOutlineThickness(5);
 	circle.setPosition(this->getX(), this->getY());
+	circle.setRadius(this->getSize());
+
+	if (this->getSelected())
+		circle.setFillColor(this->getSel());
+	else if (isActive)
+		circle.setFillColor(this->getHov());
+	else
+		circle.setFillColor(this->getDef());
+
+	fenetre.draw(circle);
+}
+
+void DrawablePoint::update(uint _x, uint _y) {
+	if(this->getSelected()) {
+		this->setX(_x);
+		this->setY(_y);
+	}
 }
 
 DrawablePoint::~DrawablePoint()

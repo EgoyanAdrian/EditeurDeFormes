@@ -6,6 +6,8 @@ int main() {
 	PointDrawable pointA(10, 20, sf::Color::Black);
 	PointDrawable pointB(pointA);
 
+	uint X, Y;
+	uint distX, distY;
 	while(window.isOpen()) {
 		window.clear(sf::Color::White);
 
@@ -13,9 +15,25 @@ int main() {
 		while(window.pollEvent(event)) {
 			if(event.type == sf::Event::Closed)
 				window.close();
+
+			if(event.type == sf::Event::MouseMoved) {
+				X = event.mouseMove.x;
+				Y = event.mouseMove.y;
+			}
+
+			if(event.type == sf::Event::MouseButtonPressed) {
+				pointA.setSel(pointA.isOver(X, Y));
+				distX = X - pointA.getX();
+				distY = Y - pointA.getY();
+			}
+
+			if(event.type == sf::Event::MouseButtonReleased) {
+				pointA.setSel(false);
+			}
 		}
 
-		pointA.draw(window, pointA.isOver(12, 30));
+		pointA.update(X - distX, Y - distY);
+		pointA.draw(window, pointA.isOver(X, Y));
 		window.display();
 	}
 

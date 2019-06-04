@@ -2,6 +2,7 @@
 #define POINT_HPP
 
 #include <iostream>
+#include <cmath>
 
 typedef unsigned int uint;
 
@@ -9,11 +10,11 @@ template <typename ...> class Point;	// Needed to use multiple template on a sin
 
 template <typename WindowT, typename ColorT>
 class Point<WindowT, ColorT> {
-		static const uint rad = 3;
+		static const uint rad = 6;
 		uint x;
 		uint y;
 		ColorT color;
-		bool selected;
+		bool selected = false;
 
 	public:
 	// Constructor & Destructor
@@ -38,13 +39,13 @@ class Point<WindowT, ColorT> {
 		inline void setSel(bool _selected) { selected = _selected;}
 
 	// Other Methods
-		inline bool isOver(uint _x, uint _y) const { return (x == _x && y == _y);}
+		inline bool isOver(uint _x, uint _y) const { return (((_x - (x + rad))*(_x - (x + rad)) + (_y - (y + rad))*(_y - (y + rad)))<= (rad * rad));}
 		void update(uint _x, uint _y);
 
 		inline virtual void draw(WindowT & window, bool isActive) const { }
 
-		//friend std::ostream & operator <<(std::ostream & os, const Point<WindowT, ColorT> & _orig);
-		//friend std::istream & operator >>(std::istream & is, Point<WindowT, ColorT> & _orig);
+		friend std::ostream & operator <<(std::ostream & os, const Point<WindowT, ColorT> & _orig) { os << _orig.getX() << std::endl << _orig.getY() << std::endl; return os;}
+		friend std::istream & operator >>(std::istream & is, Point<WindowT, ColorT> & _orig) { uint _x, _y; is >> _x; is >> _y; _orig.setX(_x); _orig.setY(_y); return is;}
 };
 
 template <typename WindowT, typename ColorT>
@@ -61,7 +62,6 @@ template <typename WindowT, typename ColorT>
 Point<WindowT, ColorT>::Point(std::istream & is) {
 	is >> x;
 	is >> y;
-	is >> color;
 }
 
 template <typename WindowT, typename ColorT>
@@ -71,23 +71,9 @@ Point<WindowT, ColorT>::~Point()
 template <typename WindowT, typename ColorT>
 void Point<WindowT, ColorT>::update(uint _x, uint _y) {
 	if (selected) {
-		x = _x - (x - _x);
-		y = _y - (y - _y);
+		x = _x;
+		y = _y;
 	}
 }
-/*
-template <typename WindowT, typename ColorT>
-std::ostream & Point<WindowT, ColorT>::operator<<(std::ostream & os, const Point<WindowT, ColorT> & _orig) {
-	x >> os;
-	y >> os;
-	color >> os;
-}
 
-template <typename WindowT, typename ColorT>
-std::istream & Point<WindowT, ColorT>::operator>>(std::istream & is, Point<WindowT, ColorT> & _orig) {
-	is >> x;
-	is >> y;
-	is >> color;
-}
-*/
 #endif

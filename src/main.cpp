@@ -1,13 +1,12 @@
 #include <SFML/Graphics.hpp>
-#include "PointDrawable.hpp"
+#include "PointsDrawable.hpp"
 
 int main() {
-	sf::RenderWindow window(sf::VideoMode(200, 200), "Salut ca va", sf::Style::Default);
-	PointDrawable pointA(10, 20, sf::Color::Black);
-	PointDrawable pointB(pointA);
+	sf::RenderWindow window(sf::VideoMode(200, 200), "Editeur de Formes", sf::Style::Default);
+	PointsDrawable gestPoint;
+	Point * pointSelect;
 
-	uint X, Y;
-	uint distX, distY;
+	uint X, Y, i = 0, distX, distY;
 	while(window.isOpen()) {
 		window.clear(sf::Color::White);
 
@@ -19,21 +18,40 @@ int main() {
 			if(event.type == sf::Event::MouseMoved) {
 				X = event.mouseMove.x;
 				Y = event.mouseMove.y;
+				
+				if(pointSelect != nullptr) {
+					pointSelect->setX(X - distX);
+					pointSelect->setY(Y - distY);
+				}
+
 			}
 
 			if(event.type == sf::Event::MouseButtonPressed) {
-				pointA.setSel(pointA.isOver(X, Y));
-				distX = X - pointA.getX();
-				distY = Y - pointA.getY();
+				pointSelect = gestPoint.isOver(X, Y);
+				
+				if(pointSelect != nullptr) {
+					distX = X - pointSelect->getX();
+					distY = Y - pointSelect->getY();
+				}
 			}
 
 			if(event.type == sf::Event::MouseButtonReleased) {
-				pointA.setSel(false);
+				pointSelect = nullptr;	
+			}
+
+			if(event.type == sf::Event::KeyPressed) {
+				switch(event.key.code) {
+					case sf::Keyboard::Escape:
+					 		i = i + 10;
+							gestPoint.add(new Point(i, 10));
+						break;
+					default:
+						break;
+				}
 			}
 		}
 
-		pointA.update(X - distX, Y - distY);
-		pointA.draw(window, pointA.isOver(X, Y));
+		gestPoint.draw(window, X, Y);
 		window.display();
 	}
 

@@ -7,7 +7,7 @@ template <typename WindowT, typename ColorT>
 class Shape<WindowT, ColorT> {
 		Point * anchor;
 		ColorT color;
-		bool selected;
+		bool selected = false;
 
 	public:
 		Shape(uint _x, uint _y, ColorT _color);

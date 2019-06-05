@@ -1,13 +1,16 @@
 #include <SFML/Graphics.hpp>
 #include "PointsDrawable.hpp"
 #include "ShapesDrawable.hpp"
+#include "RectangleDrawable.hpp"
 
 int main() {
 	sf::RenderWindow window(sf::VideoMode(200, 200), "Editeur de Formes", sf::Style::Default);
-	PointsDrawable gestPoint;
-	Point * pointSelect = nullptr;
 
+	PointsDrawable gestPoint;
 	ShapesDrawable gestShape;
+
+	Point * pointSelect = nullptr;
+	Shape<sf::RenderWindow, sf::Color> * shapeSelect = nullptr;
 
 	uint X, Y, i = 0, j = 0, distX, distY;
 	while(window.isOpen()) {
@@ -27,22 +30,39 @@ int main() {
 					pointSelect->setY(Y - distY);
 				}
 
+				if(shapeSelect != nullptr) {
+					shapeSelect->setAnchorXY(X - distX, Y - distY);
+				}
+
 			}
 
 			if(event.type == sf::Event::MouseButtonPressed) {
 				pointSelect = gestPoint.isOver(X, Y);
+				shapeSelect = gestShape.isOver(X, Y);
 
 				if(pointSelect != nullptr) {
 					pointSelect->setSelected(true);
 					distX = X - pointSelect->getX();
 					distY = Y - pointSelect->getY();
 				}
+
+				if(shapeSelect != nullptr) {
+					shapeSelect->setSelected(true);
+					distX = X - shapeSelect->getAnchor()->getX();
+					distY = Y - shapeSelect->getAnchor()->getY();
+				}
 			}
+			
 
 			if(event.type == sf::Event::MouseButtonReleased) {
 				if(pointSelect != nullptr) {
 					pointSelect->setSelected(false);
 					pointSelect = nullptr;	
+				}
+
+				if(shapeSelect != nullptr) {
+					shapeSelect->setSelected(false);
+					shapeSelect = nullptr;
 				}
 			}
 
@@ -54,11 +74,13 @@ int main() {
 						break;
 					case sf::Keyboard::F:
 							j = j + 10;
-							gestShape.add(new Shape<sf::RenderWindow, sf::Color>(j, 40, sf::Color::Black));
+							gestShape.add(new RectangleDrawable(j, 40, sf::Color::Black, 10, 20));
 						break;
 					case sf::Keyboard::Delete:
 							if(pointSelect != nullptr)
 								gestPoint.remove();
+							if(shapeSelect != nullptr)
+								gestShape.remove();
 						break;
 					default:
 						break;

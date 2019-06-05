@@ -47,7 +47,7 @@ void Shapes<WindowT, ColorT>::add(Shape<WindowT, ColorT> * _shape) {
 
 template <typename WindowT, typename ColorT>
 void Shapes<WindowT, ColorT>::remove() {
-	Shapes<WindowT, ColorT> ** tabTempo;
+	Shape<WindowT, ColorT> ** tabTempo = new Shape<WindowT, ColorT> * [maxShapes];
 	for(uint i = 0, y = 0; i < nbShapes; i++) {
 		if(!(tabShapes[i]->getSelected())) {
 			tabTempo[y] = tabShapes[i];

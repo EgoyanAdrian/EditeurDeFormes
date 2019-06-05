@@ -4,7 +4,7 @@
 int main() {
 	sf::RenderWindow window(sf::VideoMode(200, 200), "Editeur de Formes", sf::Style::Default);
 	PointsDrawable gestPoint;
-	Point * pointSelect;
+	Point * pointSelect = nullptr;
 
 	uint X, Y, i = 0, distX, distY;
 	while(window.isOpen()) {
@@ -28,7 +28,7 @@ int main() {
 
 			if(event.type == sf::Event::MouseButtonPressed) {
 				pointSelect = gestPoint.isOver(X, Y);
-				
+
 				if(pointSelect != nullptr) {
 					distX = X - pointSelect->getX();
 					distY = Y - pointSelect->getY();

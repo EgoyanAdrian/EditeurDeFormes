@@ -12,8 +12,8 @@ class Point {
 
 	public:
 	// Constructor & Destructor
-		Point(uint _X, uint _y);
-		Point(const Point & _orig);
+		Point(uint _x, uint _y);
+		Point(const Point & _origin);
 		Point(std::istream & is);
 		~Point();
 
@@ -37,8 +37,8 @@ Point::Point(uint _x, uint _y)
 :x(_x), y(_y)
 { }
 
-Point::Point(const Point & _orig)
-:Point(_orig.getX(), _orig.getY())
+Point::Point(const Point & _origin)
+:Point(_origin.getX(), _origin.getY())
 { }
 
 Point::Point(std::istream & is) {

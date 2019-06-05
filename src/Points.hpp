@@ -52,7 +52,8 @@ void Points<WindowT>::remove() {
 		if(!(tabPoints[i]->getSelected())) {
 			tabTempo[y] = tabPoints[i];
 			y++;
-		}
+		} else
+			delete tabPoints[i];
 	}
 	nbPoints--;
 	tabPoints = tabTempo;

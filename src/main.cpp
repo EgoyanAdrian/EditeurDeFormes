@@ -1,12 +1,15 @@
 #include <SFML/Graphics.hpp>
 #include "PointsDrawable.hpp"
+#include "ShapesDrawable.hpp"
 
 int main() {
 	sf::RenderWindow window(sf::VideoMode(200, 200), "Editeur de Formes", sf::Style::Default);
 	PointsDrawable gestPoint;
 	Point * pointSelect = nullptr;
 
-	uint X, Y, i = 0, distX, distY;
+	ShapesDrawable gestShape;
+
+	uint X, Y, i = 0, j = 0, distX, distY;
 	while(window.isOpen()) {
 		window.clear(sf::Color::White);
 
@@ -45,9 +48,13 @@ int main() {
 
 			if(event.type == sf::Event::KeyPressed) {
 				switch(event.key.code) {
-					case sf::Keyboard::Escape:
+					case sf::Keyboard::P:
 					 		i = i + 10;
 							gestPoint.add(new Point(i, 10));
+						break;
+					case sf::Keyboard::F:
+							j = j + 10;
+							gestShape.add(new Shape<sf::RenderWindow, sf::Color>(j, 40, sf::Color::Black));
 						break;
 					case sf::Keyboard::Delete:
 							if(pointSelect != nullptr)
@@ -59,6 +66,7 @@ int main() {
 			}
 		}
 
+		gestShape.draw(window, X, Y);
 		gestPoint.draw(window, X, Y);
 		window.display();
 	}

@@ -17,6 +17,7 @@ class Points<WindowT> {
 		inline uint getNbPoints() const { return nbPoints;}
 
 		void add(Point * _point);
+		void remove();
 		inline virtual void draw(WindowT & window, uint _mX, uint _mY) const { };
 		Point * isOver(uint _x, uint _y);
 		Point * browse(uint nb) const;
@@ -42,6 +43,19 @@ void Points<WindowT>::add(Point * _point) {
 		throw std::runtime_error("plus de places");
 	else
 		tabPoints[nbPoints++] = _point;
+}
+
+template <typename WindowT>
+void Points<WindowT>::remove() {
+	Point ** tabTempo = new Point * [maxPoints];
+	for(uint i = 0, y = 0; i < nbPoints; i++) {
+		if(!(tabPoints[i]->getSelected())) {
+			tabTempo[y] = tabPoints[i];
+			y++;
+		}
+	}
+	nbPoints--;
+	tabPoints = tabTempo;
 }
 
 template <typename WindowT>

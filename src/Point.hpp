@@ -26,6 +26,9 @@ class Point {
 		inline uint getY() const { return y;}
 		inline void setY(uint _y) { y = _y;}
 
+		inline bool getSelected() const { return selected;}
+		inline void setSelected(bool _selected) { selected = _selected;}
+
 	// Other Methods
 		inline bool isOver(uint _x, uint _y) const { return (((_x - (x + radius))*(_x - (x + radius)) + (_y - (y + radius))*(_y - (y + radius)))<= (radius * radius));}
 };

@@ -25,7 +25,9 @@ void PointsDrawable::draw(sf::RenderWindow & window, uint _mX, uint _mY) const {
 		circle.setRadius(this->browse(i)->getRadius());
 		circle.setPosition(this->browse(i)->getX(), this->browse(i)->getY());
 
-		if(this->browse(i)->isOver(_mX, _mY))
+		if(this->browse(i)->getSelected())
+			circle.setFillColor(sf::Color::Red);
+		else if(this->browse(i)->isOver(_mX, _mY))
 			circle.setFillColor(sf::Color::Blue);
 		else
 			circle.setFillColor(sf::Color::Black);

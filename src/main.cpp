@@ -30,13 +30,17 @@ int main() {
 				pointSelect = gestPoint.isOver(X, Y);
 
 				if(pointSelect != nullptr) {
+					pointSelect->setSelected(true);
 					distX = X - pointSelect->getX();
 					distY = Y - pointSelect->getY();
 				}
 			}
 
 			if(event.type == sf::Event::MouseButtonReleased) {
-				pointSelect = nullptr;	
+				if(pointSelect != nullptr) {
+					pointSelect->setSelected(false);
+					pointSelect = nullptr;	
+				}
 			}
 
 			if(event.type == sf::Event::KeyPressed) {
@@ -44,6 +48,10 @@ int main() {
 					case sf::Keyboard::Escape:
 					 		i = i + 10;
 							gestPoint.add(new Point(i, 10));
+						break;
+					case sf::Keyboard::Delete:
+							if(pointSelect != nullptr)
+								gestPoint.remove();
 						break;
 					default:
 						break;

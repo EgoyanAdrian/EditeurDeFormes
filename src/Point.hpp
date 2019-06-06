@@ -33,20 +33,4 @@ class Point {
 		inline bool isOver(uint _x, uint _y) const { return (((_x - (x + radius))*(_x - (x + radius)) + (_y - (y + radius))*(_y - (y + radius)))<= (radius * radius));}
 };
 
-Point::Point(uint _x, uint _y)
-:x(_x), y(_y)
-{ }
-
-Point::Point(const Point & _origin)
-:Point(_origin.getX(), _origin.getY())
-{ }
-
-Point::Point(std::istream & is) {
-	is >> x;
-	is >> y;
-}
-
-Point::~Point()
-{ }
-
 #endif

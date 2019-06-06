@@ -22,8 +22,8 @@ void CircleDrawable::draw(sf::RenderWindow & window, bool isActive) const {
 		circle.setFillColor(sf::Color::Blue);
 		circle.setOutlineColor(sf::Color::Blue);
 	} else {
-		circle.setFillColor(sf::Color::Black);
-		circle.setOutlineColor(sf::Color::Black);
+		circle.setFillColor(this->getColor());
+		circle.setOutlineColor(this->getColor());
 	}
 
 	if(!this->getFilled())

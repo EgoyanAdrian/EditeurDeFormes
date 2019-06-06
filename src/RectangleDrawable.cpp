@@ -23,8 +23,8 @@ void RectangleDrawable::draw(sf::RenderWindow & window, bool isActive) const {
 		rectangle.setFillColor(sf::Color::Blue);
 		rectangle.setOutlineColor(sf::Color::Blue);
 	} else {
-		rectangle.setFillColor(sf::Color::Black);
-		rectangle.setOutlineColor(sf::Color::Black);
+		rectangle.setFillColor(this->getColor());
+		rectangle.setOutlineColor(this->getColor());
 	}
 
 	if(!this->getFilled())

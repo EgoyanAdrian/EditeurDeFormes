@@ -2,6 +2,7 @@
 #include "PointsDrawable.hpp"
 #include "ShapesDrawable.hpp"
 #include "RectangleDrawable.hpp"
+#include "CircleDrawable.hpp"
 
 int main() {
 	sf::RenderWindow window(sf::VideoMode(200, 200), "Editeur de Formes", sf::Style::Default);
@@ -75,6 +76,10 @@ int main() {
 					case sf::Keyboard::R:
 							j = j + 10;
 							gestShape.add(new RectangleDrawable(j, 40, sf::Color::Black, 10, 20));
+						break;
+					case sf::Keyboard::C:
+							j = j + 10;
+							gestShape.add(new CircleDrawable(j, 80, sf::Color::Black, 5));
 						break;
 					case sf::Keyboard::F:
 							if(shapeSelect != nullptr) {

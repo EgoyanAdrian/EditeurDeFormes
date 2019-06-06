@@ -143,7 +143,7 @@ textFichQuit.setFillColor(sf::Color::Black);
 			if(isPush){
 				textFichEnrg.setFillColor(sf::Color::Red);//chagement de la couleur du text noir -> bleu
 				w.draw(textFichEnrg);
-				std::ofstream outfile ("../../test.txt");
+				std::ofstream outfile ("test.txt");
 				outfile << "my text here!" << std::endl;
 				outfile.close();
 			}

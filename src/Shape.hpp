@@ -1,13 +1,16 @@
 #ifndef SHAPE_HPP
 #define SHAPE_HPP
 
+#include "Point.hpp"
+
 template <typename ...> class Shape;
 
 template <typename WindowT, typename ColorT>
 class Shape<WindowT, ColorT> {
 		Point * anchor;
 		ColorT color;
-		bool selected = false;
+		bool selected = false, filled = true;
+		int borderSize = -1;
 
 	public:
 		Shape(uint _x, uint _y, ColorT _color);
@@ -25,6 +28,12 @@ class Shape<WindowT, ColorT> {
 
 		inline bool getSelected() const { return selected;}
 		inline void setSelected(bool _selected) { selected = _selected;}
+
+		inline bool getFilled() const { return filled;}
+		inline void setFilled(bool _filled) { filled = _filled;}
+
+		inline int getBorderSize() const { return borderSize;}
+		inline void setBorderSize(int _borderSize) { borderSize = _borderSize;}
 
 		inline virtual bool isOver(uint _x, uint _y) const { return anchor->isOver(_x, _y);}
 		inline virtual void draw(WindowT & window, bool isActive) const { }

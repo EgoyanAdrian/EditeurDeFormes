@@ -26,13 +26,21 @@ void RectangleDrawable::draw(sf::RenderWindow & window, bool isActive) const {
 
 	rectangle.setPosition(pos);
 	rectangle.setSize(siz);
+	rectangle.setOutlineThickness(this->getBorderSize());
 
-	if(this->getSelected())
+	if(this->getSelected()) {
 		rectangle.setFillColor(sf::Color::Red);
-	else if(isActive)
+		rectangle.setOutlineColor(sf::Color::Red);
+	} else if(isActive) {
 		rectangle.setFillColor(sf::Color::Blue);
-	else
+		rectangle.setOutlineColor(sf::Color::Blue);
+	} else {
 		rectangle.setFillColor(sf::Color::Black);
+		rectangle.setOutlineColor(sf::Color::Black);
+	}
+
+	if(!this->getFilled())
+		rectangle.setFillColor(sf::Color::White);
 
 	window.draw(rectangle);
 }

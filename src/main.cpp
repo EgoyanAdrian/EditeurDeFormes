@@ -72,9 +72,24 @@ int main() {
 					 		i = i + 10;
 							gestPoint.add(new Point(i, 10));
 						break;
-					case sf::Keyboard::F:
+					case sf::Keyboard::R:
 							j = j + 10;
 							gestShape.add(new RectangleDrawable(j, 40, sf::Color::Black, 10, 20));
+						break;
+					case sf::Keyboard::F:
+							if(shapeSelect != nullptr) {
+								shapeSelect->setFilled(!shapeSelect->getFilled());
+							}
+						break;
+					case sf::Keyboard::Add:
+							if(shapeSelect != nullptr) {
+								shapeSelect->setBorderSize(shapeSelect->getBorderSize() - 1);
+							}
+						break;
+					case sf::Keyboard::Subtract:
+							if(shapeSelect != nullptr) {
+								shapeSelect->setBorderSize(shapeSelect->getBorderSize() + 1);
+							}
 						break;
 					case sf::Keyboard::Delete:
 							if(pointSelect != nullptr)

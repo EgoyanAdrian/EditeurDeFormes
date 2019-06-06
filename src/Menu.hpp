@@ -8,7 +8,7 @@
 #include "PointsDrawable.hpp"
 #include "ShapesDrawable.hpp"
 #include "RectangleDrawable.hpp"
-#include "Text.hpp"
+#include "menuOutils.hpp"
 
 
 class Menu{
@@ -16,7 +16,6 @@ class Menu{
 		uint sizeEcranY;
 		ShapesDrawable menu=ShapesDrawable(4);
 		ShapesDrawable sousmenuFichier=ShapesDrawable(3);
-		sf::Font font;
 	
 	public:
 		Menu(uint _sizeX,uint _sizeY,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w);

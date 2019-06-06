@@ -27,7 +27,7 @@ menu.add(new RectangleDrawable(0, 0,sf::Color(192,192,192), sizeEcranX, 31));
 menu.add(new RectangleDrawable(0, 0,sf::Color(192,192,192), 100, 31));//menuFichier
 menu.add(new RectangleDrawable(100, 0,sf::Color(192,192,192), 100, 31));//menuEdition
 menu.add(new RectangleDrawable(200, 0,sf::Color(192,192,192), 100, 31));//menuHelp
-menu.draw(w,200,200);
+menu.draw(w,-200,-200);
 
 //definition des text
 sf::Text textFichier("Fichier",font,24);
@@ -106,7 +106,7 @@ textFichQuit.setFillColor(sf::Color::Black);
  * 
  * */
 	//					Fichier								Ouvrir														Enregistrer										Quitter
-	if(menu.browse(1)->isOver(mouse_x,mouse_y)||(sousmenuFichier.browse(0)->isOver(mouse_x,mouse_y) || (sousmenuFichier.browse(1)->isOver(mouse_x,mouse_y)) || (sousmenuFichier.browse(2)->isOver(mouse_x,mouse_y)))){
+	if((menu.browse(1)->isOver(mouse_x,mouse_y)&&isPush)||(sousmenuFichier.browse(0)->isOver(mouse_x,mouse_y) || (sousmenuFichier.browse(1)->isOver(mouse_x,mouse_y)) || (sousmenuFichier.browse(2)->isOver(mouse_x,mouse_y)))){
 		//ligne de soulignement
 		w.draw(line1, 2, sf::Lines);
 		w.draw(line2, 2, sf::Lines);
@@ -116,7 +116,7 @@ textFichQuit.setFillColor(sf::Color::Black);
 		w.draw(textFichier);
 	
 		//affiche les rectangles du menu deroulant
-		sousmenuFichier.draw(w,200,200);
+		sousmenuFichier.draw(w,-200,-200);
 		
 		//~ dessiner(w,menuFiEnregis,false,0,0,false);
 		//~ dessiner(w,menuFiOuvrir,false,0,0,false);

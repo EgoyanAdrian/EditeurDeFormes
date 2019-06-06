@@ -6,13 +6,12 @@
 
 Menu::Menu(uint _sizeX,uint _sizeY ,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w){
 sizeEcranX=_sizeX;//coordnonne de la taille du Menu en x
-sizeEcranY=_sizeY;//	"								y
-//sf::Color Gris(255,0,0);
-//~ sf::Font font;
-//~ if (!font.loadFromFile("font.ttf"))
-//~ {
-   //~ // erreur...
-//~ }
+sizeEcranY=_sizeY;//	"							y
+sf::Font font;
+if (!font.loadFromFile("font.ttf"))
+{
+   // erreur...
+}
 //~ font.loadFromFile("font.ttf");
 
 //
@@ -22,30 +21,26 @@ sizeEcranY=_sizeY;//	"								y
 //
 
 //creation de la barre des taches
-
-
-//creation de la barre des taches
-menu.add(new RectangleDrawable(0, 0,sf::Color::Yellow, sizeEcranX, 25));
+menu.add(new RectangleDrawable(0, 0,sf::Color(192,192,192), sizeEcranX, 31));
 
 //creation des icone du menu
-menu.add(new RectangleDrawable(0, 0,sf::Color::Yellow, sizeEcranX, 25));
-
+menu.add(new RectangleDrawable(0, 0,sf::Color(192,192,192), 100, 31));//menuFichier
+menu.add(new RectangleDrawable(100, 0,sf::Color(192,192,192), 100, 31));//menuEdition
+menu.add(new RectangleDrawable(200, 0,sf::Color(192,192,192), 100, 31));//menuHelp
 menu.draw(w,200,200);
-//Rectangle menuFichier("Transparent",0,0,sizeEcranX,100);
-//Rectangle menuEdition("Transparent",100,0,sizeEcranX,100);
-//Rectangle menuHelp("Transparent",200,0,sizeEcranX,100);
+
 //definition des text
-//~ sf::Text textFichier("Fichier",font,24);
-//~ sf::Text textEdition("Edition",font,24);
-//~ sf::Text textHelp("Help",font,24);
+sf::Text textFichier("Fichier",font,24);
+sf::Text textEdition("Edition",font,24);
+sf::Text textHelp("Help",font,24);
 //~ //position des texts
-//~ textFichier.setPosition(10,0);
-//~ textEdition.setPosition(110,0);
-//~ textHelp.setPosition(210,0);
+textFichier.setPosition(10,0);
+textEdition.setPosition(110,0);
+textHelp.setPosition(210,0);
 //~ //couleur du text
-//~ textFichier.setFillColor(sf::Color::Black);
-//~ textEdition.setFillColor(sf::Color::Black);
-//~ textHelp.setFillColor(sf::Color::Black);
+textFichier.setFillColor(sf::Color::Black);
+textEdition.setFillColor(sf::Color::Black);
+textHelp.setFillColor(sf::Color::Black);
 
 //      Fonction pour dessiner
 //dessiner les boutons
@@ -53,47 +48,52 @@ menu.draw(w,200,200);
 //dessiner(w,menuEdition,false,0,0,false);
 //dessiner(w,menuHelp,false,0,0,false);
 //ecrire les textes
-//w.draw(textFichier);
-//w.draw(textEdition);
-//w.draw(textHelp);
+w.draw(textFichier);
+w.draw(textEdition);
+w.draw(textHelp);
 
 
 //					definition des rectangles du Menu deroulant
 //definition du soulignement bleu
 
-//~ sf::Vertex line1[] =
-//~ {
-    //~ sf::Vertex(sf::Vector2f(0,30),sf::Color::Blue),
-    //~ sf::Vertex(sf::Vector2f(100,30 ),sf::Color::Blue)
-//~ };
-//~ sf::Vertex line2[] =
-//~ {
-    //~ sf::Vertex(sf::Vector2f(0,30),sf::Color::Blue),
-    //~ sf::Vertex(sf::Vector2f(100,29 ),sf::Color::Blue)
-//~ };
-//~ sf::Vertex line3[] =
-//~ {
-    //~ sf::Vertex(sf::Vector2f(0,30),sf::Color::Blue),
-    //~ sf::Vertex(sf::Vector2f(100,31 ),sf::Color::Blue)
-//~ };
+sf::Vertex line1[] =
+{
+    sf::Vertex(sf::Vector2f(0,30),sf::Color::Blue),
+    sf::Vertex(sf::Vector2f(100,30 ),sf::Color::Blue)
+};
+sf::Vertex line2[] =
+{
+    sf::Vertex(sf::Vector2f(0,30),sf::Color::Blue),
+    sf::Vertex(sf::Vector2f(100,29 ),sf::Color::Blue)
+};
+sf::Vertex line3[] =
+{
+    sf::Vertex(sf::Vector2f(0,30),sf::Color::Blue),
+    sf::Vertex(sf::Vector2f(100,31 ),sf::Color::Blue)
+};
+
 
 //rectangle
 
+sousmenuFichier.add(new RectangleDrawable(0, 31,sf::Color(192,192,192), 100, 31));//MenuFiOuvrir
+sousmenuFichier.add(new RectangleDrawable(0, 31*2,sf::Color(192,192,192), 100, 31));//MenuFiEnregis
+sousmenuFichier.add(new RectangleDrawable(0, 31*3,sf::Color(192,192,192),100, 31));//MenuFiQuitter
 //~ Rectangle menuFiEnregis("Gris",0,31,sizeEcranX,100);
 //~ Rectangle menuFiOuvrir("Gris",0,31+sizeEcranX,sizeEcranX,100);
 //~ Rectangle menuFiQuitter("Gris",0,31+sizeEcranX*2,sizeEcranX,100);
 
 //texte
-//~ sf::Text textFichEnrg("Enregistrer",font,20);
-//~ sf::Text textFichQuit("Quitter",font,20);
-//~ sf::Text textFichOuvrir("Ouvrir",font,20);
-//~ textFichEnrg.setPosition(0,31);
-//~ textFichOuvrir.setPosition(0,32+sizeEcranX);
-//~ textFichQuit.setPosition(0,32+sizeEcranX*2);
+sf::Text textFichOuvrir("Ouvrir",font,20);
+sf::Text textFichEnrg("Enregistrer",font,20);
+sf::Text textFichQuit("Quitter",font,20);
 
-//~ textFichEnrg.setFillColor(sf::Color::Black);
-//~ textFichOuvrir.setFillColor(sf::Color::Black);
-//~ textFichQuit.setFillColor(sf::Color::Black);
+textFichOuvrir.setPosition(0,32);
+textFichEnrg.setPosition(0,31*2);
+textFichQuit.setPosition(0,32*3);
+
+textFichOuvrir.setFillColor(sf::Color::Black);
+textFichEnrg.setFillColor(sf::Color::Black);
+textFichQuit.setFillColor(sf::Color::Black);
 
 /*
  * 
@@ -105,49 +105,59 @@ menu.draw(w,200,200);
  * 
  * 
  * */
-	//~ if(menuFichier.isOver(mouse_x,mouse_y)||(menuFiQuitter.isOver(mouse_x,mouse_y) || (menuFiEnregis.isOver(mouse_x,mouse_y)) || (menuFiOuvrir.isOver(mouse_x,mouse_y)))){
-		//~ //ligne de soulignement
-		//~ w.draw(line1, 2, sf::Lines);
-		//~ w.draw(line2, 2, sf::Lines);
-		//~ w.draw(line3, 2, sf::Lines);
-		//~ //changement de la couleur du text
-		//~ textFichier.setFillColor(sf::Color::Blue);
-		//~ w.draw(textFichier);
+	//					Fichier								Ouvrir														Enregistrer										Quitter
+	if(menu.browse(1)->isOver(mouse_x,mouse_y)||(sousmenuFichier.browse(0)->isOver(mouse_x,mouse_y) || (sousmenuFichier.browse(1)->isOver(mouse_x,mouse_y)) || (sousmenuFichier.browse(2)->isOver(mouse_x,mouse_y)))){
+		//ligne de soulignement
+		w.draw(line1, 2, sf::Lines);
+		w.draw(line2, 2, sf::Lines);
+		w.draw(line3, 2, sf::Lines);
+		//changement de la couleur du text
+		textFichier.setFillColor(sf::Color::Blue);
+		w.draw(textFichier);
 	
-		//~ //affiche les rectangles du menu deroulant
+		//affiche les rectangles du menu deroulant
+		sousmenuFichier.draw(w,200,200);
+		
 		//~ dessiner(w,menuFiEnregis,false,0,0,false);
 		//~ dessiner(w,menuFiOuvrir,false,0,0,false);
 		//~ dessiner(w,menuFiQuitter,false,0,0,false);
 		//~ //afficher les text
-		//~ w.draw(textFichEnrg);
-		//~ w.draw(textFichOuvrir);
-		//~ w.draw(textFichQuit);
+		w.draw(textFichEnrg);
+		w.draw(textFichOuvrir);
+		w.draw(textFichQuit);
 		
-/*$$$$$$$$$$$$$$$$$$$$$$$$$ Sous Menu Enregistrement $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
+/*$$$$$$$$$$$$$$$$$$$$$$$$$ Sous Menu Ouvrir $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
 
-		//~ if(menuFiEnregis.isOver(mouse_x,mouse_y)){//si la souri et sur le rectangle menuFiEnregis
-			//~ textFichEnrg.setFillColor(sf::Color::Blue);//chagement de la couleur du text noir -> bleu
-			//~ w.draw(textFichEnrg);//ecrie le nouveau texte
-			//~ if(isPush){
-				//~ sauvegarde();
-			//~ }
-		//~ }
-		//~ if(menuFiOuvrir.isOver(mouse_x,mouse_y)){
-			//~ textFichOuvrir.setFillColor(sf::Color::Blue);
-			//~ w.draw(textFichOuvrir);
-			//~ if(isPush){
-				//~ //ouvrir(nomfichier);
-			//~ }
-		//~ }
-	
-		//~ if(menuFiQuitter.isOver(mouse_x,mouse_y)){
-			//~ textFichQuit.setFillColor(sf::Color::Blue);
-			//~ w.draw(textFichQuit);
-			//~ if(isPush){
-				//~ closeWindow(w);
-				//~ }
-		//~ }
-	//~ }
+		if(sousmenuFichier.browse(0)->isOver(mouse_x,mouse_y)){//si la souri et sur le rectangle menuFiEnregis
+			textFichOuvrir.setFillColor(sf::Color::Blue);//chagement de la couleur du text noir -> bleu
+			w.draw(textFichOuvrir);
+			if(isPush){
+				
+			}
+		}
+
+/*$$$$$$$$$$$$$$$$$$$$$$$$$ Sous Menu Enregistrement $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
+		if(sousmenuFichier.browse(1)->isOver(mouse_x,mouse_y)){
+			textFichEnrg.setFillColor(sf::Color::Blue);
+			w.draw(textFichEnrg);//ecrie le nouveau texte
+			if(isPush){
+				textFichEnrg.setFillColor(sf::Color::Red);//chagement de la couleur du text noir -> bleu
+				w.draw(textFichEnrg);
+				std::ofstream outfile ("../../test.txt");
+				outfile << "my text here!" << std::endl;
+				outfile.close();
+			}
+		}
+
+/*$$$$$$$$$$$$$$$$$$$$$$$$$ Sous Menu  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
+		if(sousmenuFichier.browse(2)->isOver(mouse_x,mouse_y)){
+			textFichQuit.setFillColor(sf::Color::Blue);
+			w.draw(textFichQuit);
+			if(isPush){
+				closeWindow(w);
+				}
+		}
+	}
 /*
  * 
  * 
@@ -192,8 +202,4 @@ menu.draw(w,200,200);
 
 }
 Menu::~Menu(){};
-
-void Menu::sauvegarde(){
-	
-	}
 

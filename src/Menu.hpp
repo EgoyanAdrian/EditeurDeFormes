@@ -3,6 +3,7 @@
 #define MENU_HPP
 
 #include <iostream>
+#include <fstream>  
 #include <SFML/Graphics.hpp>
 #include "PointsDrawable.hpp"
 #include "ShapesDrawable.hpp"
@@ -10,11 +11,11 @@
 #include "Text.hpp"
 
 
-
 class Menu{
 		uint sizeEcranX;
 		uint sizeEcranY;
 		ShapesDrawable menu=ShapesDrawable(4);
+		ShapesDrawable sousmenuFichier=ShapesDrawable(3);
 		sf::Font font;
 	
 	public:
@@ -32,7 +33,6 @@ class Menu{
 		//auter fonction
 		inline void closeWindow(sf::RenderWindow &w){w.close();};
 		//fonction qui sauvegarde
-		void sauvegarde();
 		
 		//fonction qui charge un fichier
 		//void ouvre(std::string monFichier);

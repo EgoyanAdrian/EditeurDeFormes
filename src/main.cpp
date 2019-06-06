@@ -3,15 +3,18 @@
 #include "ShapesDrawable.hpp"
 #include "RectangleDrawable.hpp"
 #include "CircleDrawable.hpp"
+#include "Menu.hpp"
 
 int main() {
-	sf::RenderWindow window(sf::VideoMode(200, 200), "Editeur de Formes", sf::Style::Default);
-
+	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Editeur de Formes", sf::Style::Default);
+	uint screenSize=1000;
 	PointsDrawable gestPoint;
 	ShapesDrawable gestShape;
 
 	Point * pointSelect = nullptr;
 	Shape<sf::RenderWindow, sf::Color> * shapeSelect = nullptr;
+	
+	bool isPushLeft; //variable pour savoir si le bouton gauche de la souris et enfoncer)
 
 	uint X, Y, i = 0, j = 0, distX, distY;
 	while(window.isOpen()) {
@@ -36,6 +39,9 @@ int main() {
 				}
 
 			}
+
+			if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				isPushLeft=true;
 
 			if(event.type == sf::Event::MouseButtonPressed) {
 				pointSelect = gestPoint.isOver(X, Y);
@@ -77,14 +83,14 @@ int main() {
 							j = j + 10;
 							gestShape.add(new RectangleDrawable(j, 40, sf::Color::Black, 10, 20));
 						break;
-					case sf::Keyboard::C:
-							j = j + 10;
-							gestShape.add(new CircleDrawable(j, 80, sf::Color::Black, 5));
-						break;
 					case sf::Keyboard::F:
 							if(shapeSelect != nullptr) {
 								shapeSelect->setFilled(!shapeSelect->getFilled());
 							}
+						break;
+					case sf::Keyboard::C:
+							j = j + 10;
+							gestShape.add(new CircleDrawable(j, 80, sf::Color::Green, 5));
 						break;
 					case sf::Keyboard::Add:
 							if(shapeSelect != nullptr) {
@@ -107,8 +113,8 @@ int main() {
 				}
 			}
 		}
-
-		gestShape.draw(window, X, Y);
+		Menu(screenSize,screenSize,X,Y,isPushLeft,window);//permet la creation du menu
+		gestShape.draw(window, X, Y);//coordonne de la a souris X en x et Y en y
 		gestPoint.draw(window, X, Y);
 		window.display();
 	}

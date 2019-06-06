@@ -7,7 +7,7 @@
 Menu::Menu(uint _sizeX,uint _sizeY ,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w){
 sizeEcranX=_sizeX;//coordnonne de la taille du Menu en x
 sizeEcranY=_sizeY;//	"								y
-sf::Color Gris(255,0,0);
+//sf::Color Gris(255,0,0);
 //~ sf::Font font;
 //~ if (!font.loadFromFile("font.ttf"))
 //~ {

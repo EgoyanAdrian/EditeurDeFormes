@@ -55,7 +55,7 @@ void Text::textSaisie(sf::Event &e,sf::RenderWindow &w)
 			if(e.key.code==sf::Keyboard::M){
 				string=string+"m";
 			}
-			if(e.key.code==sf::Keyboard::n){
+			if(e.key.code==sf::Keyboard::N){
 				string=string+"n";
 			}
 			if(e.key.code==sf::Keyboard::O){

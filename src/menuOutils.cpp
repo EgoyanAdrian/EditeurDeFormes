@@ -44,7 +44,21 @@ menuOutils::menuOutils(sf::Event &e,uint mouse_x, uint mouse_y,bool isPush,sf::R
 	creaTriangle.setFillColor(sf::Color::Black);
 	creaPoly.setFillColor(sf::Color::Black);
 	creaCalque.setFillColor(sf::Color::Black);
-	//dessin des rectangles
+
+	
+	if(tabMenuOutil.browse(0)->isOver(mouse_x,mouse_y)&&isPush ){
+		//~ CoorRectangle.textSaisie(e,w);
+		//~ sf::Text test("test",font,24);
+		//~ test.setPosition(500,500);
+		//~ test.setFillColor(sf::Color::Black);
+		//~ w.draw(test);
+		//~ std::cout<<CoorRectangle.getString()<<std::endl;
+	
+		j = j + 10;
+		SD.add(new RectangleDrawable(j, 40, sf::Color::Black, 10, 20));
+	}
+	
+		//dessin des rectangles
 	tabMenuOutil.draw(w,-200,-200);
 	
 	//apparition du texte
@@ -55,20 +69,6 @@ menuOutils::menuOutils(sf::Event &e,uint mouse_x, uint mouse_y,bool isPush,sf::R
 	w.draw(creaTriangle);
 	w.draw(creaPoly);
 	w.draw(creaCalque);
-	
-	//~ if(tabMenuOutil.browse(0)->isOver(mouse_x,mouse_y) ){
-		//~ CoorRectangle.textSaisie(e,w);
-		//~ sf::Text test("test",font,24);
-		//~ test.setPosition(500,500);
-		//~ test.setFillColor(sf::Color::Black);
-		//~ w.draw(test);
-		//~ std::cout<<CoorRectangle.getString()<<std::endl;
-	
-		//~ //j = j + 10;
-		//~ //SD.add(new RectangleDrawable(j, 40, sf::Color::Black, 10, 20));
-	//~ }
-	
-	
 	
 	//~ if((tabMenuOutil.browse(0)->isOver(mouse_x,mouse_y) && !(tabMenuOutil.browse(1)->isOver(mouse_x,mouse_y)) &&!(tabMenuOutil.browse(2)->isOver(mouse_x,mouse_y)))&&isPush){
 		

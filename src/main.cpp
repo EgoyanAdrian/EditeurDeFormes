@@ -2,7 +2,9 @@
 #include "PointsDrawable.hpp"
 #include "ShapesDrawable.hpp"
 #include "RectangleDrawable.hpp"
+#include "SquareDrawable.hpp"
 #include "CircleDrawable.hpp"
+#include "EllipseDrawable.hpp"
 #include "Menu.hpp"
 
 
@@ -80,20 +82,28 @@ int main() {
 				switch(event.key.code) {
 					case sf::Keyboard::P:
 					 		i = i + 10;
-							gestPoint.add(new Point(i, 10));
+							gestPoint.add(new Point(i, 200));
 						break;
 					case sf::Keyboard::R:
 							j = j + 10;
-							gestShape.add(new RectangleDrawable(j, 40, sf::Color::Black, 10, 20));
+							gestShape.add(new RectangleDrawable(j, 280, sf::Color::Black, 10, 20));
+						break;
+					case sf::Keyboard::S:
+							j = j + 10;
+							gestShape.add(new SquareDrawable(j, 260, sf::Color::Yellow, 10));
+						break;
+					case sf::Keyboard::C:
+							j = j + 10;
+							gestShape.add(new CircleDrawable(j, 220, sf::Color::Green, 5));
+						break;
+					case sf::Keyboard::E:
+							j = j + 10;
+							gestShape.add(new EllipseDrawable(j, 240, sf::Color::Black, 10, 5));
 						break;
 					case sf::Keyboard::F:
 							if(shapeSelect != nullptr) {
 								shapeSelect->setFilled(!shapeSelect->getFilled());
 							}
-						break;
-					case sf::Keyboard::C:
-							j = j + 10;
-							gestShape.add(new CircleDrawable(j, 80, sf::Color::Green, 5));
 						break;
 					case sf::Keyboard::Add:
 							if(shapeSelect != nullptr) {

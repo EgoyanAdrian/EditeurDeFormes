@@ -16,4 +16,5 @@ class Text{
 		inline sf::Color getColor(){return Color;};
 		inline void setColor(sf::Color c){Color=c;};
 
+		void textSaisie(sf::Event &e);
 };

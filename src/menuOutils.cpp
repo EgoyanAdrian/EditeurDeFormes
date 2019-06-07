@@ -2,7 +2,7 @@
 
 menuOutils::menuOutils(sf::Event &e,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w,PointsDrawable &PointsD,ShapesDrawable &SD){
 	uint x=150,y=160,i=0,j=0;
-	Text CoorRectangle(sf::Color::Black);
+	
 	//creation des rectangles du Menu
 	tabMenuOutil.add(new RectangleDrawable(x, y,sf::Color(192,192,192), 110, 82+46*5));//rectangle global des option du menu
 	tabMenuOutil.add(new RectangleDrawable(x+5, y+5,sf::Color::Yellow, 100, 31));//premier rectangle creation d'un rectangle
@@ -56,11 +56,17 @@ menuOutils::menuOutils(sf::Event &e,uint mouse_x, uint mouse_y,bool isPush,sf::R
 	w.draw(creaPoly);
 	w.draw(creaCalque);
 	
-	if(tabMenuOutil.browse(0)->isOver(mouse_x,mouse_y) &&isPush){
-		CoorRectangle.textSaisie(e);
-		//j = j + 10;
-		//SD.add(new RectangleDrawable(j, 40, sf::Color::Black, 10, 20));
-	}
+	//~ if(tabMenuOutil.browse(0)->isOver(mouse_x,mouse_y) ){
+		//~ CoorRectangle.textSaisie(e,w);
+		//~ sf::Text test("test",font,24);
+		//~ test.setPosition(500,500);
+		//~ test.setFillColor(sf::Color::Black);
+		//~ w.draw(test);
+		//~ std::cout<<CoorRectangle.getString()<<std::endl;
+	
+		//~ //j = j + 10;
+		//~ //SD.add(new RectangleDrawable(j, 40, sf::Color::Black, 10, 20));
+	//~ }
 	
 	
 	

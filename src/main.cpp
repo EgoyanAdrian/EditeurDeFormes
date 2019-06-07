@@ -126,10 +126,11 @@ int main() {
 				}
 			}
 		}
-		menuOutils(event,X,Y,isPushLeft,window,gestPoint,gestShape);
-		Menu(screenSize,screenSize,X,Y,isPushLeft,window);//permet la creation du menu
+
 		gestShape.draw(window, X, Y);//coordonne de la a souris X en x et Y en y
 		gestPoint.draw(window, X, Y);
+		menuOutils(event,X,Y,isPushLeft,window,gestPoint,gestShape);
+		Menu(screenSize,screenSize,X,Y,isPushLeft,window);//permet la creation du menu
 		window.display();
 	}
 

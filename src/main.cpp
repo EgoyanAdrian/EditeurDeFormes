@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <typeinfo>
 #include "PointsDrawable.hpp"
 #include "ShapesDrawable.hpp"
 #include "RectangleDrawable.hpp"
@@ -144,15 +145,30 @@ int main() {
 				}
 			}
 		}
-		//~ if(shapeSelect!=nullptr){
-			//~ if(typeid(shapeSelect) == typeid(Rectangle<sf::RenderWindow, sf::Color>)){
+		if(shapeSelect!=nullptr){
+			//std::cout<<typeid(shapeSelect).name()<<std::endl;
+			RectangleDrawable* my_rD=dynamic_cast<RectangleDrawable*>(shapeSelect);
+			SquareDrawable* my_sD=dynamic_cast<SquareDrawable*>(shapeSelect);
+			EllipseDrawable* my_eD=dynamic_cast<EllipseDrawable*>(shapeSelect);
+			CircleDrawable* my_cD=dynamic_cast<CircleDrawable*>(shapeSelect);
+			TriangleDrawable* my_tD=dynamic_cast<TriangleDrawable*>(shapeSelect);
+			if(my_rD!=nullptr){
+				std::cout<<"ok rectangle"<<std::endl;
 				//~ lastShapeSelect=(shapeSelect);
 				//~ afficheMenuInfo(font,shapeSelect,screenSize,window);
-			//~ }
-		//~ }
-		//~ if(lastShapeSelect!=nullptr){
-					//~ afficheMenuInfo(font,shapeSelect,screenSize,window);
-			//~ }
+			}
+			if(my_sD!=nullptr)
+				std::cout<<"ok carre"<<std::endl;
+			if(my_eD!=nullptr)
+				std::cout<<"ok ellipse"<<std::endl;
+			if(my_cD!=nullptr)
+				std::cout<<"ok circle"<<std::endl;
+			if(my_tD!=nullptr)
+				std::cout<<"ok triangle"<<std::endl;
+		}
+		if(lastShapeSelect!=nullptr){
+					afficheMenuInfo(font,shapeSelect,screenSize,window);
+			}
 		gestShape.draw(window, X, Y);//coordonne de la a souris X en x et Y en y
 		gestPoint.draw(window, X, Y);
 		menuOutils(event,X,Y,isPushLeft,window,gestPoint,gestShape,font);

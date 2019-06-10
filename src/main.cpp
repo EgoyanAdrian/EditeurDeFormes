@@ -17,8 +17,8 @@ int main() {
 	PointsDrawable gestPoint;
 	ShapesDrawable gestShape;
 
-	Point * pointSelect = new Point(0, 0);
-	Shape<sf::RenderWindow, sf::Color> * shapeSelect = new Shape<sf::RenderWindow, sf::Color>(0, 0, sf::Color::Black);
+	Point * pointSelect = nullptr;
+	Shape<sf::RenderWindow, sf::Color> * shapeSelect = nullptr;
 	Shape<sf::RenderWindow,sf::Color> * lastShapeSelect = nullptr;
 	
 	sf::Font font;
@@ -136,8 +136,10 @@ int main() {
 					case sf::Keyboard::Delete:
 							if(pointSelect != nullptr)
 								gestPoint.remove();
-							if(shapeSelect != nullptr)
+							if(shapeSelect != nullptr) {
 								gestShape.remove();
+								lastShapeSelect = nullptr;
+							}
 						break;
 					default:
 						break;
@@ -146,10 +148,10 @@ int main() {
 		}
 
 		if(shapeSelect != nullptr) {
-			lastShapeSelect = new Shape<sf::RenderWindow, sf::Color>(*shapeSelect);
-			afficheMenuInfo(font,shapeSelect,screenSize,window);
-		} else if(lastShapeSelect!=nullptr) {
-			afficheMenuInfo(font,lastShapeSelect,screenSize,window);
+			lastShapeSelect = shapeSelect;
+			afficheMenuInfo(font, shapeSelect, screenSize, window);
+		}else if(lastShapeSelect != nullptr) {
+			afficheMenuInfo(font, lastShapeSelect, screenSize, window);
 		}
 
 		gestShape.draw(window, X, Y);//coordonne de la a souris X en x et Y en y

@@ -5,6 +5,7 @@
 #include "SquareDrawable.hpp"
 #include "CircleDrawable.hpp"
 #include "EllipseDrawable.hpp"
+#include "TriangleDrawable.hpp"
 #include "Menu.hpp"
 
 
@@ -99,6 +100,10 @@ int main() {
 					case sf::Keyboard::E:
 							j = j + 10;
 							gestShape.add(new EllipseDrawable(j, 240, sf::Color::Black, 10, 5));
+						break;
+					case sf::Keyboard::T:
+							j = j + 10;
+							gestShape.add(new TriangleDrawable(j, 260, sf::Color::Green, j + 20, 280, j - 5, 300));
 						break;
 					case sf::Keyboard::F:
 							if(shapeSelect != nullptr) {

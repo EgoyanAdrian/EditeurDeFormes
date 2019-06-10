@@ -20,7 +20,7 @@ class Shape<WindowT, ColorT> {
 		virtual ~Shape();
 
 		inline Point * getAnchor() const { return anchor;}
-		inline void setAnchorXY(uint _x, uint _y) { anchor->setX(_x); anchor->setY(_y);}
+		inline virtual void setAnchorXY(uint _x, uint _y) { anchor->setX(_x); anchor->setY(_y);}
 		inline void setAnchor(Point * _anchor) { anchor = _anchor;}
 
 		inline ColorT getColor() const { return color;}

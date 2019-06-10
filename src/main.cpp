@@ -150,7 +150,7 @@ int main() {
 			afficheMenuInfo(font,shapeSelect,screenSize,window);
 		}
 		if(lastShapeSelect!=nullptr){
-			afficheMenuInfo(font,shapeSelect,screenSize,window);
+			afficheMenuInfo(font,lastShapeSelect,screenSize,window);
 			}
 		gestShape.draw(window, X, Y);//coordonne de la a souris X en x et Y en y
 		gestPoint.draw(window, X, Y);

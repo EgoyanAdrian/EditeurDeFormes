@@ -1,6 +1,6 @@
 #include "menuOutils.hpp"
 
-menuOutils::menuOutils(sf::Event &e,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w,PointsDrawable &PointsD,ShapesDrawable &SD,sf::Font font ){
+menuOutils::menuOutils(sf::Event &e,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w,PointsDrawable &PointsD,ShapesDrawable &SD,sf::Font font ):nbrectangle(50){
 	uint x=150,y=160,i=0,j=0;
 	
 	//creation des rectangles du Menu
@@ -42,7 +42,7 @@ menuOutils::menuOutils(sf::Event &e,uint mouse_x, uint mouse_y,bool isPush,sf::R
 	creaCalque.setFillColor(sf::Color::Black);
 
 	
-	if(tabMenuOutil.browse(0)->isOver(mouse_x,mouse_y)&&isPush ){
+	if(tabMenuOutil.browse(1)->isOver(mouse_x,mouse_y)&&isPush ){//bouton pour faire un rectangle
 		//~ CoorRectangle.textSaisie(e,w);
 		//~ sf::Text test("test",font,24);
 		//~ test.setPosition(500,500);
@@ -50,11 +50,32 @@ menuOutils::menuOutils(sf::Event &e,uint mouse_x, uint mouse_y,bool isPush,sf::R
 		//~ w.draw(test);
 		//~ std::cout<<CoorRectangle.getString()<<std::endl;
 	
-		j = j + 10;
-		SD.add(new RectangleDrawable(j, 40, sf::Color::Black, 10, 20));
+		nbrectangle += 10;
+		SD.add(new RectangleDrawable(nbrectangle, 40, sf::Color::Black, 10, 20));
 	}
-	
-		//dessin des rectangles
+	if(tabMenuOutil.browse(2)->isOver(mouse_x,mouse_y)&&isPush){//bouton pour faire un carre
+		j = j + 10;
+		SD.add(new SquareDrawable(j, 260, sf::Color::Yellow, 10));
+	}
+	if(tabMenuOutil.browse(3)->isOver(mouse_x,mouse_y)&&isPush){//bouton pour faire un cercle
+		j = j + 10;
+		SD.add(new CircleDrawable(j, 220, sf::Color::Green, 5));
+	}
+	if(tabMenuOutil.browse(4)->isOver(mouse_x,mouse_y)&&isPush){//bouton pour faire uune Ellipse
+		j = j + 10;
+		SD.add(new EllipseDrawable(j, 240, sf::Color::Black, 10, 5));
+	}
+	if(tabMenuOutil.browse(5)->isOver(mouse_x,mouse_y)&&isPush){//bouton pour faire un triangle
+		j = j + 10;
+		Point * pointA; pointA = new Point(j, 260);
+		Point * pointB; pointB = new Point(j + 20, 280);
+		Point * pointC; pointC = new Point(j - 5, 300);
+		PointsD.add(pointA);
+		PointsD.add(pointB);
+		PointsD.add(pointC);
+		SD.add(new TriangleDrawable(pointA, sf::Color::Green, pointB, pointC));
+	}
+	//dessin des rectangles
 	tabMenuOutil.draw(w,-200,-200);
 	
 	//apparition du texte

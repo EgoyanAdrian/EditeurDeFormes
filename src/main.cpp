@@ -134,10 +134,13 @@ int main() {
 							}
 						break;
 					case sf::Keyboard::Delete:
-							if(pointSelect != nullptr)
+							if(pointSelect != nullptr) {
 								gestPoint.remove();
+								pointSelect = nullptr;
+							}
 							if(shapeSelect != nullptr) {
 								gestShape.remove();
+								shapeSelect = nullptr;
 								lastShapeSelect = nullptr;
 							}
 						break;

@@ -1,6 +1,6 @@
 #include "menuOutils.hpp"
 
-menuOutils::menuOutils(sf::Event &e,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w,PointsDrawable &PointsD,ShapesDrawable &SD){
+menuOutils::menuOutils(sf::Event &e,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w,PointsDrawable &PointsD,ShapesDrawable &SD,sf::Font font ){
 	uint x=150,y=160,i=0,j=0;
 	
 	//creation des rectangles du Menu
@@ -14,11 +14,7 @@ menuOutils::menuOutils(sf::Event &e,uint mouse_x, uint mouse_y,bool isPush,sf::R
 	tabMenuOutil.add(new RectangleDrawable(x+5,y+46*6,sf::Color::Yellow,100,31));//option Calque
 	
 	//creation tu texte du Menu
-	sf::Font font;
-	if (!font.loadFromFile("font.ttf"))
-	{
-		// erreur...
-	}
+
 	sf::Text creaRect("Rectangle",font,24);
 	sf::Text creaCarre("Carre",font,24);
 	sf::Text creaCercle("Cercle",font,24);

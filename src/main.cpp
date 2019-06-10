@@ -21,6 +21,11 @@ int main() {
 		Shape<sf::RenderWindow,sf::Color> * lastShapeSelect=nullptr;
 	
 
+	sf::Font font;
+	if (!font.loadFromFile("font.ttf"))
+	{
+		// erreur...
+	}
 
 	uint X, Y, i = 0, j = 0, distX, distY;
 	while(window.isOpen()) {
@@ -150,7 +155,7 @@ int main() {
 			//~ }
 		gestShape.draw(window, X, Y);//coordonne de la a souris X en x et Y en y
 		gestPoint.draw(window, X, Y);
-		menuOutils(event,X,Y,isPushLeft,window,gestPoint,gestShape);
+		menuOutils(event,X,Y,isPushLeft,window,gestPoint,gestShape,font);
 		Menu(screenSize,screenSize,X,Y,isPushLeft,window);//permet la creation du menu
 		window.display();
 	}

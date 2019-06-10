@@ -103,7 +103,13 @@ int main() {
 						break;
 					case sf::Keyboard::T:
 							j = j + 10;
-							gestShape.add(new TriangleDrawable(j, 260, sf::Color::Green, j + 20, 280, j - 5, 300));
+							Point * pointA; pointA = new Point(j, 260);
+							Point * pointB; pointB = new Point(j + 20, 280);
+							Point * pointC; pointC = new Point(j - 5, 300);
+							gestPoint.add(pointA);
+							gestPoint.add(pointB);
+							gestPoint.add(pointC);
+							gestShape.add(new TriangleDrawable(pointA, sf::Color::Green, pointB, pointC));
 						break;
 					case sf::Keyboard::F:
 							if(shapeSelect != nullptr) {

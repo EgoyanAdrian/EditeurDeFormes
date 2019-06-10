@@ -19,7 +19,7 @@ int main() {
 
 	Point * pointSelect = new Point(0, 0);
 	Shape<sf::RenderWindow, sf::Color> * shapeSelect = new Shape<sf::RenderWindow, sf::Color>(0, 0, sf::Color::Black);
-	Shape<sf::RenderWindow,sf::Color> * lastShapeSelect = new Shape<sf::RenderWindow, sf::Color>(0, 0, sf::Color::Black);
+	Shape<sf::RenderWindow,sf::Color> * lastShapeSelect = nullptr;
 	
 	sf::Font font;
 	if (!font.loadFromFile("font.ttf"))
@@ -146,7 +146,7 @@ int main() {
 		}
 
 		if(shapeSelect != nullptr) {
-			(* lastShapeSelect) = (* shapeSelect);
+			lastShapeSelect = new Shape<sf::RenderWindow, sf::Color>(*shapeSelect);
 			afficheMenuInfo(font,shapeSelect,screenSize,window);
 		} else if(lastShapeSelect!=nullptr) {
 			afficheMenuInfo(font,lastShapeSelect,screenSize,window);

@@ -10,8 +10,8 @@ class Rectangle<WindowT, ColorT> : public Shape<WindowT, ColorT> {
 		uint width, height;
 
 	public:
-		Rectangle(uint _x, uint _y, ColorT _color, uint _width, uint _height);
-		Rectangle(Point * _anchor, ColorT _color, uint _width, uint _height);
+		Rectangle(uint _x, uint _y, uint _width, uint _height, ColorT _color);
+		Rectangle(Point * _anchor, uint _width, uint _height, ColorT _color);
 		Rectangle(const Rectangle<WindowT, ColorT> & _origin);
 		Rectangle(std::istream & is);
 		~Rectangle();
@@ -27,18 +27,18 @@ class Rectangle<WindowT, ColorT> : public Shape<WindowT, ColorT> {
 };
 
 template <typename WindowT, typename ColorT>
-Rectangle<WindowT, ColorT>::Rectangle(uint _x, uint _y, ColorT _color, uint _width, uint _height)
+Rectangle<WindowT, ColorT>::Rectangle(uint _x, uint _y, uint _width, uint _height, ColorT _color)
 :Shape<WindowT, ColorT>(_x, _y, _color), width(_width), height(_height) {
 }
 
 template <typename WindowT, typename ColorT>
-Rectangle<WindowT, ColorT>::Rectangle(Point * _anchor, ColorT _color, uint _width, uint _height)
+Rectangle<WindowT, ColorT>::Rectangle(Point * _anchor, uint _width, uint _height, ColorT _color)
 :Shape<WindowT, ColorT>(_anchor, _color), width(_width), height(_height)
 { }
 
 template <typename WindowT, typename ColorT>
 Rectangle<WindowT, ColorT>::Rectangle(const Rectangle<WindowT, ColorT> & _origin)
-:Rectangle<WindowT, ColorT>(_origin.getAnchor()->getX(), _origin.getAnchor()->getY(), _origin.getColor(), _origin.getWidth(), _origin.getHeight())
+:Rectangle<WindowT, ColorT>(_origin.getAnchor()->getX(), _origin.getAnchor()->getY(), _origin.getWidth(), _origin.getHeight(), _origin.getColor())
 { }
 
 template <typename WindowT, typename ColorT>

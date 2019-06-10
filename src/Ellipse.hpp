@@ -10,8 +10,8 @@ class Ellipse<WindowT, ColorT> : public Shape<WindowT, ColorT> {
 		uint width, height;
 
 	public:
-		Ellipse(uint _x, uint _y, ColorT _color, uint _width, uint _height);
-		Ellipse(Point * _anchor, ColorT _color, uint _width, uint _height);
+		Ellipse(uint _x, uint _y, uint _width, uint _height, ColorT _color);
+		Ellipse(Point * _anchor, uint _width, uint _height, ColorT _color);
 		Ellipse(const Ellipse<WindowT, ColorT> & _origin);
 		Ellipse(std::istream & is);
 		~Ellipse();
@@ -27,18 +27,18 @@ class Ellipse<WindowT, ColorT> : public Shape<WindowT, ColorT> {
 };
 
 template <typename WindowT, typename ColorT>
-Ellipse<WindowT, ColorT>::Ellipse(uint _x, uint _y, ColorT _color, uint _width, uint _height)
+Ellipse<WindowT, ColorT>::Ellipse(uint _x, uint _y, uint _width, uint _height, ColorT _color)
 :Shape<WindowT, ColorT>(_x, _y, _color), width(_width), height(_height)
 { }
 
 template <typename WindowT, typename ColorT>
-Ellipse<WindowT, ColorT>::Ellipse(Point * _anchor, ColorT _color, uint _width, uint _height)
+Ellipse<WindowT, ColorT>::Ellipse(Point * _anchor, uint _width, uint _height, ColorT _color)
 :Shape<WindowT, ColorT>(_anchor, _color), width(_width), height(_height)
 { }
 
 template <typename WindowT, typename ColorT>
 Ellipse<WindowT, ColorT>::Ellipse(const Ellipse<WindowT, ColorT> & _origin)
-:Shape<WindowT, ColorT>(_origin->getAnchor()->getX(), _origin->getAnchor()->getY(), _origin->getColor()), width(_origin->getWidth()), height(_origin->getHeight())
+:Shape<WindowT, ColorT>(_origin->getAnchor()->getX(), _origin->getAnchor()->getY(), width(_origin->getWidth()), height(_origin->getHeight(), _origin->getColor()),)
 { }
 
 template <typename WindowT, typename ColorT>

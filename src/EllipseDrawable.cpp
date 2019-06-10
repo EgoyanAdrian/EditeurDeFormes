@@ -1,7 +1,19 @@
 #include "EllipseDrawable.hpp"
 
-EllipseDrawable::EllipseDrawable(uint _x, uint _y, sf::Color _color, uint _width, uint _height)
-:Ellipse(_x, _y, _color, _width, _height)
+EllipseDrawable::EllipseDrawable(uint _x, uint _y, uint _width, uint _height, sf::Color _color)
+:Ellipse<sf::RenderWindow, sf::Color>(_x, _y, _width, _height, _color)
+{ }
+
+EllipseDrawable::EllipseDrawable(Point * _anchor, uint _width, uint _height, sf::Color _color)
+:Ellipse<sf::RenderWindow, sf::Color>(_anchor, _width, _height, _color)
+{ }
+
+EllipseDrawable::EllipseDrawable(const EllipseDrawable & _origin)
+:Ellipse<sf::RenderWindow, sf::Color>(_origin)
+{ }
+
+EllipseDrawable::EllipseDrawable(std::istream & is)
+:Ellipse<sf::RenderWindow, sf::Color>(is)
 { }
 
 EllipseDrawable::~EllipseDrawable()

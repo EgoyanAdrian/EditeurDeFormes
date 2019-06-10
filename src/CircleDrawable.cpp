@@ -1,7 +1,19 @@
 #include "CircleDrawable.hpp"
 
-CircleDrawable::CircleDrawable(uint _x, uint _y, sf::Color _color, uint _radius)
-:Circle<sf::RenderWindow, sf::Color>(_x, _y, _color, _radius)
+CircleDrawable::CircleDrawable(uint _x, uint _y, uint _radius, sf::Color _color)
+:Circle<sf::RenderWindow, sf::Color>(_x, _y, _radius, _color)
+{ }
+
+CircleDrawable::CircleDrawable(Point * _anchor, uint _radius, sf::Color _color)
+:Circle<sf::RenderWindow, sf::Color>(_anchor, _radius, _color)
+{ }
+
+CircleDrawable::CircleDrawable(const CircleDrawable & _origin)
+:Circle<sf::RenderWindow, sf::Color>(_origin)
+{ }
+
+CircleDrawable::CircleDDrawable(std::istream & is)
+:Circle<sf::RenderWindow, sf::Color>(is)
 { }
 
 CircleDrawable::~CircleDrawable()

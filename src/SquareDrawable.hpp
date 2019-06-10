@@ -6,7 +6,10 @@
 
 class SquareDrawable : public Square<sf::RenderWindow, sf::Color> {
 	public:
-		SquareDrawable(uint _x, uint _y, sf::Color _color, uint _side);
+		SquareDrawable(uint _x, uint _y, uint _side, sf::Color _color);
+		SquareDrawable(Point * _anchor, uint _side, sf::Color _color);
+		SquareDrawable(const SquareDrawable & _origin);
+		SquareDrawable(std::istream & is);
 		~SquareDrawable();
 
 		void draw(sf::RenderWindow & window, bool isActive) const override;

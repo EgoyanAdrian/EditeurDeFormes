@@ -191,7 +191,7 @@ void Info(sf::Font &Font,CircleDrawable *CD,uint sizeecran,sf::RenderWindow &w){
 }
 void Info(sf::Font &Font,TriangleDrawable *TD,uint sizeecran,sf::RenderWindow &w){
 	//ajustement de l'écran
-	RectangleDrawable ecranmenInfo(sizeecran-200,160,sf::Color(192,192,192),200,150);
+	RectangleDrawable ecranmenInfo(sizeecran-200,160,200,150,sf::Color(192,192,192));
 	ecranmenInfo.draw(w,false);
 
 	//affiche le titre "Info Cercle"
@@ -284,7 +284,7 @@ void Info(sf::Font &Font,TriangleDrawable *TD,uint sizeecran,sf::RenderWindow &w
 
 		
 void afficheMenuInfo(sf::Font &Font,Shape<sf::RenderWindow, sf::Color>  *forme, uint sizeecran,sf::RenderWindow &w){
-	RectangleDrawable ecranmenInfo(sizeecran-200,31,sf::Color(192,192,192),200,150);
+	RectangleDrawable ecranmenInfo(sizeecran-200,31,200,150,sf::Color(192,192,192));
 	ecranmenInfo.draw(w,false);
 	
 	//permet de savoir le type de shape

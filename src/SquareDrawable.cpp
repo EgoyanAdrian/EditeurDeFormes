@@ -1,7 +1,19 @@
 #include "SquareDrawable.hpp"
 
-SquareDrawable::SquareDrawable(uint _x, uint _y, sf::Color _color, uint _side)
-:Square(_x, _y, _color, _side)
+SquareDrawable::SquareDrawable(uint _x, uint _y, uint _side, sf::Color _color)
+:Square<sf::RenderWindow, sf::Color>(_x, _y, _side, _color)
+{ }
+
+SquareDrawable::SquareDrawable(Point * _anchor, uint _side, sf::Color _color)
+:Square<sf::RenderWindow, sf::Color>(_anchor, _side, _color)
+{ }
+
+SquareDrawable::SquareDrawable(const SquareDrawable & _origin)
+:Square<sf::RenderWindow, sf::Color>(_origin)
+{ }
+
+SquareDrawable::SquareDrawable(std::istream & is)
+:Square<sf::RenderWindow, sf::Color>(is)
 { }
 
 SquareDrawable::~SquareDrawable()

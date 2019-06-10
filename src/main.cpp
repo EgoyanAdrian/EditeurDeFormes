@@ -94,19 +94,19 @@ int main() {
 						break;
 					case sf::Keyboard::R:
 							j = j + 10;
-							gestShape.add(new RectangleDrawable(j, 280, sf::Color::Black, 10, 20));
+							gestShape.add(new RectangleDrawable(j, 280, 10, 20, sf::Color::Black));
 						break;
 					case sf::Keyboard::S:
 							j = j + 10;
-							gestShape.add(new SquareDrawable(j, 260, sf::Color::Yellow, 10));
+							gestShape.add(new SquareDrawable(j, 260, 10, sf::Color::Yellow));
 						break;
 					case sf::Keyboard::C:
 							j = j + 10;
-							gestShape.add(new CircleDrawable(j, 220, sf::Color::Green, 5));
+							gestShape.add(new CircleDrawable(j, 220, 5, sf::Color::Green));
 						break;
 					case sf::Keyboard::E:
 							j = j + 10;
-							gestShape.add(new EllipseDrawable(j, 240, sf::Color::Black, 10, 5));
+							gestShape.add(new EllipseDrawable(j, 240, 10, 5, sf::Color::Black));
 						break;
 					case sf::Keyboard::T:
 							j = j + 10;
@@ -116,7 +116,7 @@ int main() {
 							gestPoint.add(pointA);
 							gestPoint.add(pointB);
 							gestPoint.add(pointC);
-							gestShape.add(new TriangleDrawable(pointA, sf::Color::Green, pointB, pointC));
+							gestShape.add(new TriangleDrawable(pointA, pointB, pointC, sf::Color::Green));
 						break;
 					case sf::Keyboard::F:
 							if(shapeSelect != nullptr) {
@@ -159,8 +159,8 @@ int main() {
 
 		gestShape.draw(window, X, Y);//coordonne de la a souris X en x et Y en y
 		gestPoint.draw(window, X, Y);
-		menuOutils(event,X,Y,isPushLeft,window,gestPoint,gestShape,font);
-		Menu(screenSize,screenSize,X,Y,isPushLeft,window);//permet la creation du menu
+		menuOutils(event, X, Y, isPushLeft, window, gestPoint, gestShape, font);
+		Menu(screenSize, screenSize, X, Y, isPushLeft, window);//permet la creation du menu
 		window.display();
 	}
 

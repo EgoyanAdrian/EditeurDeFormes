@@ -4,14 +4,14 @@ menuOutils::menuOutils(sf::Event &e,uint mouse_x, uint mouse_y,bool isPush,sf::R
 	uint x=150,y=160,i=0,j=0;
 	
 	//creation des rectangles du Menu
-	tabMenuOutil.add(new RectangleDrawable(x, y,sf::Color(192,192,192), 110, 82+46*5));//rectangle global des option du menu
-	tabMenuOutil.add(new RectangleDrawable(x+5, y+5,sf::Color::Yellow, 100, 31));//premier rectangle creation d'un rectangle
-	tabMenuOutil.add(new RectangleDrawable(x+5, y+46,sf::Color::Yellow, 100, 31));//46 car 5 car meme niveau que le rectangle 1 +31 pour la hauteur du rectangle 1 +10 d'espace enter le deux rectangle
-	tabMenuOutil.add(new RectangleDrawable(x+5, y+46*2,sf::Color::Yellow,100,31));//option cercle
-	tabMenuOutil.add(new RectangleDrawable(x+5,y+46*3,sf::Color::Yellow,100,31));//option Ellipse
-	tabMenuOutil.add(new RectangleDrawable(x+5,y+46*4,sf::Color::Yellow,100,31));//option Triangle
-	tabMenuOutil.add(new RectangleDrawable(x+5,y+46*5,sf::Color::Yellow,100,31));//option Polynome
-	tabMenuOutil.add(new RectangleDrawable(x+5,y+46*6,sf::Color::Yellow,100,31));//option Calque
+	tabMenuOutil.add(new RectangleDrawable(x, y, 110, 82+46*5, sf::Color(192,192,192)));//rectangle global des option du menu
+	tabMenuOutil.add(new RectangleDrawable(x+5, y+5, 100, 31, sf::Color::Yellow));//premier rectangle creation d'un rectangle
+	tabMenuOutil.add(new RectangleDrawable(x+5, y+46, 100, 31, sf::Color::Yellow));//46 car 5 car meme niveau que le rectangle 1 +31 pour la hauteur du rectangle 1 +10 d'espace enter le deux rectangle
+	tabMenuOutil.add(new RectangleDrawable(x+5, y+46*2, 100, 31, sf::Color::Yellow));//option cercle
+	tabMenuOutil.add(new RectangleDrawable(x+5,y+46*3, 100, 31, sf::Color::Yellow));//option Ellipse
+	tabMenuOutil.add(new RectangleDrawable(x+5,y+46*4, 100, 31, sf::Color::Yellow));//option Triangle
+	tabMenuOutil.add(new RectangleDrawable(x+5,y+46*5, 100, 31, sf::Color::Yellow));//option Polynome
+	tabMenuOutil.add(new RectangleDrawable(x+5,y+46*6, 100, 31, sf::Color::Yellow));//option Calque
 	
 	//creation tu texte du Menu
 
@@ -51,19 +51,19 @@ menuOutils::menuOutils(sf::Event &e,uint mouse_x, uint mouse_y,bool isPush,sf::R
 		//~ std::cout<<CoorRectangle.getString()<<std::endl;
 	
 		nbrectangle += 10;
-		SD.add(new RectangleDrawable(nbrectangle, 40, sf::Color::Black, 10, 20));
+		SD.add(new RectangleDrawable(nbrectangle, 40, 10, 20, sf::Color::Black));
 	}
 	if(tabMenuOutil.browse(2)->isOver(mouse_x,mouse_y)&&isPush){//bouton pour faire un carre
 		j = j + 10;
-		SD.add(new SquareDrawable(j, 260, sf::Color::Yellow, 10));
+		SD.add(new SquareDrawable(j, 260, 10, sf::Color::Yellow));
 	}
 	if(tabMenuOutil.browse(3)->isOver(mouse_x,mouse_y)&&isPush){//bouton pour faire un cercle
 		j = j + 10;
-		SD.add(new CircleDrawable(j, 220, sf::Color::Green, 5));
+		SD.add(new CircleDrawable(j, 220, 5, sf::Color::Green));
 	}
 	if(tabMenuOutil.browse(4)->isOver(mouse_x,mouse_y)&&isPush){//bouton pour faire uune Ellipse
 		j = j + 10;
-		SD.add(new EllipseDrawable(j, 240, sf::Color::Black, 10, 5));
+		SD.add(new EllipseDrawable(j, 240, 10, 5, sf::Color::Black));
 	}
 	if(tabMenuOutil.browse(5)->isOver(mouse_x,mouse_y)&&isPush){//bouton pour faire un triangle
 		j = j + 10;
@@ -73,7 +73,7 @@ menuOutils::menuOutils(sf::Event &e,uint mouse_x, uint mouse_y,bool isPush,sf::R
 		PointsD.add(pointA);
 		PointsD.add(pointB);
 		PointsD.add(pointC);
-		SD.add(new TriangleDrawable(pointA, sf::Color::Green, pointB, pointC));
+		SD.add(new TriangleDrawable(pointA, pointB, pointC, sf::Color::Green));
 	}
 	//dessin des rectangles
 	tabMenuOutil.draw(w,-200,-200);

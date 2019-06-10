@@ -10,8 +10,8 @@ class Square<WindowT, ColorT> : public Shape<WindowT, ColorT> {
 		uint side;
 
 	public:
-		Square(uint _x, uint _y, ColorT _color, uint _side);
-		Square(Point * _anchor, ColorT _color, uint _side);
+		Square(uint _x, uint _y, uint _side, ColorT _color);
+		Square(Point * _anchor, uint _side, ColorT _color);
 		Square(const Square<WindowT, ColorT> & _origin);
 		Square(std::istream & is);
 		~Square();
@@ -24,18 +24,18 @@ class Square<WindowT, ColorT> : public Shape<WindowT, ColorT> {
 };
 
 template <typename WindowT, typename ColorT>
-Square<WindowT, ColorT>::Square(uint _x, uint _y, ColorT _color, uint _side)
+Square<WindowT, ColorT>::Square(uint _x, uint _y, uint _side, ColorT _color)
 :Shape<WindowT, ColorT>(_x, _y, _color), side(_side)
 { }
 
 template <typename WindowT, typename ColorT>
-Square<WindowT, ColorT>::Square(Point * _anchor, ColorT _color, uint _side)
-:Shape<WindowT, ColorT>(_anchor), side(_side)
+Square<WindowT, ColorT>::Square(Point * _anchor, uint _side, ColorT _color)
+:Shape<WindowT, ColorT>(_anchor, _color), side(_side)
 { }
 
 template <typename WindowT, typename ColorT>
 Square<WindowT, ColorT>::Square(const Square<WindowT, ColorT> & _origin)
-:Square<WindowT, ColorT>(_origin->getAnchor()->getX(), _origin->getAnchor()->getY(), _origin.getColor(), _origin.getSide())
+:Square<WindowT, ColorT>(_origin->getAnchor()->getX(), _origin->getAnchor()->getY(), _origin.getSide(), _origin.getColor())
 { }
 
 template <typename WindowT, typename ColorT>

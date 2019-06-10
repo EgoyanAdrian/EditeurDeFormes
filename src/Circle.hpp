@@ -10,8 +10,8 @@ class Circle<WindowT, ColorT> : public Shape<WindowT, ColorT> {
 		uint radius;
 
 	public:
-		Circle(uint _x, uint _y, ColorT _color, uint _radius);
-		Circle(Point * _anchor, ColorT _color, uint _radius);
+		Circle(uint _x, uint _y, uint _radius, ColorT _color);
+		Circle(Point * _anchor, uint _radius, ColorT _color);
 		Circle(const Circle<WindowT, ColorT> & _origin);
 		Circle(std::istream & is);
 		~Circle();
@@ -24,18 +24,18 @@ class Circle<WindowT, ColorT> : public Shape<WindowT, ColorT> {
 };
 
 template <typename WindowT, typename ColorT>
-Circle<WindowT, ColorT>::Circle(uint _x, uint _y, ColorT _color, uint _radius)
+Circle<WindowT, ColorT>::Circle(uint _x, uint _y, uint _radius, ColorT _color)
 :Shape<WindowT, ColorT>(_x, _y, _color), radius(_radius) 
 { }
 
 template <typename WindowT, typename ColorT>
-Circle<WindowT, ColorT>::Circle(Point * _anchor, ColorT _color, uint _radius)
+Circle<WindowT, ColorT>::Circle(Point * _anchor, uint _radius, ColorT _color)
 :Shape<WindowT, ColorT>(_anchor, _color), radius(_radius)
 { }
 
 template <typename WindowT, typename ColorT>
 Circle<WindowT, ColorT>::Circle(const Circle<WindowT, ColorT> & _origin)
-:Circle<WindowT, ColorT>(_origin.getAnchor()->getX(), _origin.getAnchor()->getY(), _origin.getColor(), _origin.getRadius())
+:Circle<WindowT, ColorT>(_origin.getAnchor()->getX(), _origin.getAnchor()->getY(), _origin.getRadius(), _origin.getColor())
 { }
 
 template <typename WindowT, typename ColorT>

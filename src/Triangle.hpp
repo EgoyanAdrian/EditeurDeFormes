@@ -48,8 +48,10 @@ Triangle<WindowT, ColorT>::Triangle(const Triangle<WindowT, ColorT> & _origin)
 
 template <typename WindowT, typename ColorT>
 Triangle<WindowT, ColorT>::Triangle(std::istream & is)
-:Shape<WindowT, ColorT>(is), anchor1(is), anchor2(is)
-{ }
+:Shape<WindowT, ColorT>(is) {
+	anchor1 = new Point(is);
+	anchor2 = new Point(is);
+}
 
 template <typename WindowT, typename ColorT>
 Triangle<WindowT, ColorT>::~Triangle()

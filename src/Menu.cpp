@@ -21,12 +21,12 @@ if (!font.loadFromFile("font.ttf"))
 //
 
 //creation de la barre des taches
-menu.add(new RectangleDrawable(0, 0,sf::Color(192,192,192), sizeEcranX, 31));
+menu.add(new RectangleDrawable(0, 0,sizeEcranX,31,sf::Color(192,192,192)));
 
 //creation des icone du menu
-menu.add(new RectangleDrawable(0, 0,sf::Color(192,192,192), 100, 31));//menuFichier
-menu.add(new RectangleDrawable(100, 0,sf::Color(192,192,192), 100, 31));//menuEdition
-menu.add(new RectangleDrawable(200, 0,sf::Color(192,192,192), 100, 31));//menuHelp
+menu.add(new RectangleDrawable(0, 0, 100, 31,sf::Color(192,192,192)));//menuFichier
+menu.add(new RectangleDrawable(100, 0, 100, 31,sf::Color(192,192,192)));//menuEdition
+menu.add(new RectangleDrawable(200, 0, 100, 31,sf::Color(192,192,192)));//menuHelp
 menu.draw(w,-200,-200);
 
 //definition des text
@@ -75,9 +75,9 @@ sf::Vertex line3[] =
 
 //rectangle
 
-sousmenuFichier.add(new RectangleDrawable(0, 31,sf::Color(192,192,192), 100, 31));//MenuFiOuvrir
-sousmenuFichier.add(new RectangleDrawable(0, 31*2,sf::Color(192,192,192), 100, 31));//MenuFiEnregis
-sousmenuFichier.add(new RectangleDrawable(0, 31*3,sf::Color(192,192,192),100, 31));//MenuFiQuitter
+sousmenuFichier.add(new RectangleDrawable(0, 31, 100, 31, sf::Color(192,192,192)));//MenuFiOuvrir
+sousmenuFichier.add(new RectangleDrawable(0, 31*2, 100, 31, sf::Color(192,192,192)));//MenuFiEnregis
+sousmenuFichier.add(new RectangleDrawable(0, 31*3, 100, 31, sf::Color(192,192,192)));//MenuFiQuitter
 //~ Rectangle menuFiEnregis("Gris",0,31,sizeEcranX,100);
 //~ Rectangle menuFiOuvrir("Gris",0,31+sizeEcranX,sizeEcranX,100);
 //~ Rectangle menuFiQuitter("Gris",0,31+sizeEcranX*2,sizeEcranX,100);

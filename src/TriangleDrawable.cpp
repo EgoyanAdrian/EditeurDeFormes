@@ -4,6 +4,10 @@ TriangleDrawable::TriangleDrawable(uint _x, uint _y, sf::Color _color, uint _x1,
 :Triangle<sf::RenderWindow, sf::Color>(_x, _y, _color, _x1, _y1, _x2, _y2)
 { }
 
+TriangleDrawable::TriangleDrawable(Point * _anchor, sf::Color _color, Point * _anchor1, Point * _anchor2)
+:Triangle<sf::RenderWindow, sf::Color>(_anchor, _color, _anchor1, _anchor2)
+{ }
+
 TriangleDrawable::~TriangleDrawable()
 { }
 

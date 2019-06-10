@@ -38,7 +38,7 @@ Ellipse<WindowT, ColorT>::Ellipse(Point * _anchor, uint _width, uint _height, Co
 
 template <typename WindowT, typename ColorT>
 Ellipse<WindowT, ColorT>::Ellipse(const Ellipse<WindowT, ColorT> & _origin)
-:Shape<WindowT, ColorT>(_origin->getAnchor()->getX(), _origin->getAnchor()->getY(), width(_origin->getWidth()), height(_origin->getHeight(), _origin->getColor()),)
+:Shape<WindowT, ColorT>(_origin.getAnchor()->getX(), _origin->getAnchor()->getY(), width(_origin->getWidth()), height(_origin->getHeight(), _origin->getColor()),)
 { }
 
 template <typename WindowT, typename ColorT>

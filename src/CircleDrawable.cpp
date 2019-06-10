@@ -12,7 +12,7 @@ CircleDrawable::CircleDrawable(const CircleDrawable & _origin)
 :Circle<sf::RenderWindow, sf::Color>(_origin)
 { }
 
-CircleDrawable::CircleDDrawable(std::istream & is)
+CircleDrawable::CircleDrawable(std::istream & is)
 :Circle<sf::RenderWindow, sf::Color>(is)
 { }
 

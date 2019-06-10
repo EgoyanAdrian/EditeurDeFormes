@@ -17,11 +17,10 @@ int main() {
 	PointsDrawable gestPoint;
 	ShapesDrawable gestShape;
 
-	Point * pointSelect = nullptr;
+	Point * pointSelect = new Point(0, 0);
 	Shape<sf::RenderWindow, sf::Color> * shapeSelect = nullptr;
-		Shape<sf::RenderWindow,sf::Color> * lastShapeSelect=nullptr;
+	Shape<sf::RenderWindow,sf::Color> * lastShapeSelect = nullptr;
 	
-
 	sf::Font font;
 	if (!font.loadFromFile("font.ttf"))
 	{
@@ -145,13 +144,14 @@ int main() {
 				}
 			}
 		}
-		if(shapeSelect!=nullptr){
-			lastShapeSelect=(shapeSelect);
+
+		if(shapeSelect != nullptr) {
+			(*lastShapeSelect) = (*shapeSelect);
 			afficheMenuInfo(font,shapeSelect,screenSize,window);
-		}
-		if(lastShapeSelect!=nullptr){
+		} else if(lastShapeSelect!=nullptr) {
 			afficheMenuInfo(font,lastShapeSelect,screenSize,window);
-			}
+		}
+
 		gestShape.draw(window, X, Y);//coordonne de la a souris X en x et Y en y
 		gestPoint.draw(window, X, Y);
 		menuOutils(event,X,Y,isPushLeft,window,gestPoint,gestShape,font);

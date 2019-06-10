@@ -12,7 +12,7 @@ class Triangle<WindowT, ColorT> : public Shape<WindowT, ColorT> {
 
 	public:
 		Triangle(uint _x, uint _y, uint _x1, uint _y1, uint _x2, uint _y2, ColorT _color);
-		Triangle(Point * _anchor, ColorT _color, Point * _anchor1, Point * _anchor2, ColorT _color);
+		Triangle(Point * _anchor, Point * _anchor1, Point * _anchor2, ColorT _color);
 		Triangle(const Triangle<WindowT, ColorT> & _origin);
 		Triangle(std::istream & is);
 		~Triangle();
@@ -43,7 +43,7 @@ Triangle<WindowT, ColorT>::Triangle(Point * _anchor, Point * _anchor1, Point * _
 
 template <typename WindowT, typename ColorT>
 Triangle<WindowT, ColorT>::Triangle(const Triangle<WindowT, ColorT> & _origin)
-:Triangle<WindowT, ColorT>(_origin->getAnchor(), _origin.getAnchor1(), _origin.getAnchor2(), _origin->getColor())
+:Triangle<WindowT, ColorT>(_origin.getAnchor(), _origin.getAnchor1(), _origin.getAnchor2(), _origin.getColor())
 { }
 
 template <typename WindowT, typename ColorT>

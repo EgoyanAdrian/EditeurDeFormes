@@ -35,7 +35,7 @@ Square<WindowT, ColorT>::Square(Point * _anchor, uint _side, ColorT _color)
 
 template <typename WindowT, typename ColorT>
 Square<WindowT, ColorT>::Square(const Square<WindowT, ColorT> & _origin)
-:Square<WindowT, ColorT>(_origin->getAnchor()->getX(), _origin->getAnchor()->getY(), _origin.getSide(), _origin.getColor())
+:Square<WindowT, ColorT>(_origin.getAnchor()->getX(), _origin.getAnchor()->getY(), _origin.getSide(), _origin.getColor())
 { }
 
 template <typename WindowT, typename ColorT>

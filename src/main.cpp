@@ -6,6 +6,7 @@
 #include "CircleDrawable.hpp"
 #include "EllipseDrawable.hpp"
 #include "TriangleDrawable.hpp"
+#include "menuInfo.hpp"
 #include "Menu.hpp"
 
 
@@ -17,6 +18,7 @@ int main() {
 
 	Point * pointSelect = nullptr;
 	Shape<sf::RenderWindow, sf::Color> * shapeSelect = nullptr;
+		Shape<sf::RenderWindow,sf::Color> * lastShapeSelect=nullptr;
 	
 
 
@@ -137,7 +139,15 @@ int main() {
 				}
 			}
 		}
-
+		//~ if(shapeSelect!=nullptr){
+			//~ if(typeid(shapeSelect) == typeid(Rectangle<sf::RenderWindow, sf::Color>)){
+				//~ lastShapeSelect=(shapeSelect);
+				//~ afficheMenuInfo(font,shapeSelect,screenSize,window);
+			//~ }
+		//~ }
+		//~ if(lastShapeSelect!=nullptr){
+					//~ afficheMenuInfo(font,shapeSelect,screenSize,window);
+			//~ }
 		gestShape.draw(window, X, Y);//coordonne de la a souris X en x et Y en y
 		gestPoint.draw(window, X, Y);
 		menuOutils(event,X,Y,isPushLeft,window,gestPoint,gestShape);

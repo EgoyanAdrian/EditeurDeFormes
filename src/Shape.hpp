@@ -52,7 +52,7 @@ Shape<WindowT, ColorT>::Shape(Point * _anchor, ColorT _color)
 
 template <typename WindowT, typename ColorT>
 Shape<WindowT, ColorT>::Shape(const Shape<WindowT, ColorT> & _origin)
-:Shape(_origin.getAnchor()->getX(), _origin.getAnchor().getY(), _origin.getColor())
+:Shape(_origin.getAnchor()->getX(), _origin->getAnchor().getY(), _origin.getColor())
 { }
 
 template <typename WindowT, typename ColorT>

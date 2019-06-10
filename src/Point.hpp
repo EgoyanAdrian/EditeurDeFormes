@@ -6,7 +6,7 @@
 typedef unsigned int uint;
 
 class Point {
-		static const uint radius = 6;
+		static const uint radius = 3;
 		uint x, y;
 		bool selected = false;
 
@@ -30,7 +30,7 @@ class Point {
 		inline void setSelected(bool _selected) { selected = _selected;}
 
 	// Other Methods
-		inline bool isOver(uint _x, uint _y) const { return (((_x - (x + radius))*(_x - (x + radius)) + (_y - (y + radius))*(_y - (y + radius)))<= (radius * radius));}
+		inline bool isOver(uint _x, uint _y) const { return (((_x - x)*(_x - x) + (_y - y)*(_y - y))<= (radius * radius));}
 };
 
 #endif

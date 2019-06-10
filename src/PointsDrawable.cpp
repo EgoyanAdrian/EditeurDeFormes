@@ -11,7 +11,7 @@ void PointsDrawable::draw(sf::RenderWindow & window, uint _mX, uint _mY) const {
 	sf::CircleShape circle;
 	for(uint i = 0; i < this->getNbPoints(); i++) {
 		circle.setRadius(this->browse(i)->getRadius());
-		circle.setPosition(this->browse(i)->getX(), this->browse(i)->getY());
+		circle.setPosition(this->browse(i)->getX() - circle.getRadius(), this->browse(i)->getY() - circle.getRadius());
 
 		if(this->browse(i)->getSelected())
 			circle.setFillColor(sf::Color::Red);

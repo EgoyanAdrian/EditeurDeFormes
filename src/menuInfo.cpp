@@ -190,6 +190,10 @@ void Info(sf::Font &Font,CircleDrawable *CD,uint sizeecran,sf::RenderWindow &w){
 	w.draw(vLar);
 }
 void Info(sf::Font &Font,TriangleDrawable *TD,uint sizeecran,sf::RenderWindow &w){
+	//ajustement de l'écran
+	RectangleDrawable ecranmenInfo(sizeecran-200,160,sf::Color(192,192,192),200,150);
+	ecranmenInfo.draw(w,false);
+
 	//affiche le titre "Info Cercle"
 	sf::Text Titre("Info Triangle",Font,22);
 	Titre.setPosition(sizeecran-180,33);
@@ -272,7 +276,7 @@ void Info(sf::Font &Font,TriangleDrawable *TD,uint sizeecran,sf::RenderWindow &w
 	vA3Y.setPosition(sizeecran-45,260);
 	vA3Y.setFillColor(sf::Color::Black);
 	w.draw(vA3Y);
-
+	
 }
 
 

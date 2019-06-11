@@ -305,7 +305,7 @@ textFichQuit.setFillColor(sf::Color::Black);
 		w.draw(creaCercleCtr);
 		w.draw(creaEllips);
 		w.draw(creaEllipsCtr);
-		w.draw(creaTriangle)
+		w.draw(creaTriangle);
 	
 		//si on click sur les bouton du sous menu
 		if(tabMenuOutil.browse(1)->isOver(mouse_x,mouse_y)&&isPush){

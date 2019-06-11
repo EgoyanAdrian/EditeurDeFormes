@@ -25,7 +25,7 @@ menu.add(new RectangleDrawable(0, 0,sizeEcranX,31,sf::Color(192,192,192)));
 
 //creation des icone du menu
 menu.add(new RectangleDrawable(0, 0, 100, 31,sf::Color(192,192,192)));//menuFichier
-menu.add(new RectangleDrawable(100, 0, 100, 31,sf::Color::Red/*(192,192,192)*/));//menuEdition
+menu.add(new RectangleDrawable(100, 0, 100, 31,sf::Color(192,192,192)));//menuEdition
 menu.add(new RectangleDrawable(200, 0, 100, 31,sf::Color(192,192,192)));//menuHelp
 menu.draw(w,-200,-200);
 
@@ -268,10 +268,8 @@ textFichQuit.setFillColor(sf::Color::Black);
 
 	if((menu.browse(2)->isOver(mouse_x,mouse_y))&&isPush){//permet de savoir si on click sur Edition
 		isOverEdition=true;
-		std::cout<<menu.browse(2)->isOver(mouse_x,mouse_y)<<std::endl;
 	}
 	
-	std::cout<<isOverEdition<<std::endl;
 	//permet de savoir si on n'est pas sur un bouton du sous menu
 	if(isOverEdition && (GR.isOver(mouse_x,mouse_y))) {
 		//ligne de soulignement
@@ -284,7 +282,6 @@ textFichQuit.setFillColor(sf::Color::Black);
 	}
 
 	if((isOverEdition==true)||(ssEdition==true)){
-		std::cout<<"boucle"<<std::endl;
 		//ligne de soulignement
 		w.draw(line1E, 2, sf::Lines);
 		w.draw(line2E, 2, sf::Lines);
@@ -306,22 +303,54 @@ textFichQuit.setFillColor(sf::Color::Black);
 		w.draw(creaEllips);
 		w.draw(creaEllipsCtr);
 		w.draw(creaTriangle);
+		w.draw(creaTriangleCtr);
 	
 		//si on click sur les bouton du sous menu
-		if(tabMenuOutil.browse(1)->isOver(mouse_x,mouse_y)&&isPush){
+		if(tabMenuOutil.browse(1)->isOver(mouse_x,mouse_y)){
+			creaRect.setFillColor(sf::Color::Blue);
+			creaRectCtr.setFillColor(sf::Color::Blue);
+			w.draw(creaRect);
+			w.draw(creaRectCtr);
+			if(isPush){
 
+			}
 		}
-		if(tabMenuOutil.browse(1)->isOver(mouse_x,mouse_y)&&isPush){
+		if(tabMenuOutil.browse(2)->isOver(mouse_x,mouse_y)&&isPush){
+			creaCarre.setFillColor(sf::Color::Blue);
+			creaCarreCtr.setFillColor(sf::Color::Blue);
+			w.draw(creaCarre);
+			w.draw(creaCarreCtr);
+			if(isPush){
+
+			}
+		}
+		if(tabMenuOutil.browse(3)->isOver(mouse_x,mouse_y)&&isPush){
+			creaCercle.setFillColor(sf::Color::Blue);
+			creaCercleCtr.setFillColor(sf::Color::Blue);
+			w.draw(creaCercle);
+			w.draw(creaCercleCtr);
+			if(isPush){
+
+			}
+		}
+		if(tabMenuOutil.browse(4)->isOver(mouse_x,mouse_y)&&isPush){
+			creaEllips.setFillColor(sf::Color::Blue);
+			creaEllipsCtr.setFillColor(sf::Color::Blue);
+			w.draw(creaEllips);
+			w.draw(creaEllipsCtr);
+			if(isPush){
+
+			}
 			
 		}
-		if(tabMenuOutil.browse(1)->isOver(mouse_x,mouse_y)&&isPush){
-			
-		}
-		if(tabMenuOutil.browse(1)->isOver(mouse_x,mouse_y)&&isPush){
-			
-		}
-		if(tabMenuOutil.browse(1)->isOver(mouse_x,mouse_y)&&isPush){
-			
+		if(tabMenuOutil.browse(5)->isOver(mouse_x,mouse_y)&&isPush){
+			creaTriangle.setFillColor(sf::Color::Blue);
+			creaTriangleCtr.setFillColor(sf::Color::Blue);
+			w.draw(creaTriangle);
+			w.draw(creaTriangleCtr);
+			if(isPush){
+
+			}
 		}
 
 

@@ -29,10 +29,32 @@ void TriangleDrawable::draw(sf::RenderWindow & window, bool isActive) const {
 	else
 		color = this->getColor();
 
-	sf::Vertex triangle[]={
+	sf::Vertex triangle[] = {
 		sf::Vertex(sf::Vector2f(this->getAnchor()->getX(), this->getAnchor()->getY()), color),
 		sf::Vertex(sf::Vector2f(this->getAnchor1()->getX(), this->getAnchor1()->getY()), color),
 		sf::Vertex(sf::Vector2f(this->getAnchor2()->getX(), this->getAnchor2()->getY()), color)
 	};
-	window.draw(triangle, 3, sf::TriangleStrip);
+
+	if(this->getFilled())
+		window.draw(triangle, 3, sf::TriangleStrip);
+	else if(!this->getFilled()) {
+		sf::Vertex line1[] = {
+			sf::Vertex(sf::Vector2f(this->getAnchor()->getX(), this->getAnchor()->getY()), color),
+			sf::Vertex(sf::Vector2f(this->getAnchor1()->getX(), this->getAnchor1()->getY()), color)
+		};
+
+		sf::Vertex line2[] = {
+			sf::Vertex(sf::Vector2f(this->getAnchor1()->getX(), this->getAnchor1()->getY()), color),
+			sf::Vertex(sf::Vector2f(this->getAnchor2()->getX(), this->getAnchor2()->getY()), color)
+		};
+
+		sf::Vertex line3[] = {
+			sf::Vertex(sf::Vector2f(this->getAnchor2()->getX(), this->getAnchor2()->getY()), color),
+			sf::Vertex(sf::Vector2f(this->getAnchor()->getX(), this->getAnchor()->getY()), color)
+		};
+
+		window.draw(line1, 2, sf::Lines);
+		window.draw(line2, 2, sf::Lines);
+		window.draw(line3, 2, sf::Lines);
+	}
 }

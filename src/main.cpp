@@ -13,6 +13,8 @@
 
 int main() {
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Editeur de Formes", sf::Style::Default);
+	sf::RenderWindow window2(sf::VideoMode(31, 100), "Outils", sf::Style::Default);
+
 	uint screenSize=1000;
 	PointsDrawable gestPoint;
 	ShapesDrawable gestShape;
@@ -31,6 +33,16 @@ int main() {
 	while(window.isOpen()) {
 		bool isPushLeft=false; //variable pour savoir si le bouton gauche de la souris et enfoncer)
 		window.clear(sf::Color::White);
+
+		/*while(window2.isOpen()) {
+			window2.clear(sf::Color::White);
+
+			sf::Event event2;
+			while(window2.pollEvent(event2)) {
+				if(event2.type == sf::Event::Closed)
+					window2.close();
+			}
+		}*/
 
 		sf::Event event;
 		while(window.pollEvent(event)) {

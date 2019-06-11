@@ -15,7 +15,7 @@ class Menu{
 		uint sizeEcranX;
 		uint sizeEcranY;
 		bool isOverFichier;
-		bool clickFich;
+		bool ssFich;
 		ShapesDrawable menu=ShapesDrawable(4);
 		ShapesDrawable sousmenuFichier=ShapesDrawable(3);
 	

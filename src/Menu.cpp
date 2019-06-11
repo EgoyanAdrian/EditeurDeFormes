@@ -24,15 +24,15 @@ if (!font.loadFromFile("font.ttf"))
 menu.add(new RectangleDrawable(0, 0,sizeEcranX,31,sf::Color(192,192,192)));
 
 //creation des icone du menu
-menu.add(new RectangleDrawable(0, 0, 100, 31,sf::Color(192,192,192)));//menuFichier
+menu.add(new RectangleDrawable(0, 0, 100, 31,sf::Color::Red));//menuFichier
 menu.add(new RectangleDrawable(100, 0, 100, 31,sf::Color(192,192,192)));//menuEdition
 menu.add(new RectangleDrawable(200, 0, 100, 31,sf::Color(192,192,192)));//menuHelp
 menu.draw(w,-200,-200);
 
 //definition des text
-sf::Text textFichier("Fichier",font,24);
-sf::Text textEdition("Edition",font,24);
-sf::Text textHelp("Help",font,24);
+sf::Text textFichier("Fichier",font,22);
+sf::Text textEdition("Edition",font,22);
+sf::Text textHelp("Aide",font,22);
 //~ //position des texts
 textFichier.setPosition(10,0);
 textEdition.setPosition(110,0);
@@ -43,10 +43,7 @@ textEdition.setFillColor(sf::Color::Black);
 textHelp.setFillColor(sf::Color::Black);
 
 //      Fonction pour dessiner
-//dessiner les boutons
-//dessiner(w,menuFichier,false,0,0,false);
-//dessiner(w,menuEdition,false,0,0,false);
-//dessiner(w,menuHelp,false,0,0,false);
+
 //ecrire les textes
 w.draw(textFichier);
 w.draw(textEdition);
@@ -83,9 +80,9 @@ sousmenuFichier.add(new RectangleDrawable(0, 31*3, 100, 31, sf::Color(192,192,19
 //~ Rectangle menuFiQuitter("Gris",0,31+sizeEcranX*2,sizeEcranX,100);
 
 //texte
-sf::Text textFichOuvrir("Ouvrir",font,20);
-sf::Text textFichEnrg("Enregistrer",font,20);
-sf::Text textFichQuit("Quitter",font,20);
+sf::Text textFichOuvrir("Ouvrir",font,17);
+sf::Text textFichEnrg("Enregistrer",font,17);
+sf::Text textFichQuit("Quitter",font,17);
 
 textFichOuvrir.setPosition(0,32);
 textFichEnrg.setPosition(0,31*2);
@@ -105,27 +102,26 @@ textFichQuit.setFillColor(sf::Color::Black);
  * 
  * 
  * */
+	
 	if((menu.browse(1)->isOver(mouse_y,mouse_y))&&isPush){//permet de savoir si on click sur Fichier
-		clickFich=true;
+		//clickFich=true;
 		isOverFichier=true;
 		std::cout<<"true"<<std::endl;
 	}
-
-	//permet de savoir si on s
-/*	if((menu.browse(1)->isOver(mouse_y,mouse_y)&&!(sousmenuFichier.browse(0)->isOver(mouse_x,mouse_y)&&!(sousmenuFichier.browse(1)->isOver(mouse_x,mouse_y)&&!(sousmenuFichier.browse(2)->isOver(mouse_x,mouse_y)))))){
-		isOverFichier=false;
-		//isOverFicMenuDeour=false;
-		std::cout<<"false"<<std::endl;
-	}*/
-	//					Fichier								Ouvrir														Enregistrer										Quitter
+//					Fichier								Ouvrir														Enregistrer										Quitter
 	
 	//permet de savoir si on n'est pas sur un bouton du sous menu
-	if((menu.browse(1)->isOver(mouse_y,mouse_y))==false && (sousmenuFichier.browse(0)->isOver(mouse_x,mouse_y)==false) && (sousmenuFichier.browse(1)->isOver(mouse_x,mouse_y)==false) && (sousmenuFichier.browse(2)->isOver(mouse_x,mouse_y)==false)){
+	if(isOverFichier && ((sousmenuFichier.browse(0)->isOver(mouse_x,mouse_y)) || (sousmenuFichier.browse(1)->isOver(mouse_x,mouse_y)) || (sousmenuFichier.browse(2)->isOver(mouse_x,mouse_y)))) {
 		//ligne de soulignement
-		isOverFichier=false;
+		ssFich=true;
 	}
 
-	if(isOverFichier){
+	if((!(menu.browse(1)->isOver(mouse_x,mouse_y))&&(sousmenuFichier.browse(0)->isOver(mouse_x,mouse_y)==false) && (sousmenuFichier.browse(1)->isOver(mouse_x,mouse_y)==false) && (sousmenuFichier.browse(2)->isOver(mouse_x,mouse_y)==false))&&isPush){
+		isOverFichier=false;
+		ssFich=false;
+	}
+
+	if(isOverFichier||ssFich){
 		w.draw(line1, 2, sf::Lines);
 		w.draw(line2, 2, sf::Lines);
 		w.draw(line3, 2, sf::Lines);
@@ -136,9 +132,6 @@ textFichQuit.setFillColor(sf::Color::Black);
 		//affiche les rectangles du menu deroulant
 		sousmenuFichier.draw(w,-200,-200);
 		
-		//~ dessiner(w,menuFiEnregis,false,0,0,false);
-		//~ dessiner(w,menuFiOuvrir,false,0,0,false);
-		//~ dessiner(w,menuFiQuitter,false,0,0,false);
 		//~ //afficher les text
 		w.draw(textFichEnrg);
 		w.draw(textFichOuvrir);

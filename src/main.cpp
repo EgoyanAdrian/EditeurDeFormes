@@ -186,9 +186,9 @@ int main() {
 
 		if(shapeSelect != nullptr) {
 			lastShapeSelect = shapeSelect;
-			afficheMenuInfo(font, shapeSelect, window.getSize().x, window);
+			afficheMenuInfo(font, shapeSelect, window.getSize().x,X,Y,isPushLeft, window);
 		}else if(lastShapeSelect != nullptr) {
-			afficheMenuInfo(font, lastShapeSelect, window.getSize().x, window);
+			afficheMenuInfo(font, lastShapeSelect, window.getSize().x,X,Y,isPushLeft, window);
 		}
 
 		Menu(window.getSize().x, window.getSize().y, X, Y, isPushLeft, window,gestPoint,gestShape,nbS);//permet la creation du menu

@@ -16,8 +16,9 @@ int main() {
 	sf::RenderWindow window2(sf::VideoMode(200, 400), "Outils", sf::Style::Default);
 
 	uint screenSize=1000;
-	PointsDrawable gestPoint;
-	ShapesDrawable gestShape;
+	PointsDrawable gestPoint[10];
+	ShapesDrawable gestShape[10];
+	uint nbS = 0;
 
 	Point * pointSelect = nullptr;
 	Shape<sf::RenderWindow, sf::Color> * shapeSelect = nullptr;
@@ -43,7 +44,7 @@ int main() {
 					window2.close();
 			}
 
-			menuOutils(event2, X, Y, isPushLeft, window2, gestPoint, gestShape, font);
+			menuOutils(event2, X, Y, isPushLeft, window2, gestPoint[nbS], gestShape[nbS], font);
 			window2.display();
 		}
 
@@ -72,8 +73,8 @@ int main() {
 			}
 
 			if(event.type == sf::Event::MouseButtonPressed) {
-				pointSelect = gestPoint.isOver(X, Y);
-				shapeSelect = gestShape.isOver(X, Y);
+				pointSelect = gestPoint[nbS].isOver(X, Y);
+				shapeSelect = gestShape[nbS].isOver(X, Y);
 
 				if(pointSelect != nullptr) {
 					pointSelect->setSelected(true);
@@ -105,33 +106,33 @@ int main() {
 				switch(event.key.code) {
 					case sf::Keyboard::P:
 					 		i = i + 10;
-							gestPoint.add(new Point(i, 200));
+							gestPoint[nbS].add(new Point(i, 200));
 						break;
 					case sf::Keyboard::R:
 							j = j + 10;
-							gestShape.add(new RectangleDrawable(j, 280, 10, 20, sf::Color::Black));
+							gestShape[nbS].add(new RectangleDrawable(j, 280, 10, 20, sf::Color::Black));
 						break;
 					case sf::Keyboard::S:
 							j = j + 10;
-							gestShape.add(new SquareDrawable(j, 260, 10, sf::Color::Yellow));
+							gestShape[nbS].add(new SquareDrawable(j, 260, 10, sf::Color::Yellow));
 						break;
 					case sf::Keyboard::C:
 							j = j + 10;
-							gestShape.add(new CircleDrawable(j, 220, 5, sf::Color::Green));
+							gestShape[nbS].add(new CircleDrawable(j, 220, 5, sf::Color::Green));
 						break;
 					case sf::Keyboard::E:
 							j = j + 10;
-							gestShape.add(new EllipseDrawable(j, 240, 10, 5, sf::Color::Black));
+							gestShape[nbS].add(new EllipseDrawable(j, 240, 10, 5, sf::Color::Black));
 						break;
 					case sf::Keyboard::T:
 							j = j + 10;
 							Point * pointA; pointA = new Point(j, 260);
 							Point * pointB; pointB = new Point(j + 20, 280);
 							Point * pointC; pointC = new Point(j - 5, 300);
-							gestPoint.add(pointA);
-							gestPoint.add(pointB);
-							gestPoint.add(pointC);
-							gestShape.add(new TriangleDrawable(pointA, pointB, pointC, sf::Color::Green));
+							gestPoint[nbS].add(pointA);
+							gestPoint[nbS].add(pointB);
+							gestPoint[nbS].add(pointC);
+							gestShape[nbS].add(new TriangleDrawable(pointA, pointB, pointC, sf::Color::Green));
 						break;
 					case sf::Keyboard::F:
 							if(shapeSelect != nullptr) {
@@ -150,13 +151,25 @@ int main() {
 						break;
 					case sf::Keyboard::Delete:
 							if(pointSelect != nullptr) {
-								gestPoint.remove();
+								gestPoint[nbS].remove();
 								pointSelect = nullptr;
 							}
 							if(shapeSelect != nullptr) {
-								gestShape.remove();
+								gestShape[nbS].remove();
 								shapeSelect = nullptr;
 								lastShapeSelect = nullptr;
+							}
+						break;
+					case sf::Keyboard::Z:
+							nbS++;
+						break;
+					case sf::Keyboard::X:
+							nbS--;
+						break;
+					case sf::Keyboard::A:
+							for(uint i = 0; i < 10; i++) {
+								gestShape[i].draw(window, X, Y);
+								gestPoint[i].draw(window, X, Y);
 							}
 						break;
 					default:
@@ -172,8 +185,8 @@ int main() {
 			afficheMenuInfo(font, lastShapeSelect, screenSize, window);
 		}
 
-		gestShape.draw(window, X, Y);//coordonne de la a souris X en x et Y en y
-		gestPoint.draw(window, X, Y);
+		gestShape[nbS].draw(window, X, Y);
+		gestPoint[nbS].draw(window, X, Y);		
 		Menu(screenSize, screenSize, X, Y, isPushLeft, window);//permet la creation du menu
 		window.display();
 	}

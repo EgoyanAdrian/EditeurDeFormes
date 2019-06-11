@@ -22,8 +22,6 @@ int main() {
 	Point * pointSelect = nullptr;
 	Shape<sf::RenderWindow, sf::Color> * shapeSelect = nullptr;
 	Shape<sf::RenderWindow,sf::Color> * lastShapeSelect = nullptr;
-
-	bool varibalPourMenu = false;
 	
 	sf::Font font;
 	if (!font.loadFromFile("font.ttf"))
@@ -176,7 +174,7 @@ int main() {
 
 		gestShape.draw(window, X, Y);//coordonne de la a souris X en x et Y en y
 		gestPoint.draw(window, X, Y);
-		Menu(screenSize, screenSize, X, Y, isPushLeft,varibalPourMenu, window);//permet la creation du menu
+		Menu(screenSize, screenSize, X, Y, isPushLeft, window);//permet la creation du menu
 		window.display();
 	}
 

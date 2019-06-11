@@ -24,7 +24,7 @@ if (!font.loadFromFile("font.ttf"))
 menu.add(new RectangleDrawable(0, 0,sizeEcranX,31,sf::Color(192,192,192)));
 
 //creation des icone du menu
-menu.add(new RectangleDrawable(0, 0, 100, 31,sf::Color::Red));//menuFichier
+menu.add(new RectangleDrawable(0, 0, 100, 31,sf::Color(192,192,192)));//menuFichier
 menu.add(new RectangleDrawable(100, 0, 100, 31,sf::Color(192,192,192)));//menuEdition
 menu.add(new RectangleDrawable(200, 0, 100, 31,sf::Color(192,192,192)));//menuHelp
 menu.draw(w,-200,-200);

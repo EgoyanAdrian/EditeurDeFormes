@@ -2,6 +2,17 @@
 
 menuOutils::menuOutils(sf::Event &e,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w,PointsDrawable &PointsD,ShapesDrawable &SD,sf::Font font ):nbrectangle(50){
 	uint x=0,y=0,j=0;
+
+/*
+
+
+
+		Creation du Menu pour construire les formes
+
+
+
+*/
+
 	//creation des rectangles du Menu
 	tabMenuOutil.add(new RectangleDrawable(x, y, 110, 82+46*5, sf::Color(192,192,192)));//rectangle global des option du menu
 	tabMenuOutil.add(new RectangleDrawable(x+5, y+5, 100, 31, sf::Color::Yellow));//premier rectangle creation d'un rectangle
@@ -89,22 +100,24 @@ menuOutils::menuOutils(sf::Event &e,uint mouse_x, uint mouse_y,bool isPush,sf::R
 		
 		//~ moveMenu(mouse_x,mouse_y,w);
 	//~ }
+
+/*
+
+
+
+			Creation du menu qui permet de modifer la taille des formes
+
+
+
+
+*/
+	
+
+
+
+
+
 }
 
 menuOutils::~menuOutils(){}
 
-void menuOutils::moveMenu(uint mouse_X,uint mouse_Y,sf::RenderWindow &w){
-	uint distX,distY,X,Y;
-	
-	distX=mouse_X-tabMenuOutil.browse(0)->getAnchor()->getX();//calcule de la distance entre l'ancre du rectangle principale et de la sourie
-	distY=mouse_Y-tabMenuOutil.browse(0)->getAnchor()->getY();
-	
-	X=mouse_X-distX;//nouvelle valeur pour X du rectangle principale
-	Y=mouse_Y-distY;//nouvelle valeur pour Y du rectangle principale
-	
-	//mise ajour des valeur des ancres des rectangles
-	tabMenuOutil.browse(0)->setAnchorXY(X,Y);
-	tabMenuOutil.browse(0)->setAnchorXY(X+5,Y+5);
-	tabMenuOutil.browse(0)->setAnchorXY(X+5,Y+46);
-	
-}

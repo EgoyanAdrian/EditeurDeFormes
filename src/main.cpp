@@ -15,9 +15,7 @@
 int main() {
 	sf::ContextSettings settings;
 	settings.antialiasingLevel = 8;
-
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Editeur de Formes", sf::Style::Default, settings);
-	sf::RenderWindow window2(sf::VideoMode(200, 400), "Outils", sf::Style::Default);
 
 	PointsDrawable gestPoint[10];
 	ShapesDrawable gestShape[10];
@@ -39,22 +37,6 @@ int main() {
 	while(window.isOpen()) {
 		bool isPushLeft=false; //variable pour savoir si le bouton gauche de la souris et enfoncer)
 		window.clear(sf::Color::White);
-
-		if(window2.isOpen()) {
-			window2.clear(sf::Color::White);
-
-			sf::Event event;
-			while(window2.pollEvent(event)) {
-				if(event.type == sf::Event::Closed)
-					window2.close();
-
-				if(event.type == sf::Event::Resized)
-					window2.setView(sf::View(sf::FloatRect(0, 0, event.size.width, event.size.height)));
-			}
-
-			menuOutils(event, X, Y, isPushLeft, window2, gestPoint[nbS], gestShape[nbS], font);
-			window2.display();
-		}
 
 		sf::Event event;
 		while(window.pollEvent(event)) {

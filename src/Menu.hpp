@@ -14,10 +14,12 @@
 class Menu{
 		uint sizeEcranX;
 		uint sizeEcranY;
-		bool isOverFichier;
-		bool ssFich;
+		bool isOverFichier,ssFich;
+		bool isOverEdition,ssEdition;
 		ShapesDrawable menu=ShapesDrawable(4);
 		ShapesDrawable sousmenuFichier=ShapesDrawable(3);
+		ShapesDrawable tabMenuOutil=ShapesDrawable(10);//sous Menu de Edition
+
 	
 	public:
 		Menu(uint _sizeX,uint _sizeY,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w);

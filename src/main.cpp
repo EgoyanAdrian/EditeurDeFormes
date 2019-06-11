@@ -191,7 +191,7 @@ int main() {
 			afficheMenuInfo(font, lastShapeSelect, window.getSize().x, window);
 		}
 
-		Menu(window.getSize().x, window.getSize().y, X, Y, isPushLeft, window);//permet la creation du menu
+		Menu(window.getSize().x, window.getSize().y, X, Y, isPushLeft, window,gestPoint,gestShape,nbS);//permet la creation du menu
 		window.display();
 	}
 

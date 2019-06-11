@@ -14,6 +14,7 @@
 class Menu{
 		uint sizeEcranX;
 		uint sizeEcranY;
+		uint j;
 		bool isOverFichier,ssFich;
 		bool isOverEdition,ssEdition;
 		ShapesDrawable menu=ShapesDrawable(4);
@@ -22,7 +23,7 @@ class Menu{
 
 	
 	public:
-		Menu(uint _sizeX,uint _sizeY,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w);
+		Menu(uint _sizeX,uint _sizeY,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w,PointsDrawable PointsD[],ShapesDrawable SD[],uint nbS);
 		Menu()=delete;
 		~Menu();
 

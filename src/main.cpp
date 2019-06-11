@@ -18,7 +18,6 @@ int main() {
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Editeur de Formes", sf::Style::Default, settings);
 	sf::RenderWindow window2(sf::VideoMode(200, 400), "Outils", sf::Style::Default);
 
-	uint screenSize=1000;
 	PointsDrawable gestPoint[10];
 	ShapesDrawable gestShape[10];
 	uint nbS = 0;
@@ -43,13 +42,16 @@ int main() {
 		if(window2.isOpen()) {
 			window2.clear(sf::Color::White);
 
-			sf::Event event2;
-			while(window2.pollEvent(event2)) {
-				if(event2.type == sf::Event::Closed)
+			sf::Event event;
+			while(window2.pollEvent(event)) {
+				if(event.type == sf::Event::Closed)
 					window2.close();
+
+				if(event.type == sf::Event::Resized)
+					window2.setView(sf::View(sf::FloatRect(0, 0, event.size.width, event.size.height)));
 			}
 
-			menuOutils(event2, X, Y, isPushLeft, window2, gestPoint[nbS], gestShape[nbS], font);
+			menuOutils(event, X, Y, isPushLeft, window2, gestPoint[nbS], gestShape[nbS], font);
 			window2.display();
 		}
 
@@ -57,6 +59,9 @@ int main() {
 		while(window.pollEvent(event)) {
 			if(event.type == sf::Event::Closed)
 				window.close();
+
+			if(event.type == sf::Event::Resized)
+				window.setView(sf::View(sf::FloatRect(0, 0, event.size.width, event.size.height)));
 
 			if(event.type == sf::Event::MouseMoved) {
 				X = event.mouseMove.x;//coordonner X de la sourie
@@ -182,9 +187,9 @@ int main() {
 
 		if(shapeSelect != nullptr) {
 			lastShapeSelect = shapeSelect;
-			afficheMenuInfo(font, shapeSelect, screenSize, window);
+			afficheMenuInfo(font, shapeSelect, window.getSize().x, window);
 		}else if(lastShapeSelect != nullptr) {
-			afficheMenuInfo(font, lastShapeSelect, screenSize, window);
+			afficheMenuInfo(font, lastShapeSelect, window.getSize().x, window);
 		}
 		
 		if(showLayer) {
@@ -197,7 +202,7 @@ int main() {
 			gestPoint[nbS].draw(window, X, Y);
 		}
 
-		Menu(screenSize, screenSize, X, Y, isPushLeft, window);//permet la creation du menu
+		Menu(window.getSize().x, window.getSize().y, X, Y, isPushLeft, window);//permet la creation du menu
 		window.display();
 	}
 

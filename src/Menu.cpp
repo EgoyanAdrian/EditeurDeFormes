@@ -3,11 +3,20 @@
 /*###################################################################
 				Construction (Barre des taches)
 ####################################################################*/
+std::string Menu::nbToStr(int nombre)//converti le sint en string
+{
+    std::ostringstream a;
+    a << nombre;
+    return a.str();
+}
 
-Menu::Menu(uint _sizeX,uint _sizeY ,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w,PointsDrawable PointsD[],ShapesDrawable SD[],uint nbS){
+
+Menu::Menu(uint _sizeX,uint _sizeY ,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w,PointsDrawable PointsD[],ShapesDrawable SD[],bool &showLayer,uint &nbS,uint &nbSMax,bool &isoverFichier,bool &isoverEdition){
 sizeEcranX=_sizeX;//coordnonne de la taille du Menu en x
 sizeEcranY=_sizeY;//	"							y
 sf::Font font;
+isOverFichier=isoverFichier;
+isOverEdition=isoverEdition;
 j=100;
 if (!font.loadFromFile("font.ttf"))
 {
@@ -34,14 +43,17 @@ menu.draw(w,-200,-200);
 sf::Text textFichier("Fichier",font,22);
 sf::Text textEdition("Edition",font,22);
 sf::Text textHelp("Aide",font,22);
+
 //~ //position des texts
 textFichier.setPosition(10,0);
 textEdition.setPosition(110,0);
 textHelp.setPosition(210,0);
+
 //~ //couleur du text
 textFichier.setFillColor(sf::Color::Black);
 textEdition.setFillColor(sf::Color::Black);
 textHelp.setFillColor(sf::Color::Black);
+
 
 //      Fonction pour dessiner
 
@@ -49,6 +61,92 @@ textHelp.setFillColor(sf::Color::Black);
 w.draw(textFichier);
 w.draw(textEdition);
 w.draw(textHelp);
+
+
+/*
+
+		Affichage des calques et gestion
+*/
+/*
+			MODIFI LES VALEURS DE LA FORME
+*/
+//affichage de tout les calques
+RectangleDrawable boutonT(sizeEcranX-380,1,70,26,sf::Color::Black);
+sf::Text TbTP("Tout",font,19);
+TbTP.setPosition(sizeEcranX-370,1);
+TbTP.setFillColor(sf::Color::Black);
+boutonT.setFilled(false);
+boutonT.draw(w,false);
+w.draw(TbTP);
+
+if(boutonT.isOver(mouse_x,mouse_y)){
+	TbTP.setFillColor(sf::Color::Blue);
+	if(isPush){
+		w.draw(TbTP);
+		showLayer = !showLayer;
+	}
+}
+
+
+SquareDrawable bouton1(sizeEcranX-60,3,20,sf::Color::Black);
+sf::Text Tb1P("+",font,20);
+Tb1P.setPosition(sizeEcranX-58,1);
+Tb1P.setFillColor(sf::Color::Black);
+bouton1.setFilled(false);
+bouton1.draw(w,false);
+w.draw(Tb1P);
+SquareDrawable bouton2(sizeEcranX-30,3,20,sf::Color::Black);
+sf::Text Tb2P("-",font,20);
+Tb2P.setPosition(sizeEcranX-25,1);
+Tb2P.setFillColor(sf::Color::Black);
+bouton2.setFilled(false);
+bouton2.draw(w,false);
+w.draw(Tb2P);
+
+
+if(bouton1.isOver(mouse_x,mouse_y)){
+	Tb1P.setFillColor(sf::Color::Blue);
+	w.draw(Tb1P);
+	if(isPush){
+		if(nbS < (nbSMax - 1)){
+			nbS++;
+			SD[nbS].draw(w, mouse_x,mouse_y);
+			PointsD[nbS].draw(w, mouse_x, mouse_y);
+		}
+		
+		
+	}
+}
+if(bouton2.isOver(mouse_x,mouse_y)){
+	Tb2P.setFillColor(sf::Color::Blue);
+	w.draw(Tb2P);
+	if(isPush){
+		if(nbS > 0){
+			nbS--;
+			SD[nbS].draw(w, mouse_x, mouse_y);
+			PointsD[nbS].draw(w, mouse_x, mouse_y);
+		}
+	}
+}
+
+/*
+	AFFICHE LES INFORMATION SUR LA FORME
+*/
+sf::Text textnbCalque("Numeros du calque:",font,19);
+sf::Text nbTCalque("Max",font,19);
+sf::Text nbCalque(nbToStr(nbS),font,21);
+textnbCalque.setPosition(sizeEcranX-300,0);
+nbCalque.setPosition(sizeEcranX-100,0);
+nbTCalque.setPosition(sizeEcranX-100,0);
+textnbCalque.setFillColor(sf::Color::Black);
+nbCalque.setFillColor(sf::Color::Black);
+nbTCalque.setFillColor(sf::Color::Black);
+w.draw(textnbCalque);
+if(nbS==9){
+	w.draw(nbTCalque);
+}
+else
+	w.draw(nbCalque);
 
 
 //					definition des rectangles du Menu deroulant
@@ -380,6 +478,8 @@ textFichQuit.setFillColor(sf::Color::Black);
 
 
 	}
+isoverFichier=isOverFichier;
+isoverEdition=isOverEdition;
 
 /*
  * 

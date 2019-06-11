@@ -3,7 +3,8 @@
 #define MENU_HPP
 
 #include <iostream>
-#include <fstream>  
+#include <fstream> 
+#include <sstream> 
 #include <SFML/Graphics.hpp>
 #include "PointsDrawable.hpp"
 #include "ShapesDrawable.hpp"
@@ -23,7 +24,7 @@ class Menu{
 
 	
 	public:
-		Menu(uint _sizeX,uint _sizeY,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w,PointsDrawable PointsD[],ShapesDrawable SD[],uint nbS);
+		Menu(uint _sizeX,uint _sizeY,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w,PointsDrawable PointsD[],ShapesDrawable SD[],bool &showLayer,uint &nbS,uint &nbSMax,bool &isoverFichier,bool &isoverEdition);
 		Menu()=delete;
 		~Menu();
 
@@ -40,5 +41,7 @@ class Menu{
 		
 		//fonction qui charge un fichier
 		//void ouvre(std::string monFichier);
+		std::string nbToStr(int nombre);//converti le sint en string
+
 };
 #endif

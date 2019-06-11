@@ -27,6 +27,9 @@ int main() {
 
 	bool showLayer = false;
 
+	bool isoverFichier=false;
+	bool isoverEdition=false;
+
 	Point * pointSelect = nullptr;
 	Shape<sf::RenderWindow, edf::Color> * shapeSelect = nullptr;
 	Shape<sf::RenderWindow, edf::Color> * lastShapeSelect = nullptr;
@@ -206,7 +209,7 @@ int main() {
 			afficheMenuInfo(font, lastShapeSelect, window.getSize().x,X,Y,isPushLeft, window);
 		}
 
-		Menu(window.getSize().x, window.getSize().y, X, Y, isPushLeft, window,gestPoint,gestShape,nbS);//permet la creation du menu
+		Menu(window.getSize().x, window.getSize().y, X, Y, isPushLeft, window,gestPoint,gestShape,showLayer,nbS,nbSMax,isoverFichier,isoverEdition);//permet la creation du menu
 		window.display();
 	}
 

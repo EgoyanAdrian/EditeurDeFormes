@@ -104,9 +104,7 @@ textFichQuit.setFillColor(sf::Color::Black);
  * */
 	
 	if((menu.browse(1)->isOver(mouse_y,mouse_y))&&isPush){//permet de savoir si on click sur Fichier
-		//clickFich=true;
 		isOverFichier=true;
-		std::cout<<"true"<<std::endl;
 	}
 //					Fichier								Ouvrir														Enregistrer										Quitter
 	
@@ -122,6 +120,7 @@ textFichQuit.setFillColor(sf::Color::Black);
 	}
 
 	if(isOverFichier||ssFich){
+		//ligne de soulignement
 		w.draw(line1, 2, sf::Lines);
 		w.draw(line2, 2, sf::Lines);
 		w.draw(line3, 2, sf::Lines);

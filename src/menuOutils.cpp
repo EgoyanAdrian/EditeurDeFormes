@@ -14,13 +14,13 @@ menuOutils::menuOutils(sf::Event &e,uint mouse_x, uint mouse_y,bool isPush,sf::R
 	
 	//creation tu texte du Menu
 
-	sf::Text creaRect("Rectangle",font,24);
-	sf::Text creaCarre("Carre",font,24);
-	sf::Text creaCercle("Cercle",font,24);
-	sf::Text creaEllips("Ellipse",font,24);
-	sf::Text creaTriangle("Triangle",font,24);
-	sf::Text creaPoly("Polygones",font,24);
-	sf::Text creaCalque("Calque",font,24);
+	sf::Text creaRect("Rectangle",font,19);
+	sf::Text creaCarre("Carre",font,20);
+	sf::Text creaCercle("Cercle",font,20);
+	sf::Text creaEllips("Ellipse",font,20);
+	sf::Text creaTriangle("Triangle",font,19);
+	sf::Text creaPoly("Polygones",font,19);
+	sf::Text creaCalque("Calque",font,20);
 	
 	//position du texte
 	creaRect.setPosition(x+7,y+7);

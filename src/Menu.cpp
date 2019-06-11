@@ -4,7 +4,7 @@
 				Construction (Barre des taches)
 ####################################################################*/
 
-Menu::Menu(uint _sizeX,uint _sizeY ,uint mouse_x, uint mouse_y,bool isOverFichier,bool isPush,sf::RenderWindow &w){
+Menu::Menu(uint _sizeX,uint _sizeY ,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w){
 sizeEcranX=_sizeX;//coordnonne de la taille du Menu en x
 sizeEcranY=_sizeY;//	"							y
 sf::Font font;
@@ -105,15 +105,28 @@ textFichQuit.setFillColor(sf::Color::Black);
  * 
  * 
  * */
-	if((menu.browse(1)->isOver(mouse_y,mouse_y))&&isPush)
+	if((menu.browse(1)->isOver(mouse_y,mouse_y))&&isPush){
 		isOverFichier=true;
+		std::cout<<"true"<<std::endl;
+	}
 
-	if(!(menu.browse(1)->isOver(mouse_y,mouse_y)&&!(sousmenuFichier.browse(0)->isOver(mouse_x,mouse_y)&&!(sousmenuFichier.browse(1)->isOver(mouse_x,mouse_y)&&!(sousmenuFichier.browse(2)->isOver(mouse_x,mouse_y))))))
+	if(!(menu.browse(1)->isOver(mouse_y,mouse_y)&&!(sousmenuFichier.browse(0)->isOver(mouse_x,mouse_y)&&!(sousmenuFichier.browse(1)->isOver(mouse_x,mouse_y)&&!(sousmenuFichier.browse(2)->isOver(mouse_x,mouse_y)))))){
 		isOverFichier=false;
-
+		//isOverFicMenuDeour=false;
+		std::cout<<"false"<<std::endl;
+	}
+	if((menu.browse(1)->isOver(mouse_y,mouse_y)&&(sousmenuFichier.browse(0)->isOver(mouse_x,mouse_y)&&(sousmenuFichier.browse(1)->isOver(mouse_x,mouse_y)&&!(sousmenuFichier.browse(2)->isOver(mouse_x,mouse_y)))))){
+		isOverFichier=false;
+		//isOverFicMenuDeour=false;
+		std::cout<<"false"<<std::endl;
+	}
 	//					Fichier								Ouvrir														Enregistrer										Quitter
-	if(isOverFichier&&(sousmenuFichier.browse(0)->isOver(mouse_x,mouse_y) || (sousmenuFichier.browse(1)->isOver(mouse_x,mouse_y)) || (sousmenuFichier.browse(2)->isOver(mouse_x,mouse_y)))){
+	if(isOverFichier&&(!(sousmenuFichier.browse(0)->isOver(mouse_x,mouse_y) || (sousmenuFichier.browse(1)->isOver(mouse_x,mouse_y)) || (sousmenuFichier.browse(2)->isOver(mouse_x,mouse_y))))){
 		//ligne de soulignement
+		isOverFicMenuDeour=true;
+	}
+
+	if(isOverFicMenuDeour&&isOverFichier){
 		w.draw(line1, 2, sf::Lines);
 		w.draw(line2, 2, sf::Lines);
 		w.draw(line3, 2, sf::Lines);

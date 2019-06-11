@@ -10,6 +10,7 @@
 
 class menuOutils{
 		ShapesDrawable tabMenuOutil=ShapesDrawable(10);
+		ShapesDrawable tabMenuModif=ShapesDrawable(10);
 		uint nbrectangle=0;
 		uint nbcarre;
 		uint nbcercle;

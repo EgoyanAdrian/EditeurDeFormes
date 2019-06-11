@@ -245,6 +245,8 @@ textFichQuit.setFillColor(sf::Color::Black);
 	creaCercleCtr.setFillColor(sf::Color::Black);
 	creaEllips.setFillColor(sf::Color::Black);
 	creaEllipsCtr.setFillColor(sf::Color::Black);
+	creaTriangle.setFillColor(sf::Color::Black);
+	creaTriangleCtr.setFillColor(sf::Color::Black);
 
 	//definition du soulignement bleu	
 	sf::Vertex line1E[] =
@@ -303,9 +305,24 @@ textFichQuit.setFillColor(sf::Color::Black);
 		w.draw(creaCercleCtr);
 		w.draw(creaEllips);
 		w.draw(creaEllipsCtr);
+		w.draw(creaTriangle)
 	
 		//si on click sur les bouton du sous menu
+		if(tabMenuOutil.browse(1)->isOver(mouse_x,mouse_y)&&isPush){
 
+		}
+		if(tabMenuOutil.browse(1)->isOver(mouse_x,mouse_y)&&isPush){
+			
+		}
+		if(tabMenuOutil.browse(1)->isOver(mouse_x,mouse_y)&&isPush){
+			
+		}
+		if(tabMenuOutil.browse(1)->isOver(mouse_x,mouse_y)&&isPush){
+			
+		}
+		if(tabMenuOutil.browse(1)->isOver(mouse_x,mouse_y)&&isPush){
+			
+		}
 
 
 

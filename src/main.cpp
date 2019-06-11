@@ -1,3 +1,5 @@
+#include <fstream>
+
 #include <SFML/Graphics.hpp>
 #include <typeinfo>
 #include "PointsDrawable.hpp"
@@ -13,6 +15,8 @@
 
 
 int main() {
+	std::ofstream saveF;
+	std::ifstream loadF;
 	sf::ContextSettings settings;
 	settings.antialiasingLevel = 8;
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Editeur de Formes", sf::Style::Default, settings);
@@ -168,6 +172,17 @@ int main() {
 					case sf::Keyboard::A:
 							showLayer = !showLayer;
 						break;
+					case sf::Keyboard::M:
+							saveF.open ("Points.save", std::ofstream::out | std::ofstream::trunc);
+							for (uint i = 0; i < nbSMax; i++)
+								gestPoint[i].save(saveF);
+							saveF.close();
+						break;
+					case sf::Keyboard::N:
+							loadF.open ("Points.save", std::ifstream::in);
+							for (uint i = 0; i < nbSMax; i++)
+								gestPoint[i].load(loadF);
+							loadF.close();
 					default:
 						break;
 				}

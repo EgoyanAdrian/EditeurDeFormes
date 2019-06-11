@@ -21,6 +21,9 @@ class Points<WindowT> {
 		inline virtual void draw(WindowT & window, uint _mX, uint _mY) const { };
 		Point * isOver(uint _x, uint _y);
 		Point * browse(uint nb) const;
+
+		virtual void save(std::ostream & os) const;
+		virtual void load(std::istream & is);
 };
 
 template <typename WindowT>
@@ -72,6 +75,24 @@ Point * Points<WindowT>::isOver(uint _x, uint _y) {
 template <typename WindowT>
 Point * Points<WindowT>::browse(uint nb) const {
 	return tabPoints[nb];
+}
+
+template <typename WindowT>
+void Points<WindowT>::save(std::ostream & os) const {
+	os << maxPoints << std::endl;
+	os << nbPoints << std::endl;
+	for (uint i = 0; i < nbPoints; i++) {
+		os << tabPoints[i]->getX() << std::endl << tabPoints[i]->getY() << std::endl;
+	}
+}
+
+template <typename WindowT>
+void Points<WindowT>::load(std::istream & is) {
+	is >> maxPoints;
+	is >> nbPoints;
+	for (uint i = 0; i < nbPoints; i++) {
+		tabPoints[i] = new Point(is);
+	}
 }
 
 #endif

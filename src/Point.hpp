@@ -31,8 +31,6 @@ class Point {
 
 	// Other Methods
 		inline bool isOver(uint _x, uint _y) const { return (((_x - x)*(_x - x) + (_y - y)*(_y - y))<= (radius * radius));}
-		friend std::ostream & operator << (std::ostream & os, const Point & _point);
-		friend std::istream & operator >> (std::istream & is, Point & _point);
 };
 
 #endif

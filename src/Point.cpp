@@ -15,3 +15,16 @@ Point::Point(std::istream & is) {
 
 Point::~Point()
 { }
+
+std::ostream & operator << (std::ostream & os, const Point & _point) {
+	os << _point.getX() << std::endl;
+	os << _point.getY() << std::endl;
+
+	return os;
+}
+
+std::istream & operator >> (std::istream & is, Point & _point) {
+	is >> _point;
+
+	return is;
+}

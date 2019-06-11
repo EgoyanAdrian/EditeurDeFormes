@@ -17,9 +17,9 @@ int main() {
 	settings.antialiasingLevel = 8;
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Editeur de Formes", sf::Style::Default, settings);
 
-	PointsDrawable gestPoint[10];
-	ShapesDrawable gestShape[10];
-	uint nbS = 0;
+	uint nbS = 0, nbSMax = 10;
+	PointsDrawable gestPoint[nbSMax];
+	ShapesDrawable gestShape[nbSMax];
 
 	bool showLayer = false;
 
@@ -154,10 +154,16 @@ int main() {
 							}
 						break;
 					case sf::Keyboard::Z:
-							nbS++;
+							if(nbS < (nbSMax - 1))
+								nbS++;
+							else
+								std::cout << "Pas de calques superieurs " << std::endl;
 						break;
 					case sf::Keyboard::X:
-							nbS--;
+							if(nbS > 0)
+								nbS--;
+							else
+								std::cout << "Pas de calques inferieurs " << nbS << std::endl;
 						break;
 					case sf::Keyboard::A:
 							showLayer = !showLayer;
@@ -166,13 +172,6 @@ int main() {
 						break;
 				}
 			}
-		}
-
-		if(shapeSelect != nullptr) {
-			lastShapeSelect = shapeSelect;
-			afficheMenuInfo(font, shapeSelect, window.getSize().x, window);
-		}else if(lastShapeSelect != nullptr) {
-			afficheMenuInfo(font, lastShapeSelect, window.getSize().x, window);
 		}
 		
 		if(showLayer) {
@@ -183,6 +182,13 @@ int main() {
 		} else {
 			gestShape[nbS].draw(window, X, Y);
 			gestPoint[nbS].draw(window, X, Y);
+		}
+
+		if(shapeSelect != nullptr) {
+			lastShapeSelect = shapeSelect;
+			afficheMenuInfo(font, shapeSelect, window.getSize().x, window);
+		}else if(lastShapeSelect != nullptr) {
+			afficheMenuInfo(font, lastShapeSelect, window.getSize().x, window);
 		}
 
 		Menu(window.getSize().x, window.getSize().y, X, Y, isPushLeft, window);//permet la creation du menu

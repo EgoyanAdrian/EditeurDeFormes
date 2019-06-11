@@ -1,7 +1,7 @@
 #include "ShapesDrawable.hpp"
 
 ShapesDrawable::ShapesDrawable(uint size)
-:Shapes<sf::RenderWindow, sf::Color>(size)
+:Shapes<sf::RenderWindow, edf::Color>(size)
 { }
 
 ShapesDrawable::~ShapesDrawable()

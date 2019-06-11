@@ -1,19 +1,19 @@
 #include "RectangleDrawable.hpp"
 
-RectangleDrawable::RectangleDrawable(uint _x, uint _y, uint _width, uint _height, sf::Color _color)
-:Rectangle<sf::RenderWindow, sf::Color>(_x, _y, _width, _height, _color)
+RectangleDrawable::RectangleDrawable(uint _x, uint _y, uint _width, uint _height, edf::Color _color)
+:Rectangle<sf::RenderWindow, edf::Color>(_x, _y, _width, _height, _color)
 { }
 
-RectangleDrawable::RectangleDrawable(Point * _anchor, uint _width, uint _height, sf::Color _color)
-:Rectangle<sf::RenderWindow, sf::Color>(_anchor, _width, _height, _color)
+RectangleDrawable::RectangleDrawable(Point * _anchor, uint _width, uint _height, edf::Color _color)
+:Rectangle<sf::RenderWindow, edf::Color>(_anchor, _width, _height, _color)
 { }
 
 RectangleDrawable::RectangleDrawable(const RectangleDrawable & _origin)
-:Rectangle<sf::RenderWindow, sf::Color>(_origin)
+:Rectangle<sf::RenderWindow, edf::Color>(_origin)
 { }
 
 RectangleDrawable::RectangleDrawable(std::istream & is)
-:Rectangle<sf::RenderWindow, sf::Color>(is)
+:Rectangle<sf::RenderWindow, edf::Color>(is)
 { }
 
 RectangleDrawable::~RectangleDrawable()

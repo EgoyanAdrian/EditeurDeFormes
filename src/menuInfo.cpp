@@ -24,7 +24,7 @@ std::string nbToStr(int nombre)//converti le sint en string
 		
 	//~ }
 //~ }
-void infoShapes(Rectangle<sf::RenderWindow, sf::Color>  *r){
+void infoShapes(Rectangle<sf::RenderWindow, edf::Color>  *r){
 	//~ std::cout<<"fonctionne"<<std::endl;
 }
 
@@ -283,7 +283,7 @@ void Info(sf::Font &Font,TriangleDrawable *TD,uint sizeecran,sf::RenderWindow &w
 
 
 		
-void afficheMenuInfo(sf::Font &Font,Shape<sf::RenderWindow, sf::Color>  *forme, uint sizeecran,sf::RenderWindow &w){
+void afficheMenuInfo(sf::Font &Font,Shape<sf::RenderWindow, edf::Color>  *forme, uint sizeecran,sf::RenderWindow &w){
 	RectangleDrawable ecranmenInfo(sizeecran-200,31,200,150,sf::Color(192,192,192));
 	ecranmenInfo.draw(w,false);
 	

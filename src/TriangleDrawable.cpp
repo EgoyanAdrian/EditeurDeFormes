@@ -1,19 +1,19 @@
 #include "TriangleDrawable.hpp"
 
-TriangleDrawable::TriangleDrawable(uint _x, uint _y, uint _x1, uint _y1, uint _x2, uint _y2, sf::Color _color)
-:Triangle<sf::RenderWindow, sf::Color>(_x, _y, _x1, _y1, _x2, _y2, _color)
+TriangleDrawable::TriangleDrawable(uint _x, uint _y, uint _x1, uint _y1, uint _x2, uint _y2, edf::Color _color)
+:Triangle<sf::RenderWindow, edf::Color>(_x, _y, _x1, _y1, _x2, _y2, _color)
 { }
 
-TriangleDrawable::TriangleDrawable(Point * _anchor, Point * _anchor1, Point * _anchor2, sf::Color _color)
-:Triangle<sf::RenderWindow, sf::Color>(_anchor, _anchor1, _anchor2, _color)
+TriangleDrawable::TriangleDrawable(Point * _anchor, Point * _anchor1, Point * _anchor2, edf::Color _color)
+:Triangle<sf::RenderWindow, edf::Color>(_anchor, _anchor1, _anchor2, _color)
 { }
 
 TriangleDrawable::TriangleDrawable(const TriangleDrawable & _origin)
-:Triangle<sf::RenderWindow, sf::Color>(_origin)
+:Triangle<sf::RenderWindow, edf::Color>(_origin)
 { }
 
 TriangleDrawable::TriangleDrawable(std::istream & is)
-:Triangle<sf::RenderWindow, sf::Color>(is)
+:Triangle<sf::RenderWindow, edf::Color>(is)
 { }
 
 TriangleDrawable::~TriangleDrawable()

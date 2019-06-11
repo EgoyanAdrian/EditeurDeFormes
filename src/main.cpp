@@ -7,6 +7,7 @@
 #include "CircleDrawable.hpp"
 #include "EllipseDrawable.hpp"
 #include "TriangleDrawable.hpp"
+#include "Color.hpp"
 #include "menuInfo.hpp"
 #include "Menu.hpp"
 
@@ -25,8 +26,8 @@ int main() {
 	bool showLayer = false;
 
 	Point * pointSelect = nullptr;
-	Shape<sf::RenderWindow, sf::Color> * shapeSelect = nullptr;
-	Shape<sf::RenderWindow,sf::Color> * lastShapeSelect = nullptr;
+	Shape<sf::RenderWindow, edf::Color> * shapeSelect = nullptr;
+	Shape<sf::RenderWindow, edf::Color> * lastShapeSelect = nullptr;
 	
 	sf::Font font;
 	if (!font.loadFromFile("font.ttf"))

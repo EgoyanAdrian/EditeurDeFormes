@@ -9,12 +9,13 @@
 #include "EllipseDrawable.hpp"
 #include "CircleDrawable.hpp"
 #include "TriangleDrawable.hpp"
+#include "Color.hpp"
 
 
 std::string nbToStr(int nombre);
 void createMenuInfo();
 
-void afficheMenuInfo(sf::Font &Font,Shape<sf::RenderWindow,sf::Color> *forme ,uint sizeecran,sf::RenderWindow &w);
+void afficheMenuInfo(sf::Font &Font,Shape<sf::RenderWindow,edf::Color> *forme ,uint sizeecran,sf::RenderWindow &w);
 
 
 void Info(sf::Font &Font,RectangleDrawable *RD,uint sizeecran,sf::RenderWindow &w);

@@ -105,28 +105,27 @@ textFichQuit.setFillColor(sf::Color::Black);
  * 
  * 
  * */
-	if((menu.browse(1)->isOver(mouse_y,mouse_y))&&isPush){
+	if((menu.browse(1)->isOver(mouse_y,mouse_y))&&isPush){//permet de savoir si on click sur Fichier
+		clickFich=true;
 		isOverFichier=true;
 		std::cout<<"true"<<std::endl;
 	}
 
-	if(!(menu.browse(1)->isOver(mouse_y,mouse_y)&&!(sousmenuFichier.browse(0)->isOver(mouse_x,mouse_y)&&!(sousmenuFichier.browse(1)->isOver(mouse_x,mouse_y)&&!(sousmenuFichier.browse(2)->isOver(mouse_x,mouse_y)))))){
+	//permet de savoir si on s
+/*	if((menu.browse(1)->isOver(mouse_y,mouse_y)&&!(sousmenuFichier.browse(0)->isOver(mouse_x,mouse_y)&&!(sousmenuFichier.browse(1)->isOver(mouse_x,mouse_y)&&!(sousmenuFichier.browse(2)->isOver(mouse_x,mouse_y)))))){
 		isOverFichier=false;
 		//isOverFicMenuDeour=false;
 		std::cout<<"false"<<std::endl;
-	}
-	if((menu.browse(1)->isOver(mouse_y,mouse_y)&&(sousmenuFichier.browse(0)->isOver(mouse_x,mouse_y)&&(sousmenuFichier.browse(1)->isOver(mouse_x,mouse_y)&&!(sousmenuFichier.browse(2)->isOver(mouse_x,mouse_y)))))){
-		isOverFichier=false;
-		//isOverFicMenuDeour=false;
-		std::cout<<"false"<<std::endl;
-	}
+	}*/
 	//					Fichier								Ouvrir														Enregistrer										Quitter
-	if(isOverFichier&&(!(sousmenuFichier.browse(0)->isOver(mouse_x,mouse_y) || (sousmenuFichier.browse(1)->isOver(mouse_x,mouse_y)) || (sousmenuFichier.browse(2)->isOver(mouse_x,mouse_y))))){
+	
+	//permet de savoir si on n'est pas sur un bouton du sous menu
+	if((menu.browse(1)->isOver(mouse_y,mouse_y))==false && (sousmenuFichier.browse(0)->isOver(mouse_x,mouse_y)==false) && (sousmenuFichier.browse(1)->isOver(mouse_x,mouse_y)==false) && (sousmenuFichier.browse(2)->isOver(mouse_x,mouse_y)==false)){
 		//ligne de soulignement
-		isOverFicMenuDeour=true;
+		isOverFichier=false;
 	}
 
-	if(isOverFicMenuDeour&&isOverFichier){
+	if(isOverFichier){
 		w.draw(line1, 2, sf::Lines);
 		w.draw(line2, 2, sf::Lines);
 		w.draw(line3, 2, sf::Lines);

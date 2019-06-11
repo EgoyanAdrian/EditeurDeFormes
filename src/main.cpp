@@ -12,13 +12,18 @@
 
 
 int main() {
-	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Editeur de Formes", sf::Style::Default);
+	sf::ContextSettings settings;
+	settings.antialiasingLevel = 8;
+
+	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Editeur de Formes", sf::Style::Default, settings);
 	sf::RenderWindow window2(sf::VideoMode(200, 400), "Outils", sf::Style::Default);
 
 	uint screenSize=1000;
 	PointsDrawable gestPoint[10];
 	ShapesDrawable gestShape[10];
 	uint nbS = 0;
+
+	bool showLayer = false;
 
 	Point * pointSelect = nullptr;
 	Shape<sf::RenderWindow, sf::Color> * shapeSelect = nullptr;
@@ -167,10 +172,7 @@ int main() {
 							nbS--;
 						break;
 					case sf::Keyboard::A:
-							for(uint i = 0; i < 10; i++) {
-								gestShape[i].draw(window, X, Y);
-								gestPoint[i].draw(window, X, Y);
-							}
+							showLayer = !showLayer;
 						break;
 					default:
 						break;
@@ -184,9 +186,17 @@ int main() {
 		}else if(lastShapeSelect != nullptr) {
 			afficheMenuInfo(font, lastShapeSelect, screenSize, window);
 		}
+		
+		if(showLayer) {
+			for(uint i = 0; i < 10; i++) {
+				gestShape[i].draw(window, X, Y);
+				gestPoint[i].draw(window, X, Y);
+			}
+		} else {
+			gestShape[nbS].draw(window, X, Y);
+			gestPoint[nbS].draw(window, X, Y);
+		}
 
-		gestShape[nbS].draw(window, X, Y);
-		gestPoint[nbS].draw(window, X, Y);		
 		Menu(screenSize, screenSize, X, Y, isPushLeft, window);//permet la creation du menu
 		window.display();
 	}

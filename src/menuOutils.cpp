@@ -1,8 +1,7 @@
 #include "menuOutils.hpp"
 
 menuOutils::menuOutils(sf::Event &e,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w,PointsDrawable &PointsD,ShapesDrawable &SD,sf::Font font ):nbrectangle(50){
-	uint x=150,y=160,i=0,j=0;
-	
+	uint x=0,y=0,j=0;
 	//creation des rectangles du Menu
 	tabMenuOutil.add(new RectangleDrawable(x, y, 110, 82+46*5, sf::Color(192,192,192)));//rectangle global des option du menu
 	tabMenuOutil.add(new RectangleDrawable(x+5, y+5, 100, 31, sf::Color::Yellow));//premier rectangle creation d'un rectangle
@@ -40,7 +39,6 @@ menuOutils::menuOutils(sf::Event &e,uint mouse_x, uint mouse_y,bool isPush,sf::R
 	creaTriangle.setFillColor(sf::Color::Black);
 	creaPoly.setFillColor(sf::Color::Black);
 	creaCalque.setFillColor(sf::Color::Black);
-
 	
 	if(tabMenuOutil.browse(1)->isOver(mouse_x,mouse_y)&&isPush ){//bouton pour faire un rectangle
 		//~ CoorRectangle.textSaisie(e,w);

@@ -18,7 +18,7 @@ class Menu{
 		ShapesDrawable sousmenuFichier=ShapesDrawable(3);
 	
 	public:
-		Menu(uint _sizeX,uint _sizeY,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w);
+		Menu(uint _sizeX,uint _sizeY,uint mouse_x, uint mouse_y,bool isPush,bool isOverFichier,sf::RenderWindow &w);
 		Menu()=delete;
 		~Menu();
 

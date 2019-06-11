@@ -13,7 +13,7 @@
 
 int main() {
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Editeur de Formes", sf::Style::Default);
-	sf::RenderWindow window2(sf::VideoMode(31, 100), "Outils", sf::Style::Default);
+	sf::RenderWindow window2(sf::VideoMode(200, 400), "Outils", sf::Style::Default);
 
 	uint screenSize=1000;
 	PointsDrawable gestPoint;
@@ -22,6 +22,8 @@ int main() {
 	Point * pointSelect = nullptr;
 	Shape<sf::RenderWindow, sf::Color> * shapeSelect = nullptr;
 	Shape<sf::RenderWindow,sf::Color> * lastShapeSelect = nullptr;
+
+	bool varibalPourMenu = false;
 	
 	sf::Font font;
 	if (!font.loadFromFile("font.ttf"))
@@ -34,7 +36,7 @@ int main() {
 		bool isPushLeft=false; //variable pour savoir si le bouton gauche de la souris et enfoncer)
 		window.clear(sf::Color::White);
 
-		/*while(window2.isOpen()) {
+		if(window2.isOpen()) {
 			window2.clear(sf::Color::White);
 
 			sf::Event event2;
@@ -42,7 +44,10 @@ int main() {
 				if(event2.type == sf::Event::Closed)
 					window2.close();
 			}
-		}*/
+
+			menuOutils(event2, X, Y, isPushLeft, window2, gestPoint, gestShape, font);
+			window2.display();
+		}
 
 		sf::Event event;
 		while(window.pollEvent(event)) {
@@ -171,7 +176,6 @@ int main() {
 
 		gestShape.draw(window, X, Y);//coordonne de la a souris X en x et Y en y
 		gestPoint.draw(window, X, Y);
-		menuOutils(event, X, Y, isPushLeft, window, gestPoint, gestShape, font);
 		Menu(screenSize, screenSize, X, Y, isPushLeft, window);//permet la creation du menu
 		window.display();
 	}

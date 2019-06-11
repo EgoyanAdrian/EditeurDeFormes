@@ -11,12 +11,13 @@ std::string Menu::nbToStr(int nombre)//converti le sint en string
 }
 
 
-Menu::Menu(uint _sizeX,uint _sizeY ,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w,PointsDrawable PointsD[],ShapesDrawable SD[],bool &showLayer,uint &nbS,uint &nbSMax,bool &isoverFichier,bool &isoverEdition){
+Menu::Menu(uint _sizeX,uint _sizeY ,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w,PointsDrawable PointsD[],ShapesDrawable SD[],bool &showLayer,uint &nbS,uint &nbSMax,bool &isoverFichier,bool &isoverEdition,bool &isoverAidee){
 sizeEcranX=_sizeX;//coordnonne de la taille du Menu en x
 sizeEcranY=_sizeY;//	"							y
 sf::Font font;
 isOverFichier=isoverFichier;
 isOverEdition=isoverEdition;
+isOverAidee=isoverAidee;
 j=100;
 if (!font.loadFromFile("font.ttf"))
 {
@@ -293,14 +294,14 @@ textFichQuit.setFillColor(sf::Color::Black);
 
 
 	//creation des rectangles du tabMenuOutil     110:largeur yme*7:longeur
-	RectangleDrawable GR(xme, yme, 180, yme*7, sf::Color(192,192,192));//rectangle global des option du menu
+	RectangleDrawable GR(xme, yme, 180, yme*6, sf::Color(192,192,192));//rectangle global des option du menu
 	tabMenuOutil.add(new RectangleDrawable(xme+5, yme, 170, 31, sf::Color(192,192,192)));//premier rectangle creation d'un rectangle
 	tabMenuOutil.add(new RectangleDrawable(xme+5, yme*2, 100, 31, sf::Color(192,192,192)));//46 car 5 car meme niveau que le rectangle 1 +31 pour la hauteur du rectangle 1 +10 d'espace enter le deux rectangle
 	tabMenuOutil.add(new RectangleDrawable(xme+5, yme*3, 100, 31, sf::Color(192,192,192)));//option cercle
 	tabMenuOutil.add(new RectangleDrawable(xme+5,yme*4, 100, 31, sf::Color(192,192,192)));//option Ellipse
 	tabMenuOutil.add(new RectangleDrawable(xme+5,yme*5, 100, 31, sf::Color(192,192,192)));//option Triangle
 	tabMenuOutil.add(new RectangleDrawable(xme+5,yme*6, 100, 31, sf::Color(192,192,192)));//option Polynome
-	tabMenuOutil.add(new RectangleDrawable(xme+5,yme*7, 100, 31, sf::Color(192,192,192)));//option Calque
+
 	
 
 
@@ -315,7 +316,7 @@ textFichQuit.setFillColor(sf::Color::Black);
 	sf::Text creaTriangle("Triangle",font,19);
 	sf::Text creaTriangleCtr("ctrl+T",font,19);
 	sf::Text creaPoly("Polygones",font,19);
-	sf::Text creaCalque("Calque",font,20);
+	sf::Text creaPolyCtr("ctrl+ ?",font,19);
 
 
 	//Position des Textes des boutons
@@ -325,7 +326,7 @@ textFichQuit.setFillColor(sf::Color::Black);
 	creaEllips.setPosition(xme+5,yme*4+2);
 	creaTriangle.setPosition(xme+5,yme*5+2);
 	creaPoly.setPosition(xme+5,yme*6+2);
-	creaCalque.setPosition(xme+5,yme*7+2);
+
 
 	//Position des Textes de controle
 	creaRectCtr.setPosition(xme+110,yme+2);	
@@ -333,7 +334,7 @@ textFichQuit.setFillColor(sf::Color::Black);
 	creaCercleCtr.setPosition(xme+110,yme*3+2);
 	creaEllipsCtr.setPosition(xme+110,yme*4+2);
 	creaTriangleCtr.setPosition(xme+110,yme*5+2);
-
+	creaPolyCtr.setPosition(xme+110,yme*6+2);
 
 	//Couleur des texte
 	creaRect.setFillColor(sf::Color::Black);
@@ -346,6 +347,8 @@ textFichQuit.setFillColor(sf::Color::Black);
 	creaEllipsCtr.setFillColor(sf::Color::Black);
 	creaTriangle.setFillColor(sf::Color::Black);
 	creaTriangleCtr.setFillColor(sf::Color::Black);
+	creaPoly.setFillColor(sf::Color::Black);
+	creaPolyCtr.setFillColor(sf::Color::Black);
 
 	//definition du soulignement bleu	
 	sf::Vertex line1E[] =
@@ -375,10 +378,10 @@ textFichQuit.setFillColor(sf::Color::Black);
 		ssEdition=true;
 	}
 
-
+	//si la souris n'est ni le rectangle Edition ni le rectangle du sous menu on ferme le sous menu
 	if((!(menu.browse(2)->isOver(mouse_x,mouse_y)) && (GR.isOver(mouse_x,mouse_y)==false))&&isPush) {
-		isOverEdition=false;
-		ssEdition=false;
+		isOverEdition=false;//ferme le sous menu
+		ssEdition=false;//ferme le sous menu
 	}
 
 	if((isOverEdition==true)||(ssEdition==true)){
@@ -404,6 +407,8 @@ textFichQuit.setFillColor(sf::Color::Black);
 		w.draw(creaEllipsCtr);
 		w.draw(creaTriangle);
 		w.draw(creaTriangleCtr);
+		w.draw(creaPoly);
+		w.draw(creaPolyCtr);
 	
 		//si on click sur les bouton du sous menu
 		if(tabMenuOutil.browse(0)->isOver(mouse_x,mouse_y)){
@@ -473,6 +478,15 @@ textFichQuit.setFillColor(sf::Color::Black);
 				ssEdition=false;
 			}
 		}
+		if(tabMenuOutil.browse(5)->isOver(mouse_x,mouse_y)){
+			creaPoly.setFillColor(sf::Color::Blue);
+			creaPolyCtr.setFillColor(sf::Color::Blue);
+			w.draw(creaPoly);
+			w.draw(creaPolyCtr);
+			if(isPush){
+				std::cout<<"pas d'implementation pour polynome"<<std::endl;
+			}
+		}
 
 
 
@@ -480,6 +494,7 @@ textFichQuit.setFillColor(sf::Color::Black);
 	}
 isoverFichier=isOverFichier;
 isoverEdition=isOverEdition;
+isoverAidee=isOverAidee;
 
 /*
  * 
@@ -491,6 +506,28 @@ isoverEdition=isOverEdition;
  * 
  * 
  * */
+
+/*
+	
+
+
+	if((menu.browse(3)->isOver(mouse_y,mouse_y))&&isPush){//permet de savoir si on click sur Fichier
+		isOverAidee=true;
+	}
+	//					Fichier								Ouvrir														Enregistrer										Quitter
+	
+	//permet de savoir si on n'est pas sur un bouton du sous menu
+	if(isOverFichier && ((sousmenuFichier.browse(0)->isOver(mouse_x,mouse_y)) || (sousmenuFichier.browse(1)->isOver(mouse_x,mouse_y)) || (sousmenuFichier.browse(2)->isOver(mouse_x,mouse_y)))) {
+		//ligne de soulignement
+		ssAidee=true;
+	}
+
+	if((!(menu.browse(3)->isOver(mouse_x,mouse_y) ) &&(sousmenuFichier.browse(0)->isOver(mouse_x,mouse_y)==false) && (sousmenuFichier.browse(1)->isOver(mouse_x,mouse_y)==false) && (sousmenuFichier.browse(2)->isOver(mouse_x,mouse_y)==false))&&isPush) {
+		isOverAidee=false;
+		ssAidee=false;
+	}
+
+	if(isOverFichier||ssFich){
 	//~ if(menuHelp.isOver(mouse_x,mouse_y) && isPush){
 		//~ //creation d'une fenetre d'aide
 		//~ sf::RenderWindow window(sf::VideoMode(500, 500), "Aide");
@@ -508,7 +545,7 @@ isoverEdition=isOverEdition;
     //~ }
 	//~ }
 
-
+*/
 
 }
 Menu::~Menu(){};

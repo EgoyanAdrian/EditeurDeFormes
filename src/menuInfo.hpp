@@ -23,4 +23,5 @@ void Info(sf::Font &Font,SquareDrawable *RD,uint sizeecran,uint mouse_x,uint mou
 void Info(sf::Font &Font,EllipseDrawable *RD,uint sizeecran,uint mouse_x,uint mouse_y,bool isPush,sf::RenderWindow &w);
 void Info(sf::Font &Font,CircleDrawable *RD,uint sizeecran,uint mouse_x,uint mouse_y,bool isPush,sf::RenderWindow &w);
 void Info(sf::Font &Font,TriangleDrawable *RD,uint sizeecran,uint mouse_x,uint mouse_y,bool isPush,sf::RenderWindow &w);
+//void Info(sf::Font &Font,PolynomeDrawable *PD,uint sizeecran,uint mouse_x,uint mouse_y,bool isPush,sf::RenderWindow &w);
 

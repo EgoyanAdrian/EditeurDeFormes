@@ -469,7 +469,7 @@ void Info(sf::Font &Font,TriangleDrawable *TD,uint sizeecran,uint mouse_x,uint m
 	
 }
 
-
+//void Info(sf::Font &Font,PolynomeDrawable *PD,uint sizeecran,uint mouse_x,uint mouse_y,bool isPush,sf::RenderWindow &w){}
 
 
 		
@@ -477,22 +477,26 @@ void afficheMenuInfo(sf::Font &Font,Shape<sf::RenderWindow, edf::Color>  *forme,
 	RectangleDrawable ecranmenInfo(sizeecran-400,31,400,150,sf::Color(192,192,192));
 	ecranmenInfo.draw(w,false);
 	
-	//permet de savoir le type de shape
+	//permet de savoir le type de shape rectangle,carre...
 	RectangleDrawable* my_rD=dynamic_cast<RectangleDrawable*>(forme);
 	SquareDrawable* my_sD=dynamic_cast<SquareDrawable*>(forme);
 	EllipseDrawable* my_eD=dynamic_cast<EllipseDrawable*>(forme);
 	CircleDrawable* my_cD=dynamic_cast<CircleDrawable*>(forme);
 	TriangleDrawable* my_tD=dynamic_cast<TriangleDrawable*>(forme);
+	//PolynomeDrawable* my_pD=dynamic_cast<PolynomeDrawable*>(forme);
+	
+	//appel la fonction qui affiche les info en fonction du type
 	if(my_rD!=nullptr)
 		Info(Font,my_rD,sizeecran,mouse_x,mouse_y,isPush,w);
-	if(my_sD!=nullptr)
+	else if(my_sD!=nullptr)
 		Info(Font,my_sD,sizeecran,mouse_x,mouse_y,isPush,w);
-	if(my_eD!=nullptr)
+	else if(my_eD!=nullptr)
 		Info(Font,my_eD,sizeecran,mouse_x,mouse_y,isPush,w);
-	if(my_cD!=nullptr)
+	else if(my_cD!=nullptr)
 		Info(Font,my_cD,sizeecran,mouse_x,mouse_y,isPush,w);
-	if(my_tD!=nullptr)
+	else if(my_tD!=nullptr)
 		Info(Font,my_tD,sizeecran,mouse_x,mouse_y,isPush,w);
-
-	
+	/*else if(my_pD!=nullptr)
+		Info(Font,my_pD,sizeeecran,mouse_x,mouse_y,isPush,w);
+	*/
 }

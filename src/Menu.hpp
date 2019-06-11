@@ -18,13 +18,14 @@ class Menu{
 		uint j;
 		bool isOverFichier,ssFich;
 		bool isOverEdition,ssEdition;
+		bool isOverAidee,ssAidee;
 		ShapesDrawable menu=ShapesDrawable(4);
 		ShapesDrawable sousmenuFichier=ShapesDrawable(3);
 		ShapesDrawable tabMenuOutil=ShapesDrawable(10);//sous Menu de Edition
 
 	
 	public:
-		Menu(uint _sizeX,uint _sizeY,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w,PointsDrawable PointsD[],ShapesDrawable SD[],bool &showLayer,uint &nbS,uint &nbSMax,bool &isoverFichier,bool &isoverEdition);
+		Menu(uint _sizeX,uint _sizeY,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w,PointsDrawable PointsD[],ShapesDrawable SD[],bool &showLayer,uint &nbS,uint &nbSMax,bool &isoverFichier,bool &isoverEdition,bool &isoverAidee);
 		Menu()=delete;
 		~Menu();
 

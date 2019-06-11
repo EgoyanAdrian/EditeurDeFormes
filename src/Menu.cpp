@@ -25,7 +25,7 @@ menu.add(new RectangleDrawable(0, 0,sizeEcranX,31,sf::Color(192,192,192)));
 
 //creation des icone du menu
 menu.add(new RectangleDrawable(0, 0, 100, 31,sf::Color(192,192,192)));//menuFichier
-menu.add(new RectangleDrawable(100, 0, 100, 31,sf::Color(192,192,192)));//menuEdition
+menu.add(new RectangleDrawable(100, 0, 100, 31,sf::Color::Red/*(192,192,192)*/));//menuEdition
 menu.add(new RectangleDrawable(200, 0, 100, 31,sf::Color(192,192,192)));//menuHelp
 menu.draw(w,-200,-200);
 
@@ -263,52 +263,37 @@ textFichQuit.setFillColor(sf::Color::Black);
     	sf::Vertex(sf::Vector2f(210,31 ),sf::Color::Blue)
 	};
 
-/*
-	w.draw(line1E, 2, sf::Lines);
-	w.draw(line2E, 2, sf::Lines);
-	w.draw(line3E, 2, sf::Lines);
 
-	w.draw(creaRect);
-	w.draw(creaRectCtr);
-	w.draw(creaCarre);
-	w.draw(creaCarreCtr);
-	w.draw(creaCercle);
-	w.draw(creaCercleCtr);
-	w.draw(creaEllips);
-	w.draw(creaEllipsCtr);
-*/
-
-
-
-	if((menu.browse(2)->isOver(mouse_y,mouse_y))&&isPush){//permet de savoir si on click sur Edition
+	if((menu.browse(2)->isOver(mouse_x,mouse_y))&&isPush){//permet de savoir si on click sur Edition
 		isOverEdition=true;
+		std::cout<<menu.browse(2)->isOver(mouse_x,mouse_y)<<std::endl;
 	}
 	
+	std::cout<<isOverEdition<<std::endl;
 	//permet de savoir si on n'est pas sur un bouton du sous menu
 	if(isOverEdition && (GR.isOver(mouse_x,mouse_y))) {
 		//ligne de soulignement
 		ssEdition=true;
 	}
 
-	if((!(menu.browse(2)->isOver(mouse_x,mouse_y)))&&(GR.isOver(mouse_x,mouse_y)==false)&&isPush) {
+	if(((!(menu.browse(2)->isOver(mouse_x,mouse_y))) && (GR.isOver(mouse_x,mouse_y)==false))&&isPush) {
 		isOverEdition=false;
 		ssEdition=false;
 	}
 
-	if(isOverEdition||ssEdition){
-		std::cout<<"ok"<<std::endl;
+	if((isOverEdition==true)||(ssEdition==true)){
+		std::cout<<"boucle"<<std::endl;
 		//ligne de soulignement
 		w.draw(line1E, 2, sf::Lines);
 		w.draw(line2E, 2, sf::Lines);
 		w.draw(line3E, 2, sf::Lines);
-		//changement de la couleur du text
-		textEdition.setFillColor(sf::Color::Blue);
-		w.draw(textEdition);
-	
+		
 		//affiche les rectangles du menu deroulant
 		GR.draw(w,false);
 		tabMenuOutil.draw(w,-200,-200);
-		
+		//changement de la couleur du text
+		textEdition.setFillColor(sf::Color::Blue);
+		w.draw(textEdition);
 		//~ //afficher les text
 		w.draw(creaRect);
 		w.draw(creaRectCtr);
@@ -318,6 +303,13 @@ textFichQuit.setFillColor(sf::Color::Black);
 		w.draw(creaCercleCtr);
 		w.draw(creaEllips);
 		w.draw(creaEllipsCtr);
+	
+		//si on click sur les bouton du sous menu
+
+
+
+
+
 	}
 
 /*

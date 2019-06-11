@@ -13,7 +13,9 @@ menuOutils::menuOutils(sf::Event &e,uint mouse_x, uint mouse_y,bool isPush,sf::R
 
 */
 
-	//creation des rectangles du Menu
+	//creation des rectangles du tabMenuOutil        82 car 5(decalage de bord)+31(taille du rectangle jaune)
+	//												+46 car espace entre de y
+	//												*5 car il y a 5 rectangle en plus de deux defini dans 82
 	tabMenuOutil.add(new RectangleDrawable(x, y, 110, 82+46*5, sf::Color(192,192,192)));//rectangle global des option du menu
 	tabMenuOutil.add(new RectangleDrawable(x+5, y+5, 100, 31, sf::Color::Yellow));//premier rectangle creation d'un rectangle
 	tabMenuOutil.add(new RectangleDrawable(x+5, y+46, 100, 31, sf::Color::Yellow));//46 car 5 car meme niveau que le rectangle 1 +31 pour la hauteur du rectangle 1 +10 d'espace enter le deux rectangle
@@ -111,7 +113,9 @@ menuOutils::menuOutils(sf::Event &e,uint mouse_x, uint mouse_y,bool isPush,sf::R
 
 
 */
-	
+	tabMenuModif.add(new RectangleDrawable(x+120, y, 110, 82+46*5, sf::Color(192,192,192)));
+	tabMenuOutil.draw(w,-200,-200);
+
 
 
 

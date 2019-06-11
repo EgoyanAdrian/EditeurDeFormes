@@ -494,7 +494,7 @@ textFichQuit.setFillColor(sf::Color::Black);
 	}
 isoverFichier=isOverFichier;
 isoverEdition=isOverEdition;
-isoverAidee=isOverAidee;
+
 
 /*
  * 
@@ -506,46 +506,37 @@ isoverAidee=isOverAidee;
  * 
  * 
  * */
-
-/*
+	uint sizeEX=(sizeEcranX/4);
+	uint sizeEY=(sizeEcranY/4);
+	RectangleDrawable ecranAidee(sizeEX,sizeEY,sizeEX*2,sizeEY*2.5,sf::Color::Black);
+	ecranAidee.setFilled(false);
+	ecranAidee.setBorderSize(10);
 	
 
 
-	if((menu.browse(3)->isOver(mouse_y,mouse_y))&&isPush){//permet de savoir si on click sur Fichier
+	if((menu.browse(3)->isOver(mouse_x,mouse_y))&&isPush) {//permet de savoir si on click sur aidee
+		textHelp.setFillColor(sf::Color::Blue);
+		w.draw(textHelp);
 		isOverAidee=true;
 	}
-	//					Fichier								Ouvrir														Enregistrer										Quitter
-	
-	//permet de savoir si on n'est pas sur un bouton du sous menu
-	if(isOverFichier && ((sousmenuFichier.browse(0)->isOver(mouse_x,mouse_y)) || (sousmenuFichier.browse(1)->isOver(mouse_x,mouse_y)) || (sousmenuFichier.browse(2)->isOver(mouse_x,mouse_y)))) {
-		//ligne de soulignement
-		ssAidee=true;
-	}
-
-	if((!(menu.browse(3)->isOver(mouse_x,mouse_y) ) &&(sousmenuFichier.browse(0)->isOver(mouse_x,mouse_y)==false) && (sousmenuFichier.browse(1)->isOver(mouse_x,mouse_y)==false) && (sousmenuFichier.browse(2)->isOver(mouse_x,mouse_y)==false))&&isPush) {
+	if( !(menu.browse(3)->isOver(mouse_x,mouse_y))&&isPush){
 		isOverAidee=false;
-		ssAidee=false;
 	}
+	
+	if(isOverAidee){
+		ecranAidee.draw(w,false);//affiche "l'ecran d'aidee"
+	
 
-	if(isOverFichier||ssFich){
-	//~ if(menuHelp.isOver(mouse_x,mouse_y) && isPush){
-		//~ //creation d'une fenetre d'aide
-		//~ sf::RenderWindow window(sf::VideoMode(500, 500), "Aide");
-		//~ while (window.isOpen())
-		//~ {
-			//~ sf::Event event;
-			//~ while (window.pollEvent(event))
-			//~ {
-				//~ if (event.type == sf::Event::Closed)
-					//~ window.close();
-			//~ }
 
-        //~ window.clear(sf::Color::White);
-        //~ window.display();
-    //~ }
-	//~ }
 
-*/
+
+
+
+
+
+
+	}
+isoverAidee=isOverAidee;
 
 }
 Menu::~Menu(){};

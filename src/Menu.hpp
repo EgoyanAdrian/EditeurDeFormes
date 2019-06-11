@@ -18,7 +18,7 @@ class Menu{
 		uint j;
 		bool isOverFichier,ssFich;
 		bool isOverEdition,ssEdition;
-		bool isOverAidee,ssAidee;
+		bool isOverAidee;
 		ShapesDrawable menu=ShapesDrawable(4);
 		ShapesDrawable sousmenuFichier=ShapesDrawable(3);
 		ShapesDrawable tabMenuOutil=ShapesDrawable(10);//sous Menu de Edition

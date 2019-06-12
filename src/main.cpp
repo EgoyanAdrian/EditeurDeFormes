@@ -30,6 +30,8 @@ int main() {
 	bool isoverFichier=false;
 	bool isoverEdition=false;
 	bool isoverAidee=false;
+	bool ssFich=false;
+	bool ssEdition=false;
 
 	Point * pointSelect = nullptr;
 	Shape<sf::RenderWindow, edf::Color> * shapeSelect = nullptr;
@@ -219,7 +221,7 @@ int main() {
 			afficheMenuInfo(font, lastShapeSelect, window.getSize().x,X,Y,isPushLeft, window);
 		}
 
-		Menu(window.getSize().x, window.getSize().y, X, Y, isPushLeft, window,gestPoint,gestShape,showLayer,nbS,nbSMax,isoverFichier,isoverEdition,isoverAidee);//permet la creation du menu
+		Menu(window.getSize().x, window.getSize().y, X, Y, isPushLeft, window,gestPoint,gestShape,showLayer,nbS,nbSMax,isoverFichier,isoverEdition,isoverAidee,ssFich,ssEdition);//permet la creation du menu
 		window.display();
 	}
 

@@ -215,6 +215,94 @@ void Info(sf::Font &Font,RectangleDrawable *RD,uint sizeecran,uint mouse_x,uint 
 }
 void Info(sf::Font &Font,SquareDrawable *SD,uint sizeecran,uint mouse_x,uint mouse_y,bool isPush,bool &isOC,sf::RenderWindow &w){
 	/*
+
+	permet de modifier la couleur au bon vouloir de l'utilisateur
+
+	*/
+	uint SquareDrawableX=200; //position X du premier carre de selection de couleur
+	uint SquareDrawableY=200;  //positiion Y du premier carre de selcetion de couleur
+
+	RectangleDrawable boutonCouleur(sizeecran-180,33,100,29,sf::Color::Black);
+	boutonCouleur.setFilled(false);
+	boutonCouleur.draw(w,false);
+	sf::Text textBC("Couleur",Font,20);
+	textBC.setPosition(sizeecran-170,33);
+	textBC.setFillColor(sf::Color::Black);
+	w.draw(textBC);
+
+
+	RectangleDrawable contour(SquareDrawableX-5,SquareDrawableY-5,20*4+5*5,20*2+5*3,sf::Color(192,192,192));
+	
+	ShapesDrawable carreCouleur=ShapesDrawable(8);
+	//permier ligne de carre
+	carreCouleur.add(new SquareDrawable(SquareDrawableX,SquareDrawableY,20,sf::Color::Black));//carre noir
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25,SquareDrawableY,20,sf::Color::White));//carre blanc
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25*2,SquareDrawableY,20,sf::Color::Red));//carre rouge
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25*3,SquareDrawableY,20,sf::Color::Green));//carre vert
+	//deuxieme ligne de carre
+	carreCouleur.add(new SquareDrawable(SquareDrawableX,SquareDrawableY+25,20,sf::Color::Blue));//carre bleu
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25,SquareDrawableY+25,20,sf::Color::Yellow));//carre jaune
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25*2,SquareDrawableY+25,20,sf::Color::Magenta));//carre magenta
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25*3,SquareDrawableY+25,20,sf::Color::Cyan));//carre cyan
+	
+
+	if(boutonCouleur.isOver(mouse_x,mouse_y)){
+		if(isPush)
+			isOC=true;
+	}
+	if(isOC==true){
+		contour.draw(w,false);
+		carreCouleur.draw(w,-200,-200);
+		if(carreCouleur.browse(0)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				SD->setColor(sf::Color::Black);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(1)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				SD->setColor(sf::Color::White);
+				isOC=false;
+			}
+		}	
+		if(carreCouleur.browse(2)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				SD->setColor(sf::Color::Red);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(3)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				SD->setColor(sf::Color::Green);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(4)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				SD->setColor(sf::Color::Blue);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(5)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				SD->setColor(sf::Color::Yellow);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(6)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				SD->setColor(sf::Color::Magenta);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(7)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				SD->setColor(sf::Color::Cyan);
+				isOC=false;
+			}
+		}
+	}
+	/*
 			MODIFI LES VALEURS DE LA FORME
 	*/
 	SquareDrawable bouton1(sizeecran-180,110,20,sf::Color::Black);
@@ -286,6 +374,95 @@ void Info(sf::Font &Font,SquareDrawable *SD,uint sizeecran,uint mouse_x,uint mou
 	w.draw(vLar);
 }
 void Info(sf::Font &Font,EllipseDrawable *ED,uint sizeecran,uint mouse_x,uint mouse_y,bool isPush,bool &isOC,sf::RenderWindow &w){
+		/*
+
+	permet de modifier la couleur au bon vouloir de l'utilisateur
+
+	*/
+	uint SquareDrawableX=200; //position X du premier carre de selection de couleur
+	uint SquareDrawableY=200;  //positiion Y du premier carre de selcetion de couleur
+
+	RectangleDrawable boutonCouleur(sizeecran-180,33,100,29,sf::Color::Black);
+	boutonCouleur.setFilled(false);
+	boutonCouleur.draw(w,false);
+	sf::Text textBC("Couleur",Font,20);
+	textBC.setPosition(sizeecran-170,33);
+	textBC.setFillColor(sf::Color::Black);
+	w.draw(textBC);
+
+
+	RectangleDrawable contour(SquareDrawableX-5,SquareDrawableY-5,20*4+5*5,20*2+5*3,sf::Color(192,192,192));
+	
+	ShapesDrawable carreCouleur=ShapesDrawable(8);
+	//permier ligne de carre
+	carreCouleur.add(new SquareDrawable(SquareDrawableX,SquareDrawableY,20,sf::Color::Black));//carre noir
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25,SquareDrawableY,20,sf::Color::White));//carre blanc
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25*2,SquareDrawableY,20,sf::Color::Red));//carre rouge
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25*3,SquareDrawableY,20,sf::Color::Green));//carre vert
+	//deuxieme ligne de carre
+	carreCouleur.add(new SquareDrawable(SquareDrawableX,SquareDrawableY+25,20,sf::Color::Blue));//carre bleu
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25,SquareDrawableY+25,20,sf::Color::Yellow));//carre jaune
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25*2,SquareDrawableY+25,20,sf::Color::Magenta));//carre magenta
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25*3,SquareDrawableY+25,20,sf::Color::Cyan));//carre cyan
+	
+
+	if(boutonCouleur.isOver(mouse_x,mouse_y)){
+		if(isPush)
+			isOC=true;
+	}
+	if(isOC==true){
+		contour.draw(w,false);
+		carreCouleur.draw(w,-200,-200);
+		if(carreCouleur.browse(0)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				ED->setColor(sf::Color::Black);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(1)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				ED->setColor(sf::Color::White);
+				isOC=false;
+			}
+		}	
+		if(carreCouleur.browse(2)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				ED->setColor(sf::Color::Red);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(3)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				ED->setColor(sf::Color::Green);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(4)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				ED->setColor(sf::Color::Blue);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(5)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				ED->setColor(sf::Color::Yellow);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(6)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				ED->setColor(sf::Color::Magenta);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(7)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				ED->setColor(sf::Color::Cyan);
+				isOC=false;
+			}
+		}
+	}
+
 	/*
 			MODIFI LES VALEURS DE LA FORME
 	*/
@@ -398,6 +575,94 @@ void Info(sf::Font &Font,EllipseDrawable *ED,uint sizeecran,uint mouse_x,uint mo
 	w.draw(vLon);
 }
 void Info(sf::Font &Font,CircleDrawable *CD,uint sizeecran,uint mouse_x,uint mouse_y,bool isPush,bool &isOC,sf::RenderWindow &w){
+		/*
+
+	permet de modifier la couleur au bon vouloir de l'utilisateur
+
+	*/
+	uint SquareDrawableX=200; //position X du premier carre de selection de couleur
+	uint SquareDrawableY=200;  //positiion Y du premier carre de selcetion de couleur
+
+	RectangleDrawable boutonCouleur(sizeecran-180,33,100,29,sf::Color::Black);
+	boutonCouleur.setFilled(false);
+	boutonCouleur.draw(w,false);
+	sf::Text textBC("Couleur",Font,20);
+	textBC.setPosition(sizeecran-170,33);
+	textBC.setFillColor(sf::Color::Black);
+	w.draw(textBC);
+
+
+	RectangleDrawable contour(SquareDrawableX-5,SquareDrawableY-5,20*4+5*5,20*2+5*3,sf::Color(192,192,192));
+	
+	ShapesDrawable carreCouleur=ShapesDrawable(8);
+	//permier ligne de carre
+	carreCouleur.add(new SquareDrawable(SquareDrawableX,SquareDrawableY,20,sf::Color::Black));//carre noir
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25,SquareDrawableY,20,sf::Color::White));//carre blanc
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25*2,SquareDrawableY,20,sf::Color::Red));//carre rouge
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25*3,SquareDrawableY,20,sf::Color::Green));//carre vert
+	//deuxieme ligne de carre
+	carreCouleur.add(new SquareDrawable(SquareDrawableX,SquareDrawableY+25,20,sf::Color::Blue));//carre bleu
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25,SquareDrawableY+25,20,sf::Color::Yellow));//carre jaune
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25*2,SquareDrawableY+25,20,sf::Color::Magenta));//carre magenta
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25*3,SquareDrawableY+25,20,sf::Color::Cyan));//carre cyan
+	
+
+	if(boutonCouleur.isOver(mouse_x,mouse_y)){
+		if(isPush)
+			isOC=true;
+	}
+	if(isOC==true){
+		contour.draw(w,false);
+		carreCouleur.draw(w,-200,-200);
+		if(carreCouleur.browse(0)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				CD->setColor(sf::Color::Black);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(1)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				CD->setColor(sf::Color::White);
+				isOC=false;
+			}
+		}	
+		if(carreCouleur.browse(2)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				CD->setColor(sf::Color::Red);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(3)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				CD->setColor(sf::Color::Green);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(4)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				CD->setColor(sf::Color::Blue);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(5)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				CD->setColor(sf::Color::Yellow);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(6)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				CD->setColor(sf::Color::Magenta);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(7)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				CD->setColor(sf::Color::Cyan);
+				isOC=false;
+			}
+		}
+	}
 	/*
 			MODIFI LES VALEURS DE LA FORME
 	*/
@@ -470,6 +735,94 @@ void Info(sf::Font &Font,CircleDrawable *CD,uint sizeecran,uint mouse_x,uint mou
 	w.draw(vLar);
 }
 void Info(sf::Font &Font,TriangleDrawable *TD,uint sizeecran,uint mouse_x,uint mouse_y,bool isPush,bool &isOC,sf::RenderWindow &w){
+		/*
+
+	permet de modifier la couleur au bon vouloir de l'utilisateur
+
+	*/
+	uint SquareDrawableX=200; //position X du premier carre de selection de couleur
+	uint SquareDrawableY=200;  //positiion Y du premier carre de selcetion de couleur
+
+	RectangleDrawable boutonCouleur(sizeecran-180,33,100,29,sf::Color::Black);
+	boutonCouleur.setFilled(false);
+	boutonCouleur.draw(w,false);
+	sf::Text textBC("Couleur",Font,20);
+	textBC.setPosition(sizeecran-170,33);
+	textBC.setFillColor(sf::Color::Black);
+	w.draw(textBC);
+
+
+	RectangleDrawable contour(SquareDrawableX-5,SquareDrawableY-5,20*4+5*5,20*2+5*3,sf::Color(192,192,192));
+	
+	ShapesDrawable carreCouleur=ShapesDrawable(8);
+	//permier ligne de carre
+	carreCouleur.add(new SquareDrawable(SquareDrawableX,SquareDrawableY,20,sf::Color::Black));//carre noir
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25,SquareDrawableY,20,sf::Color::White));//carre blanc
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25*2,SquareDrawableY,20,sf::Color::Red));//carre rouge
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25*3,SquareDrawableY,20,sf::Color::Green));//carre vert
+	//deuxieme ligne de carre
+	carreCouleur.add(new SquareDrawable(SquareDrawableX,SquareDrawableY+25,20,sf::Color::Blue));//carre bleu
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25,SquareDrawableY+25,20,sf::Color::Yellow));//carre jaune
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25*2,SquareDrawableY+25,20,sf::Color::Magenta));//carre magenta
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25*3,SquareDrawableY+25,20,sf::Color::Cyan));//carre cyan
+	
+
+	if(boutonCouleur.isOver(mouse_x,mouse_y)){
+		if(isPush)
+			isOC=true;
+	}
+	if(isOC==true){
+		contour.draw(w,false);
+		carreCouleur.draw(w,-200,-200);
+		if(carreCouleur.browse(0)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				TD->setColor(sf::Color::Black);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(1)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				TD->setColor(sf::Color::White);
+				isOC=false;
+			}
+		}	
+		if(carreCouleur.browse(2)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				TD->setColor(sf::Color::Red);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(3)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				TD->setColor(sf::Color::Green);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(4)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				TD->setColor(sf::Color::Blue);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(5)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				TD->setColor(sf::Color::Yellow);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(6)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				TD->setColor(sf::Color::Magenta);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(7)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				TD->setColor(sf::Color::Cyan);
+				isOC=false;
+			}
+		}
+	}
 	//ajustement de l'écran
 	RectangleDrawable ecranmenInfo(sizeecran-400,160,400,150,sf::Color(192,192,192));
 	ecranmenInfo.draw(w,false);
@@ -573,7 +926,7 @@ void afficheMenuInfo(sf::Font &Font,Shape<sf::RenderWindow, edf::Color>  *forme,
 	EllipseDrawable* my_eD=dynamic_cast<EllipseDrawable*>(forme);
 	CircleDrawable* my_cD=dynamic_cast<CircleDrawable*>(forme);
 	TriangleDrawable* my_tD=dynamic_cast<TriangleDrawable*>(forme);
-	//PolynomeDrawable* my_pD=dynamic_cast<PolynomeDrawable*>(forme);
+
 	
 	//appel la fonction qui affiche les info en fonction du type
 	if(my_rD!=nullptr)
@@ -586,7 +939,5 @@ void afficheMenuInfo(sf::Font &Font,Shape<sf::RenderWindow, edf::Color>  *forme,
 		Info(Font,my_cD,sizeecran,mouse_x,mouse_y,isPush,isOC,w);
 	else if(my_tD!=nullptr)
 		Info(Font,my_tD,sizeecran,mouse_x,mouse_y,isPush,isOC,w);
-	/*else if(my_pD!=nullptr)
-		Info(Font,my_pD,sizeeecran,mouse_x,mouse_y,isPush,w);
-	*/
+
 }

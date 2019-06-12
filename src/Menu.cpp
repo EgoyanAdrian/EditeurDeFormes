@@ -12,6 +12,8 @@ std::string Menu::nbToStr(int nombre)//converti le sint en string
 
 
 Menu::Menu(uint _sizeX,uint _sizeY ,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w,PointsDrawable PointsD[],ShapesDrawable SD[],bool &showLayer,uint &nbS,uint &nbSMax,bool &isoverFichier,bool &isoverEdition,bool &isoverAidee,bool &ssFich,bool &ssEdition){
+std::ofstream saveF;
+std::ifstream loadF;
 sizeEcranX=_sizeX;//coordnonne de la taille du Menu en x
 sizeEcranY=_sizeY;//	"							y
 sf::Font font;
@@ -177,9 +179,7 @@ sf::Vertex line3F[] =
 sousmenuFichier.add(new RectangleDrawable(0, 31, 100, 31, sf::Color(192,192,192)));//MenuFiOuvrir
 sousmenuFichier.add(new RectangleDrawable(0, 31*2, 100, 31, sf::Color(192,192,192)));//MenuFiEnregis
 sousmenuFichier.add(new RectangleDrawable(0, 31*3, 100, 31, sf::Color(192,192,192)));//MenuFiQuitter
-//~ Rectangle menuFiEnregis("Gris",0,31,sizeEcranX,100);
-//~ Rectangle menuFiOuvrir("Gris",0,31+sizeEcranX,sizeEcranX,100);
-//~ Rectangle menuFiQuitter("Gris",0,31+sizeEcranX*2,sizeEcranX,100);
+
 
 //texte
 sf::Text textFichOuvrir("Ouvrir",font,17);
@@ -243,7 +243,13 @@ textFichQuit.setFillColor(sf::Color::Black);
 			textFichOuvrir.setFillColor(sf::Color::Blue);//chagement de la couleur du text noir -> bleu
 			w.draw(textFichOuvrir);
 			if(isPush){
-				
+				loadF.open ("Shapes.save", std::ifstream::in);
+				for (uint i = 0; i < nbSMax; i++) {
+					uint k;
+					loadF >> k;
+					SD[k].load(loadF, PointsD[k]);
+				}
+				loadF.close();
 			}
 		}
 
@@ -252,11 +258,12 @@ textFichQuit.setFillColor(sf::Color::Black);
 			textFichEnrg.setFillColor(sf::Color::Blue);
 			w.draw(textFichEnrg);//ecrie le nouveau texte
 			if(isPush){
-				textFichEnrg.setFillColor(sf::Color::Red);//chagement de la couleur du text noir -> bleu
-				w.draw(textFichEnrg);
-				std::ofstream outfile ("test.txt");
-				outfile << "my text here!" << std::endl;
-				outfile.close();
+				saveF.open ("Shapes.save", std::ofstream::out | std::ofstream::trunc);
+				for (uint i = 0; i < nbSMax; i++) {
+					saveF << i << std::endl;
+					SD[i].save(saveF);
+				}
+				saveF.close();
 			}
 		}
 
@@ -293,29 +300,29 @@ textFichQuit.setFillColor(sf::Color::Black);
 
 
 	//creation des rectangles du tabMenuOutil     110:largeur yme*7:longeur
-	RectangleDrawable GR(xme, yme, 210, yme*6, sf::Color(192,192,192));//rectangle global des option du menu
+	RectangleDrawable GR(xme, yme, 210, yme*5, sf::Color(192,192,192));//rectangle global des option du menu
 	tabMenuOutil.add(new RectangleDrawable(xme+5, yme, 200, 31, sf::Color(192,192,192)));//premier rectangle creation d'un rectangle
 	tabMenuOutil.add(new RectangleDrawable(xme+5, yme*2, 200, 31, sf::Color(192,192,192)));//46 car 5 car meme niveau que le rectangle 1 +31 pour la hauteur du rectangle 1 +10 d'espace enter le deux rectangle
 	tabMenuOutil.add(new RectangleDrawable(xme+5, yme*3, 200, 31, sf::Color(192,192,192)));//option cercle
 	tabMenuOutil.add(new RectangleDrawable(xme+5,yme*4, 200, 31, sf::Color(192,192,192)));//option Ellipse
 	tabMenuOutil.add(new RectangleDrawable(xme+5,yme*5, 200, 31, sf::Color(192,192,192)));//option Triangle
-	tabMenuOutil.add(new RectangleDrawable(xme+5,yme*6, 200, 31, sf::Color(192,192,192)));//option Polynome
+
 
 	
 
 
 	sf::Text creaRect("Rectangle",font,19);
-	sf::Text creaRectCtr("Touche R",font,19);
+	sf::Text creaRectCtr("Ctrl+A",font,19);
 	sf::Text creaCarre("Carre",font,20);
-	sf::Text creaCarreCtr("Touche S",font,20);
+	sf::Text creaCarreCtr("Ctrl+Z",font,20);
 	sf::Text creaCercle("Cercle",font,20);
-	sf::Text creaCercleCtr("Touche C",font,20);
+	sf::Text creaCercleCtr("Ctrl+E",font,20);
 	sf::Text creaEllips("Ellipse",font,20);
-	sf::Text creaEllipsCtr("Touche E",font,20);
+	sf::Text creaEllipsCtr("Ctrl+R",font,20);
 	sf::Text creaTriangle("Triangle",font,19);
-	sf::Text creaTriangleCtr("Touche T",font,19);
+	sf::Text creaTriangleCtr("Ctrl+T",font,19);
 	sf::Text creaPoly("Polygones",font,19);
-	sf::Text creaPolyCtr("Touche ?",font,19);
+
 
 
 	//Position des Textes des boutons
@@ -324,7 +331,7 @@ textFichQuit.setFillColor(sf::Color::Black);
 	creaCercle.setPosition(xme+5,yme*3+2);
 	creaEllips.setPosition(xme+5,yme*4+2);
 	creaTriangle.setPosition(xme+5,yme*5+2);
-	creaPoly.setPosition(xme+5,yme*6+2);
+
 
 
 	//Position des Textes de controle
@@ -333,7 +340,7 @@ textFichQuit.setFillColor(sf::Color::Black);
 	creaCercleCtr.setPosition(xme+110,yme*3+2);
 	creaEllipsCtr.setPosition(xme+110,yme*4+2);
 	creaTriangleCtr.setPosition(xme+110,yme*5+2);
-	creaPolyCtr.setPosition(xme+110,yme*6+2);
+
 
 	//Couleur des texte
 	creaRect.setFillColor(sf::Color::Black);
@@ -346,8 +353,7 @@ textFichQuit.setFillColor(sf::Color::Black);
 	creaEllipsCtr.setFillColor(sf::Color::Black);
 	creaTriangle.setFillColor(sf::Color::Black);
 	creaTriangleCtr.setFillColor(sf::Color::Black);
-	creaPoly.setFillColor(sf::Color::Black);
-	creaPolyCtr.setFillColor(sf::Color::Black);
+
 
 	//definition du soulignement bleu	
 	sf::Vertex line1E[] =
@@ -406,8 +412,7 @@ textFichQuit.setFillColor(sf::Color::Black);
 		w.draw(creaEllipsCtr);
 		w.draw(creaTriangle);
 		w.draw(creaTriangleCtr);
-		w.draw(creaPoly);
-		w.draw(creaPolyCtr);
+
 	
 		//si on click sur les bouton du sous menu
 		if(tabMenuOutil.browse(0)->isOver(mouse_x,mouse_y)){
@@ -477,15 +482,7 @@ textFichQuit.setFillColor(sf::Color::Black);
 				ssEdition=false;
 			}
 		}
-		if(tabMenuOutil.browse(5)->isOver(mouse_x,mouse_y)){
-			creaPoly.setFillColor(sf::Color::Blue);
-			creaPolyCtr.setFillColor(sf::Color::Blue);
-			w.draw(creaPoly);
-			w.draw(creaPolyCtr);
-			if(isPush){
-				std::cout<<"pas d'implementation pour polynome"<<std::endl;
-			}
-		}
+
 
 
 
@@ -511,7 +508,7 @@ isoverEdition=isOverEdition;
 	ecranAidee.setFilled(false);
 	ecranAidee.setBorderSize(10);
 	//redaction du texte d'aide
-	sf::Text test("\t\tBienvenu dans le Menu d'aide\nvoici quelque racourcies utile:\nZ pour afficher le calque supperieur\nX pour afficher le calque inferieur\nA pour afficher tout les calque",font,19);
+	sf::Text test("\t\tBienvenu dans le Menu d'aide\nvoici quelque raccourcis utile:\nCtrl+ <- pour afficher le calque precedant\nCtrl+ -> pour afficher le calque suivant\nCtrl+Q pour afficher tout les calque",font,19);
 	test.setPosition(sizeEX+12,sizeEY+12);
 	test.setFillColor(sf::Color::Black);
 

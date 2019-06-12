@@ -2,17 +2,17 @@
 
 #include <SFML/Graphics.hpp>
 #include <typeinfo>
-#include "PointsDrawable.hpp"
-#include "ShapesDrawable.hpp"
-#include "RectangleDrawable.hpp"
-#include "SquareDrawable.hpp"
-#include "CircleDrawable.hpp"
-#include "EllipseDrawable.hpp"
-#include "TriangleDrawable.hpp"
+#include "DrawableShapes/PointsDrawable.hpp"
+#include "DrawableShapes/ShapesDrawable.hpp"
+#include "DrawableShapes/RectangleDrawable.hpp"
+#include "DrawableShapes/SquareDrawable.hpp"
+#include "DrawableShapes/CircleDrawable.hpp"
+#include "DrawableShapes/EllipseDrawable.hpp"
+#include "DrawableShapes/TriangleDrawable.hpp"
 // #include "PolygonDrawable.hpp" !!INCOMPLET
-#include "Color.hpp"
-#include "menuInfo.hpp"
-#include "Menu.hpp"
+#include "DrawableShapes/Color.hpp"
+#include "GuiMenu/menuInfo.hpp"
+#include "GuiMenu/Menu.hpp"
 
 
 int main() {

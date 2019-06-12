@@ -1,7 +1,7 @@
 #ifndef SHAPES_HPP
 #define SHAPES_HPP
 
-#include "Shape.hpp"
+#include "../BaseShapes/Shape.hpp"
 
 template <typename ...> class Shapes;
 

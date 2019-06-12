@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Color.hpp"
-#include "Polygon.hpp"
+#include "../BaseShapes/Polygon.hpp"
 
 class PolygonDrawable : public Polygon<sf::RenderWindow, edf::Color> {
 	public:

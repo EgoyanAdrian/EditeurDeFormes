@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Color.hpp"
-#include "Triangle.hpp"
+#include "../BaseShapes/Triangle.hpp"
 
 class TriangleDrawable : public Triangle<sf::RenderWindow, edf::Color> {
 	public:

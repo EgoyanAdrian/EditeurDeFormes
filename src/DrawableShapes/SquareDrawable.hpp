@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Color.hpp"
-#include "Square.hpp"
+#include "../BaseShapes/Square.hpp"
 
 class SquareDrawable : public Square<sf::RenderWindow, edf::Color> {
 	public:

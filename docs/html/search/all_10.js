@@ -19,7 +19,6 @@ var searchData=
   ['_7eshapesdrawable',['~ShapesDrawable',['../classShapesDrawable.html#a2942993387f6a7012c4129d363c3e306',1,'ShapesDrawable']]],
   ['_7esquare',['~Square',['../classSquare_3_01WindowT_00_01ColorT_01_4.html#afc004e22d1f4dad16153af2d6d0417f5',1,'Square&lt; WindowT, ColorT &gt;']]],
   ['_7esquaredrawable',['~SquareDrawable',['../classSquareDrawable.html#ac1b1333f7d272b93a8c36353cd41b51a',1,'SquareDrawable']]],
-  ['_7etext',['~Text',['../classText.html#a2d49e5c280e205125b149f7777ae30c7',1,'Text']]],
   ['_7etriangle',['~Triangle',['../classTriangle_3_01WindowT_00_01ColorT_01_4.html#af40a80e05c1a71730f06cfc515774d26',1,'Triangle&lt; WindowT, ColorT &gt;']]],
   ['_7etriangledrawable',['~TriangleDrawable',['../classTriangleDrawable.html#a2bd07cb35ec04c19fc023d99381a9315',1,'TriangleDrawable']]]
 ];

@@ -7,9 +7,9 @@
 #include <fstream> 
 #include <sstream> 
 #include <SFML/Graphics.hpp>
-#include "PointsDrawable.hpp"
-#include "ShapesDrawable.hpp"
-#include "RectangleDrawable.hpp"
+#include "../DrawableShapes/PointsDrawable.hpp"
+#include "../DrawableShapes/ShapesDrawable.hpp"
+#include "../DrawableShapes/RectangleDrawable.hpp"
 #include "menuOutils.hpp"
 
 

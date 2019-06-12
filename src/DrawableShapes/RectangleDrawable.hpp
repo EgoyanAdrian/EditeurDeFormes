@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Color.hpp"
-#include "Rectangle.hpp"
+#include "../BaseShapes/Rectangle.hpp"
 
 class RectangleDrawable : public Rectangle<sf::RenderWindow, edf::Color> {
 	public:

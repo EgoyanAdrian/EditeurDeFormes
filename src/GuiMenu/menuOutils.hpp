@@ -1,11 +1,11 @@
 #include <SFML/Graphics.hpp>
-#include "ShapesDrawable.hpp"
-#include "PointsDrawable.hpp"
-#include "RectangleDrawable.hpp"
-#include "SquareDrawable.hpp"
-#include "CircleDrawable.hpp"
-#include "EllipseDrawable.hpp"
-#include "TriangleDrawable.hpp"
+#include "../DrawableShapes/ShapesDrawable.hpp"
+#include "../DrawableShapes/PointsDrawable.hpp"
+#include "../DrawableShapes/RectangleDrawable.hpp"
+#include "../DrawableShapes/SquareDrawable.hpp"
+#include "../DrawableShapes/CircleDrawable.hpp"
+#include "../DrawableShapes/EllipseDrawable.hpp"
+#include "../DrawableShapes/TriangleDrawable.hpp"
 
 class menuOutils{
 		ShapesDrawable tabMenuOutil=ShapesDrawable(10);

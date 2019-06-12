@@ -1,6 +1,6 @@
-<map id="Rectangle.hpp" name="Rectangle.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,112,32"/>
-<area shape="rect" id="node2" href="$Shape_8hpp.html" title=" " alt="" coords="17,80,101,107"/>
-<area shape="rect" id="node3" href="$Point_8hpp.html" title=" " alt="" coords="20,155,97,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="23,229,95,256"/>
+<map id="BaseShapes/Rectangle.hpp" name="BaseShapes/Rectangle.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,189,32"/>
+<area shape="rect" id="node2" href="$Shape_8hpp.html" title=" " alt="" coords="55,80,139,107"/>
+<area shape="rect" id="node3" href="$Point_8hpp.html" title=" " alt="" coords="59,155,136,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="61,229,133,256"/>
 </map>

@@ -1,15 +1,15 @@
 #include <SFML/Graphics.hpp>
 #include <sstream>
 #include <typeinfo>
-#include "Shape.hpp"
-#include "ShapesDrawable.hpp"
-#include "PointsDrawable.hpp"
-#include "RectangleDrawable.hpp"
-#include "SquareDrawable.hpp"
-#include "EllipseDrawable.hpp"
-#include "CircleDrawable.hpp"
-#include "TriangleDrawable.hpp"
-#include "Color.hpp"
+#include "../BaseShapes/Shape.hpp"
+#include "../DrawableShapes/ShapesDrawable.hpp"
+#include "../DrawableShapes/PointsDrawable.hpp"
+#include "../DrawableShapes/RectangleDrawable.hpp"
+#include "../DrawableShapes/SquareDrawable.hpp"
+#include "../DrawableShapes/EllipseDrawable.hpp"
+#include "../DrawableShapes/CircleDrawable.hpp"
+#include "../DrawableShapes/TriangleDrawable.hpp"
+#include "../DrawableShapes/Color.hpp"
 
 
 std::string nbToStr(int nombre);

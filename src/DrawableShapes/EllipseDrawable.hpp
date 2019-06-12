@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Color.hpp"
-#include "Ellipse.hpp"
+#include "../BaseShapes/Ellipse.hpp"
 
 class EllipseDrawable : public Ellipse<sf::RenderWindow, edf::Color> {
 	public:

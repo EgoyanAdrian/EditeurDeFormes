@@ -1,8 +1,8 @@
-<map id="PointsDrawable.cpp" name="PointsDrawable.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="73,5,212,32"/>
+<map id="DrawableShapes/PointsDrawable.cpp" name="DrawableShapes/PointsDrawable.cpp">
+<area shape="rect" id="node1" title=" " alt="" coords="21,5,264,32"/>
 <area shape="rect" id="node2" href="$PointsDrawable_8hpp.html" title=" " alt="" coords="73,80,212,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,155,144,181"/>
 <area shape="rect" id="node4" href="$Points_8hpp.html" title=" " alt="" coords="169,155,253,181"/>
-<area shape="rect" id="node5" href="$Point_8hpp.html" title=" " alt="" coords="172,229,249,256"/>
+<area shape="rect" id="node5" href="$Point_8hpp.html" title=" " alt="" coords="127,229,294,256"/>
 <area shape="rect" id="node6" title=" " alt="" coords="175,304,247,331"/>
 </map>

@@ -1,13 +1,13 @@
-<map id="TriangleDrawable.hpp" name="TriangleDrawable.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="223,5,371,32"/>
-<area shape="rect" id="node2" href="$ShapesDrawable_8hpp.html" title=" " alt="" coords="224,80,371,107"/>
-<area shape="rect" id="node3" href="$main_8cpp.html" title=" " alt="" coords="147,304,221,331"/>
-<area shape="rect" id="node4" href="$menuInfo_8hpp.html" title=" " alt="" coords="71,155,172,181"/>
-<area shape="rect" id="node8" href="$menuOutils_8hpp.html" title=" " alt="" coords="469,155,582,181"/>
-<area shape="rect" id="node11" href="$TriangleDrawable_8cpp.html" title=" " alt="" coords="446,80,594,107"/>
-<area shape="rect" id="node6" href="$Menu_8hpp.html" title=" " alt="" coords="378,229,457,256"/>
-<area shape="rect" id="node10" href="$ShapesDrawable_8cpp.html" title=" " alt="" coords="247,155,393,181"/>
-<area shape="rect" id="node5" href="$menuInfo_8cpp.html" title=" " alt="" coords="20,229,121,256"/>
-<area shape="rect" id="node7" href="$Menu_8cpp.html" title=" " alt="" coords="378,304,457,331"/>
-<area shape="rect" id="node9" href="$menuOutils_8cpp.html" title=" " alt="" coords="481,229,594,256"/>
+<map id="DrawableShapes/TriangleDrawable.hpp" name="DrawableShapes/TriangleDrawable.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="621,5,871,32"/>
+<area shape="rect" id="node2" href="$ShapesDrawable_8hpp.html" title=" " alt="" coords="253,80,503,107"/>
+<area shape="rect" id="node6" href="$main_8cpp.html" title=" " alt="" coords="437,304,511,331"/>
+<area shape="rect" id="node7" href="$menuOutils_8hpp.html" title=" " alt="" coords="473,155,643,181"/>
+<area shape="rect" id="node9" href="$menuInfo_8hpp.html" title=" " alt="" coords="667,155,825,181"/>
+<area shape="rect" id="node11" href="$TriangleDrawable_8cpp.html" title=" " alt="" coords="899,80,1150,107"/>
+<area shape="rect" id="node3" href="$ShapesDrawable_8cpp.html" title=" " alt="" coords="200,155,449,181"/>
+<area shape="rect" id="node4" href="$Menu_8hpp.html" title=" " alt="" coords="5,229,140,256"/>
+<area shape="rect" id="node5" href="$Menu_8cpp.html" title=" " alt="" coords="5,304,140,331"/>
+<area shape="rect" id="node8" href="$menuOutils_8cpp.html" title=" " alt="" coords="389,229,559,256"/>
+<area shape="rect" id="node10" href="$menuInfo_8cpp.html" title=" " alt="" coords="583,229,741,256"/>
 </map>

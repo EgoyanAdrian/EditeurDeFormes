@@ -1,14 +1,14 @@
-<map id="Ellipse.hpp" name="Ellipse.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="279,5,366,32"/>
-<area shape="rect" id="node2" href="$EllipseDrawable_8hpp.html" title=" " alt="" coords="252,80,393,107"/>
-<area shape="rect" id="node3" href="$EllipseDrawable_8cpp.html" title=" " alt="" coords="5,155,147,181"/>
-<area shape="rect" id="node4" href="$ShapesDrawable_8hpp.html" title=" " alt="" coords="404,155,551,181"/>
-<area shape="rect" id="node5" href="$main_8cpp.html" title=" " alt="" coords="348,379,423,405"/>
-<area shape="rect" id="node6" href="$menuInfo_8hpp.html" title=" " alt="" coords="272,229,373,256"/>
-<area shape="rect" id="node10" href="$menuOutils_8hpp.html" title=" " alt="" coords="670,229,783,256"/>
-<area shape="rect" id="node8" href="$Menu_8hpp.html" title=" " alt="" coords="579,304,658,331"/>
-<area shape="rect" id="node12" href="$ShapesDrawable_8cpp.html" title=" " alt="" coords="448,229,595,256"/>
-<area shape="rect" id="node7" href="$menuInfo_8cpp.html" title=" " alt="" coords="221,304,323,331"/>
-<area shape="rect" id="node9" href="$Menu_8cpp.html" title=" " alt="" coords="579,379,658,405"/>
-<area shape="rect" id="node11" href="$menuOutils_8cpp.html" title=" " alt="" coords="682,304,795,331"/>
+<map id="BaseShapes/Ellipse.hpp" name="BaseShapes/Ellipse.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="511,5,675,32"/>
+<area shape="rect" id="node2" href="$EllipseDrawable_8hpp.html" title=" " alt="" coords="471,80,715,107"/>
+<area shape="rect" id="node3" href="$EllipseDrawable_8cpp.html" title=" " alt="" coords="39,155,283,181"/>
+<area shape="rect" id="node4" href="$ShapesDrawable_8hpp.html" title=" " alt="" coords="307,155,556,181"/>
+<area shape="rect" id="node8" href="$main_8cpp.html" title=" " alt="" coords="437,379,511,405"/>
+<area shape="rect" id="node9" href="$menuOutils_8hpp.html" title=" " alt="" coords="473,229,643,256"/>
+<area shape="rect" id="node11" href="$menuInfo_8hpp.html" title=" " alt="" coords="667,229,825,256"/>
+<area shape="rect" id="node5" href="$ShapesDrawable_8cpp.html" title=" " alt="" coords="200,229,449,256"/>
+<area shape="rect" id="node6" href="$Menu_8hpp.html" title=" " alt="" coords="5,304,140,331"/>
+<area shape="rect" id="node7" href="$Menu_8cpp.html" title=" " alt="" coords="5,379,140,405"/>
+<area shape="rect" id="node10" href="$menuOutils_8cpp.html" title=" " alt="" coords="389,304,559,331"/>
+<area shape="rect" id="node12" href="$menuInfo_8cpp.html" title=" " alt="" coords="583,304,741,331"/>
 </map>

@@ -1,7 +1,7 @@
 #ifndef POINTS_HPP
 #define POINTS_HPP
 
-#include "Point.hpp"
+#include "../BaseShapes/Point.hpp"
 
 template <typename ...> class Points;
 

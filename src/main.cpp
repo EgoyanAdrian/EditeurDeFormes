@@ -9,6 +9,7 @@
 #include "CircleDrawable.hpp"
 #include "EllipseDrawable.hpp"
 #include "TriangleDrawable.hpp"
+// #include "PolygonDrawable.hpp" !!INCOMPLET
 #include "Color.hpp"
 #include "menuInfo.hpp"
 #include "Menu.hpp"
@@ -145,6 +146,23 @@ int main() {
 								layoutGestPoints[nbS].add(pointC);
 								layoutGestShapes[nbS].add(new TriangleDrawable(pointA, pointB, pointC, sf::Color::Green));
 							break;
+						/*case sf::Keyboard::Y: 		// malloc consolidate error A la fermeture et add method necessaire dans Shape.hpp
+								Point * p; p = new Point(100, 320);
+								layoutGestPoints[nbS].add(p);
+								layoutGestShapes[nbS].add(new PolygonDrawable(p, sf::Color::Black, 1));
+								Point * p1; p1 = new Point(140, 320);
+								layoutGestPoints[nbS].add(p1);
+								layoutGestShapes[nbS].browse(layoutGestShapes[nbS].getNbShapes() - 1)->add(p1);
+								Point * p2; p2 = new Point(145, 340);
+								layoutGestPoints[nbS].add(p2);
+								layoutGestShapes[nbS].browse(layoutGestShapes[nbS].getNbShapes() - 1)->add(p2);
+								Point * p3; p3 = new Point(130, 350);
+								layoutGestPoints[nbS].add(p3);
+								layoutGestShapes[nbS].browse(layoutGestShapes[nbS].getNbShapes() - 1)->add(p3);
+								Point * p4; p4 = new Point(90, 330);
+								layoutGestPoints[nbS].add(p4);
+								layoutGestShapes[nbS].browse(layoutGestShapes[nbS].getNbShapes() - 1)->add(p4);
+							break;*/
 						case sf::Keyboard::Left:
 								if(nbS < (nbSMax - 1))
 									nbS++;

@@ -12,18 +12,24 @@ class Polygon<WindowT, ColorT> : public Shape<WindowT, ColorT> {
 		Point ** tabPoints;
 
 	public:
-		Polygon(uint _maxPoints = 10);
+		Polygon(Point * _anchor, ColorT _color, uint _maxPoints = 10);
 		~Polygon();
 
+		inline uint getNbPoints() const { return nbPoints;}
+		inline uint getMaxPoints() const { return maxPoints;}
+
 		bool isOver(uint _x, uint _y) const override;
-		virtual void add(Point * _point);
-		virtual void remove(uint _x, uint _y);
-		inline virtual void draw(WindowT _window, bool isActive) const override { }
+		void add(Point * _point) override;
+		void remove(uint _x, uint _y);
+		Point * browse(uint _i) const;
+		inline virtual void draw(WindowT & _window, bool isActive) const override { }
 };
 
 template <typename WindowT, typename ColorT>
-Polygon<WindowT, ColorT>::Polygon(uint _maxPoints)
-{ }
+Polygon<WindowT, ColorT>::Polygon(Point * _point, ColorT _color, uint _maxPoints)
+:Shape<WindowT, ColorT>(_point, _color), maxPoints(_maxPoints), nbPoints(0) {
+	tabPoints = new Point * [maxPoints];
+}
 
 template <typename WindowT, typename ColorT>
 Polygon<WindowT, ColorT>::~Polygon() {
@@ -34,8 +40,8 @@ Polygon<WindowT, ColorT>::~Polygon() {
 }
 
 template <typename WindowT, typename ColorT>
-bool Polygon<WindowT, ColorT>::isOver(uint _x, uint _y) {
-	return true;
+bool Polygon<WindowT, ColorT>::isOver(uint _x, uint _y) const {
+	return false;
 }
 
 template <typename WindowT, typename ColorT>
@@ -43,7 +49,7 @@ void Polygon<WindowT, ColorT>::add(Point * _point) {
 	if(nbPoints >= maxPoints)
 		throw std::runtime_error("Plus de places");
 	else
-		tabShapes[nbPoints++] = _point;
+		tabPoints[nbPoints++] = _point;
 }
 
 template <typename WindowT, typename ColorT>
@@ -54,10 +60,18 @@ void Polygon<WindowT, ColorT>::remove(uint _x, uint _y) {
 			tabTempo[y] = tabPoints[i];
 			y++;
 		} else
-			delete tabShapes[i];
+			delete tabPoints[i];
 	}
-	nbShapes--;
+	nbPoints--;
 	tabPoints = tabTempo;
+}
+
+template <typename WindowT, typename ColorT>
+Point * Polygon<WindowT, ColorT>::browse(uint _i) const {
+	if(_i > (nbPoints - 1))
+		return tabPoints[0];
+
+	return tabPoints[_i];
 }
 
 #endif

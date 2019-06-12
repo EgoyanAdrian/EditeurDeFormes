@@ -10,6 +10,7 @@
 #include "EllipseDrawable.hpp"
 #include "CircleDrawable.hpp"
 #include "TriangleDrawable.hpp"
+//#include "PolygonDrawable.hpp" !!INCOMPLET
 
 class ShapesDrawable : public Shapes<sf::RenderWindow, edf::Color> {
 	public:

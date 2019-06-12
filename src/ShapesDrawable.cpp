@@ -47,6 +47,9 @@ void ShapesDrawable::load(std::istream & is, PointsDrawable & _gestPoints) {
 			_gestPoints.add(p2);
 			this->add(new TriangleDrawable(p, p1, p2, sf::Color::Black));
 			this->browse(this->getNbShapes() - 1)->load(is);
+		/*} else if(shapeType == "Polygon") {
+			this->add(new PolygonDrawable(p, sf::Color::Black));
+			this->browse(this->getNbShapes() - 1)->load(is);*/
 		} else {
 			std::cerr << "Forme Inconnue" << std::endl;
 		}

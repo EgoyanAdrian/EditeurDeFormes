@@ -11,7 +11,7 @@ std::string Menu::nbToStr(int nombre)//converti le sint en string
 }
 
 
-Menu::Menu(uint _sizeX,uint _sizeY ,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w,PointsDrawable PointsD[],ShapesDrawable SD[],bool &showLayer,uint &nbS,uint &nbSMax,bool &isoverFichier,bool &isoverEdition,bool &isoverAidee){
+Menu::Menu(uint _sizeX,uint _sizeY ,uint mouse_x, uint mouse_y,bool isPush,sf::RenderWindow &w,PointsDrawable PointsD[],ShapesDrawable SD[],bool &showLayer,uint &nbS,uint &nbSMax,bool &isoverFichier,bool &isoverEdition,bool &isoverAidee,bool &ssFich,bool &ssEdition){
 sizeEcranX=_sizeX;//coordnonne de la taille du Menu en x
 sizeEcranY=_sizeY;//	"							y
 sf::Font font;
@@ -204,7 +204,6 @@ textFichQuit.setFillColor(sf::Color::Black);
  * 
  * 
  * */
-	
 	if((menu.browse(1)->isOver(mouse_y,mouse_y))&&isPush){//permet de savoir si on click sur Fichier
 		isOverFichier=true;
 	}
@@ -306,17 +305,17 @@ textFichQuit.setFillColor(sf::Color::Black);
 
 
 	sf::Text creaRect("Rectangle",font,19);
-	sf::Text creaRectCtr("ctrl+R",font,19);
+	sf::Text creaRectCtr("Touche R",font,19);
 	sf::Text creaCarre("Carre",font,20);
-	sf::Text creaCarreCtr("ctrl+S",font,20);
+	sf::Text creaCarreCtr("Touche S",font,20);
 	sf::Text creaCercle("Cercle",font,20);
-	sf::Text creaCercleCtr("ctrl+C",font,20);
+	sf::Text creaCercleCtr("Touche C",font,20);
 	sf::Text creaEllips("Ellipse",font,20);
-	sf::Text creaEllipsCtr("ctrl+E",font,20);
+	sf::Text creaEllipsCtr("Touche E",font,20);
 	sf::Text creaTriangle("Triangle",font,19);
-	sf::Text creaTriangleCtr("ctrl+T",font,19);
+	sf::Text creaTriangleCtr("Touche T",font,19);
 	sf::Text creaPoly("Polygones",font,19);
-	sf::Text creaPolyCtr("ctrl+ ?",font,19);
+	sf::Text creaPolyCtr("Touche ?",font,19);
 
 
 	//Position des Textes des boutons

@@ -293,13 +293,13 @@ textFichQuit.setFillColor(sf::Color::Black);
 
 
 	//creation des rectangles du tabMenuOutil     110:largeur yme*7:longeur
-	RectangleDrawable GR(xme, yme, 180, yme*6, sf::Color(192,192,192));//rectangle global des option du menu
-	tabMenuOutil.add(new RectangleDrawable(xme+5, yme, 170, 31, sf::Color(192,192,192)));//premier rectangle creation d'un rectangle
-	tabMenuOutil.add(new RectangleDrawable(xme+5, yme*2, 100, 31, sf::Color(192,192,192)));//46 car 5 car meme niveau que le rectangle 1 +31 pour la hauteur du rectangle 1 +10 d'espace enter le deux rectangle
-	tabMenuOutil.add(new RectangleDrawable(xme+5, yme*3, 100, 31, sf::Color(192,192,192)));//option cercle
-	tabMenuOutil.add(new RectangleDrawable(xme+5,yme*4, 100, 31, sf::Color(192,192,192)));//option Ellipse
-	tabMenuOutil.add(new RectangleDrawable(xme+5,yme*5, 100, 31, sf::Color(192,192,192)));//option Triangle
-	tabMenuOutil.add(new RectangleDrawable(xme+5,yme*6, 100, 31, sf::Color(192,192,192)));//option Polynome
+	RectangleDrawable GR(xme, yme, 210, yme*6, sf::Color(192,192,192));//rectangle global des option du menu
+	tabMenuOutil.add(new RectangleDrawable(xme+5, yme, 200, 31, sf::Color(192,192,192)));//premier rectangle creation d'un rectangle
+	tabMenuOutil.add(new RectangleDrawable(xme+5, yme*2, 200, 31, sf::Color(192,192,192)));//46 car 5 car meme niveau que le rectangle 1 +31 pour la hauteur du rectangle 1 +10 d'espace enter le deux rectangle
+	tabMenuOutil.add(new RectangleDrawable(xme+5, yme*3, 200, 31, sf::Color(192,192,192)));//option cercle
+	tabMenuOutil.add(new RectangleDrawable(xme+5,yme*4, 200, 31, sf::Color(192,192,192)));//option Ellipse
+	tabMenuOutil.add(new RectangleDrawable(xme+5,yme*5, 200, 31, sf::Color(192,192,192)));//option Triangle
+	tabMenuOutil.add(new RectangleDrawable(xme+5,yme*6, 200, 31, sf::Color(192,192,192)));//option Polynome
 
 	
 
@@ -510,8 +510,10 @@ isoverEdition=isOverEdition;
 	RectangleDrawable ecranAidee(sizeEX,sizeEY,sizeEX*2,sizeEY*2.5,sf::Color::Black);
 	ecranAidee.setFilled(false);
 	ecranAidee.setBorderSize(10);
-	
-
+	//redaction du texte d'aide
+	sf::Text test("\t\tBienvenu dans le Menu d'aide\nvoici quelque racourcies utile:\nZ pour afficher le calque supperieur\nX pour afficher le calque inferieur\nA pour afficher tout les calque",font,19);
+	test.setPosition(sizeEX+12,sizeEY+12);
+	test.setFillColor(sf::Color::Black);
 
 	if((menu.browse(3)->isOver(mouse_x,mouse_y))&&isPush) {//permet de savoir si on click sur aidee
 		textHelp.setFillColor(sf::Color::Blue);
@@ -524,7 +526,7 @@ isoverEdition=isOverEdition;
 	
 	if(isOverAidee){
 		ecranAidee.draw(w,false);//affiche "l'ecran d'aidee"
-	
+		w.draw(test);
 
 
 

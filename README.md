@@ -7,8 +7,9 @@ EGOYAN Adrian
 Logiciel d'edition de formes
 ----------------------------
 Pour generer la doc, il faut utiliser les commandes de doxygen sur le fichier Doxyfile present dans src/
-	  Pour compiler le programme, un script bash de compilation se situe dans le fichier src, ./compil.sh il ne fonctionne que sur Linux
-! SFML est necessaire pour compiler ce document
+	  Pour compiler le programme, un script bash de compilation se situe dans le fichier src, ./compil.sh ce script n'est disponible que pour Linux
+	  ! SFML est necessaire pour compiler ce document
+
 	  
       Raccourcis disponible dans le programme :
           CTRL + A : Creer un rectangle

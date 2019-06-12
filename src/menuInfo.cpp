@@ -12,6 +12,72 @@ std::string nbToStr(int nombre)//converti le sint en string
 
 void Info(sf::Font &Font,RectangleDrawable *RD,uint sizeecran,uint mouse_x,uint mouse_y,bool isPush,sf::RenderWindow &w){
 	/*
+
+	permet de modifier la couleur au bon vouloir de l'utilisateur
+
+	*/
+	uint SquareDrawableX=200; //position X du premier carre de selection de couleur
+	uint SquareDrawableY=200;  //positiion Y du premier carre de selcetion de couleur
+
+	RectangleDrawable contour(SquareDrawableX-5,SquareDrawableY-5,20*4+5*5,20*2+5*3,sf::Color(192,192,192));
+	contour.draw(w,false);
+	ShapesDrawable carreCouleur=ShapesDrawable(8);
+	//permier ligne de carre
+	carreCouleur.add(new SquareDrawable(SquareDrawableX,SquareDrawableY,20,sf::Color::Black));//carre noir
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25,SquareDrawableY,20,sf::Color::White));//carre blanc
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25*2,SquareDrawableY,20,sf::Color::Red));//carre rouge
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25*3,SquareDrawableY,20,sf::Color::Green));//carre vert
+	//deuxieme ligne de carre
+	carreCouleur.add(new SquareDrawable(SquareDrawableX,SquareDrawableY+25,20,sf::Color::Blue));//carre bleu
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25,SquareDrawableY+25,20,sf::Color::Yellow));//carre jaune
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25*2,SquareDrawableY+25,20,sf::Color::Magenta));//carre magenta
+	carreCouleur.add(new SquareDrawable(SquareDrawableX+25*3,SquareDrawableY+25,20,sf::Color::Cyan));//carre cyan
+	carreCouleur.draw(w,-200,-200);
+
+	if(carreCouleur.browse(0)->isOver(mouse_x,mouse_y)){
+		if(isPush){
+			RD->setColor(sf::Color::Black);
+		}
+	}
+	if(carreCouleur.browse(1)->isOver(mouse_x,mouse_y)){
+		if(isPush){
+			RD->setColor(sf::Color::White);
+		}
+	}	
+	if(carreCouleur.browse(2)->isOver(mouse_x,mouse_y)){
+		if(isPush){
+			RD->setColor(sf::Color::Red);
+		}
+	}
+	if(carreCouleur.browse(3)->isOver(mouse_x,mouse_y)){
+		if(isPush){
+			RD->setColor(sf::Color::Green);
+		}
+	}
+	if(carreCouleur.browse(4)->isOver(mouse_x,mouse_y)){
+		if(isPush){
+			RD->setColor(sf::Color::Blue);
+		}
+	}
+	if(carreCouleur.browse(5)->isOver(mouse_x,mouse_y)){
+		if(isPush){
+			RD->setColor(sf::Color::Yellow);
+		}
+	}
+	if(carreCouleur.browse(6)->isOver(mouse_x,mouse_y)){
+		if(isPush){
+			RD->setColor(sf::Color::Magenta);
+		}
+	}
+	if(carreCouleur.browse(7)->isOver(mouse_x,mouse_y)){
+		if(isPush){
+			RD->setColor(sf::Color::Cyan);
+		}
+	}
+
+
+
+	/*
 			MODIFI LES VALEURS DE LA FORME
 	*/
 	SquareDrawable bouton1(sizeecran-180,110,20,sf::Color::Black);

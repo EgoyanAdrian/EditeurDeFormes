@@ -74,8 +74,17 @@ int main() {
 			}
 
 			if(event.type == sf::Event::MouseButtonPressed) {
-				pointSelect = gestPoint[nbS].isOver(X, Y);
-				shapeSelect = gestShape[nbS].isOver(X, Y);
+				/*if(showLayer) {
+					uint i = 0;
+					while(pointSelect == nullptr || shapeSelect == nullptr || i < nbSMax) {
+						pointSelect = gestPoint[i].isOver(X, Y);
+						shapeSelect = gestShape[i].isOver(X, Y);
+						i++;
+					}
+				} else {*/
+					pointSelect = gestPoint[nbS].isOver(X, Y);
+					shapeSelect = gestShape[nbS].isOver(X, Y);
+				//}
 
 				if(pointSelect != nullptr) {
 					pointSelect->setSelected(true);

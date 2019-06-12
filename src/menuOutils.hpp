@@ -6,7 +6,6 @@
 #include "CircleDrawable.hpp"
 #include "EllipseDrawable.hpp"
 #include "TriangleDrawable.hpp"
-#include "Text.hpp"
 
 class menuOutils{
 		ShapesDrawable tabMenuOutil=ShapesDrawable(10);

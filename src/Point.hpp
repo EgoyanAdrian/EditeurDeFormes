@@ -5,13 +5,14 @@
 
 typedef unsigned int uint;
 
+/*! Classe permettant la creation des ancres des formes. */
+
 class Point {
 		static const uint radius = 3;
 		uint x, y;
 		bool selected = false;
 
 	public:
-	// Constructor & Destructor
 		Point(uint _x, uint _y);
 		Point(const Point & _origin);
 		Point(std::istream & is);

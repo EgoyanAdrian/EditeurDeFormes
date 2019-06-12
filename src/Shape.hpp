@@ -3,9 +3,11 @@
 
 #include "Point.hpp"
 
+/*! Classe initiale de toutes les formes, utilisation des templates pour faciliter la portabilite que ce soit pour les fenetres ou la facon dont est gere la couleur. Les methodes sont prototype et definit dans le .hpp pour les templates */
+
 template <typename ...> class Shape;
 
-template <typename WindowT, typename ColorT>
+template <typename WindowT, typename ColorT> //WindowT est le type que possedera la fenetre et ColorT le type de la couleur
 class Shape<WindowT, ColorT> {
 		Point * anchor;
 		ColorT color;
@@ -15,6 +17,9 @@ class Shape<WindowT, ColorT> {
 	public:
 		Shape(uint _x, uint _y, ColorT _color);
 		Shape(Point * _anchor, ColorT _color);
+		//!
+		//! L'utilisation d'un pointeur sur une ancre Point pour construire une Shape<WindowT, ColorT> permet d'utiliser les points partages
+		//!
 		Shape(const Shape<WindowT, ColorT> & _origin);
 		Shape(std::istream & is);
 		virtual ~Shape();
@@ -36,7 +41,13 @@ class Shape<WindowT, ColorT> {
 		inline void setBorderSize(int _borderSize) { borderSize = _borderSize;}
 
 		inline virtual bool isOver(uint _x, uint _y) const { return anchor->isOver(_x, _y);}
+		//!
+		//! Methode qui recoit des coordonnes et utilise la methode isOver de Point pour savoir si les coordonnes se superposent avec les valeurs de l'ancre
+		//!
 		inline virtual void draw(WindowT & window, bool isActive) const { }
+		//!
+		//! Override par toutes les formes Drawable, elle est necessaire ici puisque la classe Shapes utilise un tableau de Shape, la mathode etant override dans les Drawable, elle permet d'afficher les formes sur une fenetre donnees en parametres
+		//!
 		inline virtual void save(std::ostream & os) const { }
 		inline virtual void load(std::istream & is) { }
 };

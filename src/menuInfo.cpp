@@ -10,7 +10,7 @@ std::string nbToStr(int nombre)//converti le sint en string
 
 
 
-void Info(sf::Font &Font,RectangleDrawable *RD,uint sizeecran,uint mouse_x,uint mouse_y,bool isPush,sf::RenderWindow &w){
+void Info(sf::Font &Font,RectangleDrawable *RD,uint sizeecran,uint mouse_x,uint mouse_y,bool isPush,bool &isOC,sf::RenderWindow &w){
 	/*
 
 	permet de modifier la couleur au bon vouloir de l'utilisateur
@@ -19,8 +19,17 @@ void Info(sf::Font &Font,RectangleDrawable *RD,uint sizeecran,uint mouse_x,uint 
 	uint SquareDrawableX=200; //position X du premier carre de selection de couleur
 	uint SquareDrawableY=200;  //positiion Y du premier carre de selcetion de couleur
 
+	RectangleDrawable boutonCouleur(sizeecran-180,33,100,29,sf::Color::Black);
+	boutonCouleur.setFilled(false);
+	boutonCouleur.draw(w,false);
+	sf::Text textBC("Couleur",Font,20);
+	textBC.setPosition(sizeecran-170,33);
+	textBC.setFillColor(sf::Color::Black);
+	w.draw(textBC);
+
+
 	RectangleDrawable contour(SquareDrawableX-5,SquareDrawableY-5,20*4+5*5,20*2+5*3,sf::Color(192,192,192));
-	contour.draw(w,false);
+	
 	ShapesDrawable carreCouleur=ShapesDrawable(8);
 	//permier ligne de carre
 	carreCouleur.add(new SquareDrawable(SquareDrawableX,SquareDrawableY,20,sf::Color::Black));//carre noir
@@ -32,49 +41,64 @@ void Info(sf::Font &Font,RectangleDrawable *RD,uint sizeecran,uint mouse_x,uint 
 	carreCouleur.add(new SquareDrawable(SquareDrawableX+25,SquareDrawableY+25,20,sf::Color::Yellow));//carre jaune
 	carreCouleur.add(new SquareDrawable(SquareDrawableX+25*2,SquareDrawableY+25,20,sf::Color::Magenta));//carre magenta
 	carreCouleur.add(new SquareDrawable(SquareDrawableX+25*3,SquareDrawableY+25,20,sf::Color::Cyan));//carre cyan
-	carreCouleur.draw(w,-200,-200);
+	
 
-	if(carreCouleur.browse(0)->isOver(mouse_x,mouse_y)){
-		if(isPush){
-			RD->setColor(sf::Color::Black);
+	if(boutonCouleur.isOver(mouse_x,mouse_y)){
+		if(isPush)
+			isOC=true;
+	}
+	if(isOC==true){
+		contour.draw(w,false);
+		carreCouleur.draw(w,-200,-200);
+		if(carreCouleur.browse(0)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				RD->setColor(sf::Color::Black);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(1)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				RD->setColor(sf::Color::White);
+				isOC=false;
+			}
+		}	
+		if(carreCouleur.browse(2)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				RD->setColor(sf::Color::Red);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(3)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				RD->setColor(sf::Color::Green);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(4)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				RD->setColor(sf::Color::Blue);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(5)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				RD->setColor(sf::Color::Yellow);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(6)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				RD->setColor(sf::Color::Magenta);
+				isOC=false;
+			}
+		}
+		if(carreCouleur.browse(7)->isOver(mouse_x,mouse_y)){
+			if(isPush){
+				RD->setColor(sf::Color::Cyan);
+				isOC=false;
+			}
 		}
 	}
-	if(carreCouleur.browse(1)->isOver(mouse_x,mouse_y)){
-		if(isPush){
-			RD->setColor(sf::Color::White);
-		}
-	}	
-	if(carreCouleur.browse(2)->isOver(mouse_x,mouse_y)){
-		if(isPush){
-			RD->setColor(sf::Color::Red);
-		}
-	}
-	if(carreCouleur.browse(3)->isOver(mouse_x,mouse_y)){
-		if(isPush){
-			RD->setColor(sf::Color::Green);
-		}
-	}
-	if(carreCouleur.browse(4)->isOver(mouse_x,mouse_y)){
-		if(isPush){
-			RD->setColor(sf::Color::Blue);
-		}
-	}
-	if(carreCouleur.browse(5)->isOver(mouse_x,mouse_y)){
-		if(isPush){
-			RD->setColor(sf::Color::Yellow);
-		}
-	}
-	if(carreCouleur.browse(6)->isOver(mouse_x,mouse_y)){
-		if(isPush){
-			RD->setColor(sf::Color::Magenta);
-		}
-	}
-	if(carreCouleur.browse(7)->isOver(mouse_x,mouse_y)){
-		if(isPush){
-			RD->setColor(sf::Color::Cyan);
-		}
-	}
-
 
 
 	/*
@@ -189,7 +213,7 @@ void Info(sf::Font &Font,RectangleDrawable *RD,uint sizeecran,uint mouse_x,uint 
 
 
 }
-void Info(sf::Font &Font,SquareDrawable *SD,uint sizeecran,uint mouse_x,uint mouse_y,bool isPush,sf::RenderWindow &w){
+void Info(sf::Font &Font,SquareDrawable *SD,uint sizeecran,uint mouse_x,uint mouse_y,bool isPush,bool &isOC,sf::RenderWindow &w){
 	/*
 			MODIFI LES VALEURS DE LA FORME
 	*/
@@ -261,7 +285,7 @@ void Info(sf::Font &Font,SquareDrawable *SD,uint sizeecran,uint mouse_x,uint mou
 	vLar.setFillColor(sf::Color::Black);
 	w.draw(vLar);
 }
-void Info(sf::Font &Font,EllipseDrawable *ED,uint sizeecran,uint mouse_x,uint mouse_y,bool isPush,sf::RenderWindow &w){
+void Info(sf::Font &Font,EllipseDrawable *ED,uint sizeecran,uint mouse_x,uint mouse_y,bool isPush,bool &isOC,sf::RenderWindow &w){
 	/*
 			MODIFI LES VALEURS DE LA FORME
 	*/
@@ -373,7 +397,7 @@ void Info(sf::Font &Font,EllipseDrawable *ED,uint sizeecran,uint mouse_x,uint mo
 	vLon.setFillColor(sf::Color::Black);
 	w.draw(vLon);
 }
-void Info(sf::Font &Font,CircleDrawable *CD,uint sizeecran,uint mouse_x,uint mouse_y,bool isPush,sf::RenderWindow &w){
+void Info(sf::Font &Font,CircleDrawable *CD,uint sizeecran,uint mouse_x,uint mouse_y,bool isPush,bool &isOC,sf::RenderWindow &w){
 	/*
 			MODIFI LES VALEURS DE LA FORME
 	*/
@@ -445,7 +469,7 @@ void Info(sf::Font &Font,CircleDrawable *CD,uint sizeecran,uint mouse_x,uint mou
 	vLar.setFillColor(sf::Color::Black);
 	w.draw(vLar);
 }
-void Info(sf::Font &Font,TriangleDrawable *TD,uint sizeecran,uint mouse_x,uint mouse_y,bool isPush,sf::RenderWindow &w){
+void Info(sf::Font &Font,TriangleDrawable *TD,uint sizeecran,uint mouse_x,uint mouse_y,bool isPush,bool &isOC,sf::RenderWindow &w){
 	//ajustement de l'écran
 	RectangleDrawable ecranmenInfo(sizeecran-400,160,400,150,sf::Color(192,192,192));
 	ecranmenInfo.draw(w,false);
@@ -539,7 +563,7 @@ void Info(sf::Font &Font,TriangleDrawable *TD,uint sizeecran,uint mouse_x,uint m
 
 
 		
-void afficheMenuInfo(sf::Font &Font,Shape<sf::RenderWindow, edf::Color>  *forme, uint sizeecran,uint mouse_x,uint mouse_y,bool isPush,sf::RenderWindow &w){
+void afficheMenuInfo(sf::Font &Font,Shape<sf::RenderWindow, edf::Color>  *forme, uint sizeecran,uint mouse_x,uint mouse_y,bool isPush,bool &isOC,sf::RenderWindow &w){
 	RectangleDrawable ecranmenInfo(sizeecran-400,31,400,150,sf::Color(192,192,192));
 	ecranmenInfo.draw(w,false);
 	
@@ -553,15 +577,15 @@ void afficheMenuInfo(sf::Font &Font,Shape<sf::RenderWindow, edf::Color>  *forme,
 	
 	//appel la fonction qui affiche les info en fonction du type
 	if(my_rD!=nullptr)
-		Info(Font,my_rD,sizeecran,mouse_x,mouse_y,isPush,w);
+		Info(Font,my_rD,sizeecran,mouse_x,mouse_y,isPush,isOC,w);
 	else if(my_sD!=nullptr)
-		Info(Font,my_sD,sizeecran,mouse_x,mouse_y,isPush,w);
+		Info(Font,my_sD,sizeecran,mouse_x,mouse_y,isPush,isOC,w);
 	else if(my_eD!=nullptr)
-		Info(Font,my_eD,sizeecran,mouse_x,mouse_y,isPush,w);
+		Info(Font,my_eD,sizeecran,mouse_x,mouse_y,isPush,isOC,w);
 	else if(my_cD!=nullptr)
-		Info(Font,my_cD,sizeecran,mouse_x,mouse_y,isPush,w);
+		Info(Font,my_cD,sizeecran,mouse_x,mouse_y,isPush,isOC,w);
 	else if(my_tD!=nullptr)
-		Info(Font,my_tD,sizeecran,mouse_x,mouse_y,isPush,w);
+		Info(Font,my_tD,sizeecran,mouse_x,mouse_y,isPush,isOC,w);
 	/*else if(my_pD!=nullptr)
 		Info(Font,my_pD,sizeeecran,mouse_x,mouse_y,isPush,w);
 	*/

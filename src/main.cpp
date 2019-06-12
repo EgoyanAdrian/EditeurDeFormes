@@ -22,6 +22,7 @@ int main() {
 	settings.antialiasingLevel = 8;
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Editeur de Formes", sf::Style::Default, settings);
 
+	bool boutonCoulActive=false;
 	uint nbS = 0, nbSMax = 10;
 	PointsDrawable layoutGestPoints[nbSMax];
 	ShapesDrawable layoutGestShapes[nbSMax];
@@ -252,10 +253,11 @@ int main() {
 
 		if(shapeSelect != nullptr) {
 			lastShapeSelect = shapeSelect;
-			afficheMenuInfo(font, shapeSelect, window.getSize().x,X,Y,isPushLeft, window);
+			afficheMenuInfo(font, shapeSelect, window.getSize().x,X,Y,isPushLeft,boutonCoulActive, window);
 		}else if(lastShapeSelect != nullptr) {
-			afficheMenuInfo(font, lastShapeSelect, window.getSize().x,X,Y,isPushLeft, window);
+			afficheMenuInfo(font, lastShapeSelect, window.getSize().x,X,Y,isPushLeft,boutonCoulActive, window);
 		}
+
 
 		Menu(window.getSize().x, window.getSize().y, X, Y, isPushLeft, window,layoutGestPoints,layoutGestShapes,showLayer,nbS,nbSMax,isoverFichier,isoverEdition,isoverAidee,ssFich,ssEdition);//permet la creation du menu
 		window.display();

@@ -14,6 +14,8 @@ class SquareDrawable : public Square<sf::RenderWindow, edf::Color> {
 		~SquareDrawable();
 
 		void draw(sf::RenderWindow & window, bool isActive) const override;
+		void save(std::ostream & os) const override;
+		void load(std::istream & is) override;
 };
 
 #endif

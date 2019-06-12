@@ -18,7 +18,9 @@ class Shapes<WindowT, ColorT> {
 
 		void add(Shape<WindowT, ColorT> * _shape);
 		void remove();
+
 		inline virtual void draw(WindowT & window, uint _mX, uint _mY) const { }
+		
 		Shape<WindowT, ColorT> * isOver(uint _x, uint _y);
 		Shape<WindowT, ColorT> * browse(uint nb) const;
 };

@@ -14,6 +14,8 @@ class CircleDrawable : public Circle<sf::RenderWindow, edf::Color> {
 		~CircleDrawable();
 
 		void draw(sf::RenderWindow & window, bool isActive) const override;
+		void save(std::ostream & os) const override;
+		void load(std::istream & is) override;
 };
 
 #endif

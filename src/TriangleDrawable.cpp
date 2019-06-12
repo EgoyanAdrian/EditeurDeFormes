@@ -58,3 +58,30 @@ void TriangleDrawable::draw(sf::RenderWindow & window, bool isActive) const {
 		window.draw(line3, 2, sf::Lines);
 	}
 }
+
+void TriangleDrawable::save(std::ostream & os) const {
+	os << "Triangle" << std::endl;
+	os << this->getAnchor()->getX() << std::endl;
+	os << this->getAnchor()->getY() << std::endl;
+	os << this->getAnchor1()->getX() << std::endl;
+	os << this->getAnchor1()->getY() << std::endl;
+	os << this->getAnchor2()->getX() << std::endl;
+	os << this->getAnchor2()->getY() << std::endl;
+	os << this->getColor() << std::endl;
+	os << this->getFilled() << std::endl;
+	os << this->getBorderSize() << std::endl;
+}
+
+void TriangleDrawable::load(std::istream & is) {
+	uint _borderSize;
+	edf::Color _color;
+	bool _filled;
+
+	is >> _color;
+	is >> _filled;
+	is >> _borderSize;
+
+	this->setColor(_color);
+	this->setFilled(_filled);
+	this->setBorderSize(_borderSize);
+}

@@ -45,3 +45,29 @@ void SquareDrawable::draw(sf::RenderWindow & window, bool isActive) const {
 
 	window.draw(square);
 }
+
+void SquareDrawable::save(std::ostream & os) const {
+	os << "Square" << std::endl;
+	os << this->getAnchor()->getX() << std::endl;
+	os << this->getAnchor()->getY() << std::endl;
+	os << this->getSide() << std::endl;
+	os << this->getColor() << std::endl;
+	os << this->getFilled() << std::endl;
+	os << this->getBorderSize() << std::endl;
+}
+
+void SquareDrawable::load(std::istream & is) {
+	uint _side, _borderSize;
+	edf::Color _color;
+	bool _filled;
+
+	is >> _side;
+	is >> _color;
+	is >> _filled;
+	is >> _borderSize;
+
+	this->setSide(_side);
+	this->setColor(_color);
+	this->setFilled(_filled);
+	this->setBorderSize(_borderSize);
+}

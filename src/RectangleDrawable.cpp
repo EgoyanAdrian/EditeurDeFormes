@@ -44,3 +44,32 @@ void RectangleDrawable::draw(sf::RenderWindow & window, bool isActive) const {
 
 	window.draw(rectangle);
 }
+
+void RectangleDrawable::save(std::ostream & os) const {
+	os << "Rectangle" << std::endl;
+	os << this->getAnchor()->getX() << std::endl;
+	os << this->getAnchor()->getY() << std::endl;
+	os << this->getWidth() << std::endl;
+	os << this->getHeight() << std::endl;
+	os << this->getColor() << std::endl;
+	os << this->getFilled()<< std::endl;
+	os << this->getBorderSize() << std::endl;
+}
+
+void RectangleDrawable::load(std::istream & is) {
+	uint _width, _height, _borderSize;
+	edf::Color _color;
+	bool _filled;
+
+	is >> _width;
+	is >> _height;
+	is >> _color;
+	is >> _filled;
+	is >> _borderSize;
+
+	this->setWidth(_width);
+	this->setHeight(_height);
+	this->setColor(_color);
+	this->setFilled(_filled);
+	this->setBorderSize(_borderSize);
+}

@@ -18,7 +18,9 @@ class Points<WindowT> {
 
 		void add(Point * _point);
 		void remove();
+
 		inline virtual void draw(WindowT & window, uint _mX, uint _mY) const { };
+		
 		Point * isOver(uint _x, uint _y);
 		Point * browse(uint nb) const;
 

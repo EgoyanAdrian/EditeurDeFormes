@@ -37,6 +37,8 @@ class Shape<WindowT, ColorT> {
 
 		inline virtual bool isOver(uint _x, uint _y) const { return anchor->isOver(_x, _y);}
 		inline virtual void draw(WindowT & window, bool isActive) const { }
+		inline virtual void save(std::ostream & os) const { }
+		inline virtual void load(std::istream & is) { }
 };
 
 template <typename WindowT, typename ColorT>

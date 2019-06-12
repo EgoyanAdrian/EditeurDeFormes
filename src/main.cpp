@@ -165,15 +165,20 @@ int main() {
 								showLayer = !showLayer;
 							break;
 						case sf::Keyboard::M:
-								saveF.open ("Points.save", std::ofstream::out | std::ofstream::trunc);
-								for (uint i = 0; i < nbSMax; i++)
-									layoutGestPoints[i].save(saveF);
+								saveF.open ("Shapes.save", std::ofstream::out | std::ofstream::trunc);
+								for (uint i = 0; i < nbSMax; i++) {
+									saveF << i << std::endl;
+									layoutGestShapes[i].save(saveF);
+								}
 								saveF.close();
 							break;
 						case sf::Keyboard::N:
-								loadF.open ("Points.save", std::ifstream::in);
-								for (uint i = 0; i < nbSMax; i++)
-									layoutGestPoints[i].load(loadF);
+								loadF.open ("Shapes.save", std::ifstream::in);
+								for (uint i = 0; i < nbSMax; i++) {
+									uint k;
+									loadF >> k;
+									layoutGestShapes[k].load(loadF, layoutGestPoints[k]);
+								}
 								loadF.close();
 						default:
 							break;

@@ -44,3 +44,32 @@ void EllipseDrawable::draw(sf::RenderWindow & window, bool isActive) const {
 
 	window.draw(ellipse);
 }
+
+void EllipseDrawable::save(std::ostream & os) const {
+	os << "Ellipse" << std::endl;
+	os << this->getAnchor()->getX() << std::endl;
+	os << this->getAnchor()->getY() << std::endl;
+	os << this->getWidth() << std::endl;
+	os << this->getHeight() << std::endl;
+	os << this->getColor() << std::endl;
+	os << this->getFilled() << std::endl;
+	os << this->getBorderSize() << std::endl;
+}
+
+void EllipseDrawable::load(std::istream & is) {
+	uint _width, _height, _borderSize;
+	edf::Color _color;
+	bool _filled;
+
+	is >> _width;
+	is >> _height;
+	is >> _color;
+	is >> _filled;
+	is >> _borderSize;
+
+	this->setWidth(_width);
+	this->setHeight(_height);
+	this->setColor(_color);
+	this->setFilled(_filled);
+	this->setBorderSize(_borderSize);
+}

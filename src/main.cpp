@@ -44,7 +44,7 @@ int main() {
 		// erreur...
 	}
 
-	uint X, Y, i = 0, j = 0, distX, distY;
+	uint X, Y, j = 0, distX, distY;
 	while(window.isOpen()) {
 		bool isPushLeft=false; //variable pour savoir si le bouton gauche de la souris et enfoncer)
 		window.clear(sf::Color::White);
@@ -119,23 +119,19 @@ int main() {
 			if(event.type == sf::Event::KeyPressed) {
 				if(isCtrlPressed) {
 					switch(event.key.code) {
-						case sf::Keyboard::P:
-						 		i = i + 10;
-								layoutGestPoints[nbS].add(new Point(i, 200));
-							break;
-						case sf::Keyboard::R:
+						case sf::Keyboard::A:
 								j = j + 10;
 								layoutGestShapes[nbS].add(new RectangleDrawable(j, 280, 10, 20, sf::Color::Black));
 							break;
-						case sf::Keyboard::S:
+						case sf::Keyboard::Z:
 								j = j + 10;
 								layoutGestShapes[nbS].add(new SquareDrawable(j, 260, 10, sf::Color::Yellow));
 							break;
-						case sf::Keyboard::C:
+						case sf::Keyboard::E:
 								j = j + 10;
 								layoutGestShapes[nbS].add(new CircleDrawable(j, 220, 5, sf::Color::Green));
 							break;
-						case sf::Keyboard::E:
+						case sf::Keyboard::R:
 								j = j + 10;
 								layoutGestShapes[nbS].add(new EllipseDrawable(j, 240, 10, 5, sf::Color::Black));
 							break;
@@ -149,22 +145,22 @@ int main() {
 								layoutGestPoints[nbS].add(pointC);
 								layoutGestShapes[nbS].add(new TriangleDrawable(pointA, pointB, pointC, sf::Color::Green));
 							break;
-						case sf::Keyboard::Z:
+						case sf::Keyboard::Left:
 								if(nbS < (nbSMax - 1))
 									nbS++;
 								else
 									std::cout << "Pas de calques superieurs " << std::endl;
 							break;
-						case sf::Keyboard::X:
+						case sf::Keyboard::Right:
 								if(nbS > 0)
 									nbS--;
 								else
 									std::cout << "Pas de calques inferieurs " << nbS << std::endl;
 							break;
-						case sf::Keyboard::A:
+						case sf::Keyboard::Q:
 								showLayer = !showLayer;
 							break;
-						case sf::Keyboard::M:
+						case sf::Keyboard::S:
 								saveF.open ("Shapes.save", std::ofstream::out | std::ofstream::trunc);
 								for (uint i = 0; i < nbSMax; i++) {
 									saveF << i << std::endl;
@@ -172,7 +168,7 @@ int main() {
 								}
 								saveF.close();
 							break;
-						case sf::Keyboard::N:
+						case sf::Keyboard::D:
 								loadF.open ("Shapes.save", std::ifstream::in);
 								for (uint i = 0; i < nbSMax; i++) {
 									uint k;

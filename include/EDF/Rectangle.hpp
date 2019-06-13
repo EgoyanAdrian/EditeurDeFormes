@@ -3,7 +3,7 @@
 
 #include <EDF/Shape.hpp>
 
-template <typename ...> class Rectangle;
+template <typename ...> class Rectangle<WindowT, ColorT>;
 
 template <typename WindowT, typename ColorT>
 class Rectangle<WindowT, ColorT> : public Shape<WindowT, ColorT> {

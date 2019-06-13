@@ -10,9 +10,8 @@ var searchData=
   ['pointsdrawable',['PointsDrawable',['../classPointsDrawable.html',1,'PointsDrawable'],['../classPointsDrawable.html#ae59a219ab2267f1c789ecaf72f79e20a',1,'PointsDrawable::PointsDrawable()']]],
   ['pointsdrawable_2ecpp',['PointsDrawable.cpp',['../PointsDrawable_8cpp.html',1,'']]],
   ['pointsdrawable_2ehpp',['PointsDrawable.hpp',['../PointsDrawable_8hpp.html',1,'']]],
-  ['polygon',['Polygon',['../classPolygon.html',1,'Polygon&lt;... &gt;'],['../classPolygon_3_01WindowT_00_01ColorT_01_4.html#aef10a6f844b7f3b55ff7ffe276eeb435',1,'Polygon&lt; WindowT, ColorT &gt;::Polygon()']]],
+  ['polygon',['Polygon',['../classPolygon_3_01WindowT_00_01ColorT_01_4.html#aef10a6f844b7f3b55ff7ffe276eeb435',1,'Polygon&lt; WindowT, ColorT &gt;']]],
   ['polygon_2ehpp',['Polygon.hpp',['../Polygon_8hpp.html',1,'']]],
-  ['polygon_3c_20sf_3a_3arenderwindow_2c_20edf_3a_3acolor_20_3e',['Polygon&lt; sf::RenderWindow, edf::Color &gt;',['../classPolygon.html',1,'']]],
   ['polygon_3c_20windowt_2c_20colort_20_3e',['Polygon&lt; WindowT, ColorT &gt;',['../classPolygon_3_01WindowT_00_01ColorT_01_4.html',1,'']]],
   ['polygondrawable',['PolygonDrawable',['../classPolygonDrawable.html',1,'PolygonDrawable'],['../classPolygonDrawable.html#a29559248afd5e7ff3677560f03aba049',1,'PolygonDrawable::PolygonDrawable()']]],
   ['polygondrawable_2ehpp',['PolygonDrawable.hpp',['../PolygonDrawable_8hpp.html',1,'']]]

@@ -2,7 +2,7 @@
 Projet M2103
 
 CASTEL Jeremy
-EGOYAN Adrian
+    EGOYAN Adrian
 
 Logiciel d'edition de formes
 ----------------------------

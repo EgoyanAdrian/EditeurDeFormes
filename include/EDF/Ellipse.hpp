@@ -3,7 +3,7 @@
 
 #include <EDF/Shape.hpp>
 
-template <typename ...> class Ellipse;
+template <typename ...> class Ellipse<WindowT, ColorT>;
 
 template <typename WindowT, typename ColorT>
 class Ellipse<WindowT, ColorT> : public Shape<WindowT, ColorT> {

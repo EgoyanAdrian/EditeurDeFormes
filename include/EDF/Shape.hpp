@@ -5,7 +5,7 @@
 
 /*! Classe initiale de toutes les formes, utilisation des templates pour faciliter la portabilite que ce soit pour les fenetres ou la facon dont est gere la couleur. Les methodes sont prototype et definit dans le .hpp pour les templates */
 
-template <typename ...> class Shape;
+template <typename ...> class Shape<WindowT, ColorT>;
 
 template <typename WindowT, typename ColorT> //WindowT est le type que possedera la fenetre et ColorT le type de la couleur
 class Shape<WindowT, ColorT> {

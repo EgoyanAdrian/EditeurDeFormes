@@ -4,7 +4,7 @@
 #include <iostream>
 #include <EDF/Shape.hpp>
 
-template <typename ...> class Polygon;
+template <typename ...> class Polygon<WindowT, ColorT>;
 
 template <typename WindowT, typename ColorT>
 class Polygon<WindowT, ColorT> : public Shape<WindowT, ColorT> {

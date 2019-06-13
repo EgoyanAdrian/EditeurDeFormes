@@ -1,8 +1,0 @@
-<map id="GuiMenu" name="GuiMenu">
-<area shape="rect" id="node1" href="dir_76507547f60ce7256794a1112fbd1612.html" title="GuiMenu" alt="" coords="78,5,153,53"/>
-<area shape="rect" id="node2" href="dir_e064f13069966463f13e506d11b27eb6.html" title="DrawableShapes" alt="" coords="5,101,127,149"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000002_000001.html" title="18" alt="" coords="87,81,102,96"/>
-<area shape="rect" id="node3" href="dir_545d2f6a2cc28be5a124411f93d9347f.html" title="BaseShapes" alt="" coords="67,197,163,245"/>
-<area shape="rect" id="edge3-headlabel" href="dir_000002_000000.html" title="1" alt="" coords="136,176,144,190"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000001_000000.html" title="8" alt="" coords="98,169,106,184"/>
-</map>

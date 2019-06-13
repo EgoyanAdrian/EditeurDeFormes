@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <Drawable/Color.hpp>
-#include <Drawable/Circle.hpp>
+#include <EDF/Circle.hpp>
 
 class CircleDrawable : public Circle<sf::RenderWindow, edf::Color> {
 	public:

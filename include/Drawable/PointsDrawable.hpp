@@ -2,7 +2,7 @@
 #define POINTS_DRAWABLE_HPP
 
 #include <SFML/Graphics.hpp>
-#include <EDF/Points.hpp>
+#include <Drawable/Points.hpp>
 
 class PointsDrawable : public Points<sf::RenderWindow> {
 	public:

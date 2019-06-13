@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <Drawable/Color.hpp>
-#include <EDF/Shapes.hpp>
+#include <Drawable/Shapes.hpp>
 #include <Drawable/PointsDrawable.hpp>
 #include <Drawable/RectangleDrawable.hpp>
 #include <Drawable/SquareDrawable.hpp>
